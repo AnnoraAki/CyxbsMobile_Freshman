@@ -1,1 +1,1 @@
-include ':app',':lib_common'
+include ':module_freshman',':lib_common'
