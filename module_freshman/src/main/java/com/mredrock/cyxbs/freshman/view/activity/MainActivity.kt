@@ -1,7 +1,8 @@
-package com.mredrock.cyxbs.freshman
+package com.mredrock.cyxbs.freshman.view.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.mredrock.cyxbs.freshman.R
 
 class MainActivity : AppCompatActivity() {
 
