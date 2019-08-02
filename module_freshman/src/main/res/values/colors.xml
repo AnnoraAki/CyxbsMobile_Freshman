@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <color name="colorPrimary" tools:ignore="ResourceName">#58B1FC</color>
+    <color name="colorPrimaryDark" tools:ignore="ResourceName">#798DFA</color>
+    <color name="colorAccent" tools:ignore="ResourceName">#788EFA</color>
+    <color name="freshman_tab_selected_color">#4b72ff</color>
+    <color name="freshman_white_color">#ffffff</color>
+    <color name="freshman_tab_layout_border_color">#b3c4ff</color>
+    <color name="freshman_recycle_item_college_name_color">#333333</color>
+    <color name="freshman_recycle_item_college_border_color">#bfceff</color>
 </resources>
