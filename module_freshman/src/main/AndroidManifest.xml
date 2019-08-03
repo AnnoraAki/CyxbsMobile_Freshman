@@ -19,6 +19,9 @@
         </activity>
         <activity android:name=".view.activity.DataDisclosureActivity" />
         <activity android:name=".view.activity.CampusGuidelinesActivity" />
+        <activity android:name=".view.activity.EntranceRequirementsActivity" />
+        <activity android:name=".view.activity.EnrollmentProcessActivity" />
+        <activity android:name=".view.activity.OnlineCommunicationActivity" />
     </application>
 
 </manifest>
