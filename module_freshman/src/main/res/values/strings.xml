@@ -10,4 +10,21 @@
     <string name="freshman_tab_layout_online_communication_college_group">学院群</string>
     <string name="freshman_tab_layout_online_communication_fellow_townsman_group">老乡群</string>
     <string name="freshman_tab_layout_online_communication_online_activity">线上活动</string>
+    <string name="freshman_main_essential">入学必备</string>
+    <string name="freshman_main_zhilu">指路重邮</string>
+    <string name="freshman_main_shedule">入学流程</string>
+    <string name="freshman_main_xiaoyuanzhiyin">校园指引</string>
+    <string name="freshman_main_online">线上交流</string>
+    <string name="freshman_main_more">更多功能</string>
+    <string name="freshman_main_about">关于我们</string>
+
+    <string name="freshman_main_essential_detail">报道必备 军训用品</string>
+    <string name="freshman_main_zhilu_detail">公交线路 重邮地图 校园风光</string>
+    <string name="freshman_main_shedule_detail">报道流程</string>
+    <string name="freshman_main_xiaoyuanzhiyin_detail">宿舍 食堂 快递 数据揭秘</string>
+    <string name="freshman_main_online_detail">老乡群 学院群 线上活动</string>
+    <string name="freshman_main_more_detail">迎新网 重邮小帮手 发现</string>
+
+
 </resources>
+
