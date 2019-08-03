@@ -4,6 +4,8 @@ import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -21,11 +23,12 @@ class EnrollmentProcessAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>()
     private var mEnrollmentProcess: List<EnrollmentProcessText> = listOf()
     private val header = 0
     private val item = 1
+    private var mCurrentOpenedItemIndex = -1
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return if (viewType == header) {
             val view = LayoutInflater.from(parent.context).inflate(
-                    R.layout.freshman_recycle_item_header, parent, false)
+                    R.layout.freshman_recycle_item_enrollment_process_header, parent, false)
             HeaderEnrollmentProcessViewHolder(view)
         } else {
             val view = LayoutInflater.from(parent.context).inflate(
@@ -40,7 +43,7 @@ class EnrollmentProcessAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>()
         if (getItemViewType(position) == header) {
             bindHeader(holder as HeaderEnrollmentProcessViewHolder, mEnrollmentProcess[position])
         } else {
-            bindItem(holder as ItemEnrollmentProcessViewHolder, mEnrollmentProcess[position])
+            bindItem(holder as ItemEnrollmentProcessViewHolder, position)
         }
     }
 
@@ -54,8 +57,10 @@ class EnrollmentProcessAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>()
         holder.mTime.text = "${headerText.title}： ${headerText.message}"
     }
 
-    private fun bindItem(holder: ItemEnrollmentProcessViewHolder, itemText: EnrollmentProcessText) {
+    private fun bindItem(holder: ItemEnrollmentProcessViewHolder, position: Int) {
+        val itemText = mEnrollmentProcess[position]
         fun open() {
+            mCurrentOpenedItemIndex = position
             holder.mShowDetail.setImageResource(R.drawable.freshman_recycle_item_open)
             holder.mDetail.visible()
             if (itemText.photo.isBlank()) {
@@ -74,7 +79,21 @@ class EnrollmentProcessAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>()
         holder.mDetail.text = itemText.detail
         holder.mPhoto.setImageFromUrl(itemText.photo)
         if (itemText.detail.isNotBlank()) close()
-        holder.mShowDetail.setOnClickListener { open() }
+        if (mCurrentOpenedItemIndex != position) {
+            close()
+        } else {
+            open()
+        }
+        holder.itemView.setOnClickListener {
+            if (mCurrentOpenedItemIndex == position) {
+                mCurrentOpenedItemIndex = -1
+                close()
+            } else {
+                mCurrentOpenedItemIndex = position
+                open()
+            }
+            notifyDataSetChanged()
+        }
     }
 
     fun refreshData(enrollmentProcess: List<EnrollmentProcessText>) {
@@ -84,12 +103,12 @@ class EnrollmentProcessAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>()
 }
 
 class HeaderEnrollmentProcessViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-    val mTime = view.findViewById<TextView>(R.id.tv_recycle_item_enrollment_process_time)
+    val mTime: TextView = view.findViewById(R.id.tv_recycle_item_enrollment_process_time)
 }
 
 class ItemEnrollmentProcessViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-    val mMessage = view.findViewById<TextView>(R.id.tv_recycle_item_enrollment_process_message)
-    val mDetail = view.findViewById<TextView>(R.id.tv_recycle_item_enrollment_process_detail)
-    val mShowDetail = view.findViewById<ImageView>(R.id.iv_recycle_item_enrollment_process_open_or_close)
-    val mPhoto = view.findViewById<ImageView>(R.id.iv_recycle_item_enrollment_process_photo)
+    val mMessage: TextView = view.findViewById(R.id.tv_recycle_item_enrollment_process_message)
+    val mDetail: TextView = view.findViewById(R.id.tv_recycle_item_enrollment_process_detail)
+    val mShowDetail: ImageView = view.findViewById(R.id.iv_recycle_item_enrollment_process_open_or_close)
+    val mPhoto: ImageView = view.findViewById(R.id.iv_recycle_item_enrollment_process_photo)
 }

@@ -15,7 +15,7 @@ class ActivityEnrollmentProcessPresenter :
         IActivityEnrollmentProcessPresenter {
     override fun attachModel() = ActivityEnrollmentProcessModel()
 
-    override fun getErollmentProcess() {
+    override fun getEnrollmentProcess() {
         model?.requestErollmentProcess { view?.showEnrollmentProcess(it) }
     }
 }

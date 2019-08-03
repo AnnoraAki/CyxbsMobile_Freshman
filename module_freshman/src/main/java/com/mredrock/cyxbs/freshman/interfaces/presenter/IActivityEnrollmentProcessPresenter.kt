@@ -10,5 +10,5 @@ import com.mredrock.cyxbs.freshman.interfaces.view.IActivityEnrollmentProcessVie
  */
 interface IActivityEnrollmentProcessPresenter :
         IBasePresenter<IActivityEnrollmentProcessView, IActivityEnrollmentProcessModel> {
-    fun getErollmentProcess()
+    fun getEnrollmentProcess()
 }

@@ -29,8 +29,9 @@
             android:textSize="15sp"
             tools:text="带上行李包裹去到自己对应的宿舍"
             android:textColor="@color/freshman_recycler_item_enrollment_process_message_text_color"
-            android:layout_marginTop="18dp"
-            android:layout_marginStart="13dp" />
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="13dp"
+            android:layout_marginBottom="15dp"/>
         
         <ImageView
             android:layout_width="15dp"
@@ -47,7 +48,6 @@
             android:id="@+id/tv_recycle_item_enrollment_process_detail"
             android:layout_marginEnd="40dp"
             android:layout_marginStart="13dp"
-            android:layout_marginTop="15dp"
             android:textSize="14sp"
             android:layout_below="@id/tv_recycle_item_enrollment_process_message"
             tools:text="带上行李包裹去到自己对应的宿舍带上行李包裹去到自己对应的宿舍带上行李包裹去到自己对应的宿舍带上行李包裹去到自己对应的宿舍"/>

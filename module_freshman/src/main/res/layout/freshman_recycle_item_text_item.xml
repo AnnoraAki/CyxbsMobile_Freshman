@@ -6,13 +6,11 @@
                 android:layout_height="wrap_content">
     <TextView
             android:id="@+id/tv_title"
-            android:text="默认"
             android:layout_marginLeft="40dp"
             android:layout_marginTop="15dp"
             android:layout_width="wrap_content" android:layout_height="wrap_content"/>
     <TextView
             android:id="@+id/tv_discript"
-            android:text="默认默认"
             android:layout_below="@id/tv_title"
             android:layout_marginLeft="40dp"
             android:layout_marginTop="5dp"

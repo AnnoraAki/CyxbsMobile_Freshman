@@ -2,7 +2,7 @@ package com.mredrock.cyxbs.freshman.view.activity
 
 import android.os.Bundle
 import android.view.View
-import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.base.BaseActivity
 import com.mredrock.cyxbs.freshman.bean.EnrollmentProcessText
@@ -11,6 +11,7 @@ import com.mredrock.cyxbs.freshman.interfaces.presenter.IActivityEnrollmentProce
 import com.mredrock.cyxbs.freshman.interfaces.view.IActivityEnrollmentProcessView
 import com.mredrock.cyxbs.freshman.presenter.ActivityEnrollmentProcessPresenter
 import com.mredrock.cyxbs.freshman.view.adapter.EnrollmentProcessAdapter
+import kotlinx.android.synthetic.main.freshman_activity_enrollment_process.*
 
 /**
  * Create by yuanbing
@@ -22,7 +23,6 @@ class EnrollmentProcessActivity : BaseActivity<IActivityEnrollmentProcessView,
         IActivityEnrollmentProcessView {
     override val isFragmentActivity: Boolean
         get() = false
-    private lateinit var mEnrollmentProcess: RecyclerView
     private lateinit var mAdapter: EnrollmentProcessAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,10 +31,16 @@ class EnrollmentProcessActivity : BaseActivity<IActivityEnrollmentProcessView,
 
         initToolbar()
         initView()
+
+        presenter?.getEnrollmentProcess()
     }
 
     private fun initView() {
-
+        mAdapter = EnrollmentProcessAdapter()
+        rv_enrollment_process.adapter = mAdapter
+        rv_enrollment_process.layoutManager = LinearLayoutManager(this)
+        rv_enrollment_process.itemAnimator?.changeDuration = 2000
+        rv_enrollment_process.itemAnimator?.moveDuration = 2000
     }
 
     private fun initToolbar() {
@@ -45,7 +51,7 @@ class EnrollmentProcessActivity : BaseActivity<IActivityEnrollmentProcessView,
     }
 
     override fun showEnrollmentProcess(enrollmentProcess: List<EnrollmentProcessText>) {
-
+        mAdapter.refreshData(enrollmentProcess)
     }
 
     override fun getViewToAttach() = this

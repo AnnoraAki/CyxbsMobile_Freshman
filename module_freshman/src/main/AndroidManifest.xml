@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.mredrock.cyxbs.freshman">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
             android:allowBackup="true"
             android:icon="@mipmap/ic_launcher"
@@ -22,6 +24,8 @@
         <activity android:name=".view.activity.EntranceRequirementsActivity" />
         <activity android:name=".view.activity.EnrollmentProcessActivity" />
         <activity android:name=".view.activity.OnlineCommunicationActivity" />
+        <activity android:name=".view.activity.CampusMapActivity" />
+        <activity android:name=".view.activity.MoreActivity" />
     </application>
 
 </manifest>

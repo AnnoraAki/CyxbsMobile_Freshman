@@ -17,6 +17,15 @@ import io.reactivex.schedulers.Schedulers
 class ActivityEnrollmentProcessModel : BaseModel(), IActivityEnrollmentProcessModel {
     @SuppressLint("CheckResult")
     override fun requestErollmentProcess(callback: (List<EnrollmentProcessText>) -> Unit) {
+
+        val data = ArrayList<EnrollmentProcessText>(10)
+        for (i in 1..10) {
+            if (i == 1) data.add(EnrollmentProcessText("", "6月5-6月6", "", "报到时间"))
+            else data.add(EnrollmentProcessText("好歹i花费工会的法规的", "ejwseiofhjiehf", "https://avatar.csdn.net/B/3/D/3_qq_23179075.jpg", "enenene"))
+        }
+        callback(data)
+        return
+
         val service = createService(EnrollmentProcessService::class.java)
         service.requestEnrollmentProcess()
                 .subscribeOn(Schedulers.io())
