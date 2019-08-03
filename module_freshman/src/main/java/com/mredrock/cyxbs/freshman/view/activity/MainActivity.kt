@@ -33,15 +33,15 @@ class MainActivity : BaseActivity() {
                         startActivity(intent)
                     }
                     2 -> {
-                        val intent = Intent(this@MainActivity, EnrollmentProcessActivity::class.java)
+                        val intent = Intent(this@MainActivity, CampusMapActivity::class.java)
                         startActivity(intent)
                     }
                     3 -> {
-                        val intent = Intent(this@MainActivity, CampusGuidelinesActivity::class.java)
+                        val intent = Intent(this@MainActivity, EnrollmentProcessActivity::class.java)
                         startActivity(intent)
                     }
                     4 -> {
-                        val intent = Intent(this@MainActivity, CampusMapActivity::class.java)
+                        val intent = Intent(this@MainActivity, CampusGuidelinesActivity::class.java)
                         startActivity(intent)
                     }
                     5 -> {
