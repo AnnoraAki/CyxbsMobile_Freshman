@@ -1,9 +1,9 @@
 package com.mredrock.cyxbs.freshman.view.activity
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.mredrock.cyxbs.common.ui.BaseActivity
 import com.mredrock.cyxbs.freshman.view.adapter.FreshAdapter
 import com.mredrock.cyxbs.freshman.R
 import org.jetbrains.anko.find

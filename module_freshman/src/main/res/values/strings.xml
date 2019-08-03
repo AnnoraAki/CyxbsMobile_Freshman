@@ -10,4 +10,6 @@
     <string name="freshman_tab_layout_online_communication_college_group">学院群</string>
     <string name="freshman_tab_layout_online_communication_fellow_townsman_group">老乡群</string>
     <string name="freshman_tab_layout_online_communication_online_activity">线上活动</string>
+    <string name="freshman_online_communication">线上交流</string>
+    <string name="freshman_enrollment_process">入学流程</string>
 </resources>
