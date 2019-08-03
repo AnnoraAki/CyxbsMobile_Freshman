@@ -1,11 +1,11 @@
-package com.mredrock.cyxbs.freshman
+package com.mredrock.cyxbs.freshman.view.adapter
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.mredrock.cyxbs.freshman.bean.FreshItem
+import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.bean.FreshTextItem
 import org.jetbrains.anko.find
 
@@ -58,9 +58,15 @@ class FreshAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return when (viewType) {
-            ITEM_VIEW_TYPE_ITEM -> TextViewHolder.from(parent)
-            ITEM_VIEW_TYPE_HEADER -> HeaderViewHolder.from(parent)
-            ITEM_VIEW_TYPE_FOOTER -> FooterViewHolder.from(parent)
+            ITEM_VIEW_TYPE_ITEM -> TextViewHolder.from(
+                parent
+            )
+            ITEM_VIEW_TYPE_HEADER -> HeaderViewHolder.from(
+                parent
+            )
+            ITEM_VIEW_TYPE_FOOTER -> FooterViewHolder.from(
+                parent
+            )
             else -> throw ClassCastException("unknown type of viewholder")
         }
     }
