@@ -1,6 +1,6 @@
 package com.mredrock.cyxbs.freshman.view.activity
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -8,7 +8,9 @@ import com.mredrock.cyxbs.freshman.view.adapter.FreshAdapter
 import com.mredrock.cyxbs.freshman.R
 import org.jetbrains.anko.find
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
+    override val isFragmentActivity: Boolean
+        get() = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,6 +20,5 @@ class MainActivity : AppCompatActivity() {
         rv.layoutManager = layoutManager
         val adapter = FreshAdapter()
         rv.adapter = adapter
-
     }
 }
