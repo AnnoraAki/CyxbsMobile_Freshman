@@ -11,6 +11,7 @@ import org.jetbrains.anko.find
 
 class FreshAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
+
     private val ITEM_VIEW_TYPE_HEADER = 0
     private val ITEM_VIEW_TYPE_ITEM = 1
     private val ITEM_VIEW_TYPE_FOOTER = 2
