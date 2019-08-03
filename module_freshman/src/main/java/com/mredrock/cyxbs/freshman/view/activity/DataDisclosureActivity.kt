@@ -8,6 +8,7 @@ import com.mredrock.cyxbs.freshman.R
 /**
  * Create by yuanbing
  * on 2019/8/2
+ * 数据揭秘
  */
 class DataDisclosureActivity: BaseActivity() {
     override val isFragmentActivity: Boolean

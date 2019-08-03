@@ -7,4 +7,4 @@ package com.mredrock.cyxbs.freshman.config
 
 const val API_BASE_URL = ""
 
-const val API_ONLINE_COMMUNICATION_OMLINE_ACTIVITY = ""
+const val API_ONLINE_COMMUNICATION_ONLINE_ACTIVITY = ""
