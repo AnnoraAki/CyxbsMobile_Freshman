@@ -1,29 +1,41 @@
 package com.mredrock.cyxbs.freshman.view.adapter
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.mredrock.cyxbs.common.BaseApp
+import com.mredrock.cyxbs.common.utils.LogUtils
 import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.bean.FreshTextItem
+import com.mredrock.cyxbs.freshman.view.activity.MainActivity
 import org.jetbrains.anko.find
 
 class FreshAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-
+    private  var mOnItemClickListener: OnItemClickListener? = null
     private val ITEM_VIEW_TYPE_HEADER = 0
     private val ITEM_VIEW_TYPE_ITEM = 1
     private val ITEM_VIEW_TYPE_FOOTER = 2
 
+    fun setOnItemClickListener(mOnItemClickListener: OnItemClickListener) {
+        this.mOnItemClickListener = mOnItemClickListener
+    }
+
+    private fun getString(id: Int): String {
+        return BaseApp.context.resources.getString(id)
+    }
+
     val data = listOf<FreshTextItem>(
-        FreshTextItem("入学必备", "报道必备  军训用品"),
-        FreshTextItem("指路重邮", "公交线路 重邮地图 校园风光"),
-        FreshTextItem("入学流程", "报道流程"),
-        FreshTextItem("校园指引", "宿舍 食堂 快递 数据揭秘"),
-        FreshTextItem("线上交流", "老乡群 学院群 线上活动"),
-        FreshTextItem("更多功能", "迎新网 重邮小帮手 发现"),
-        FreshTextItem("关于我们", "")
+        FreshTextItem(getString(R.string.freshman_main_essential), getString(R.string.freshman_main_essential_detail)),
+        FreshTextItem(getString(R.string.freshman_main_zhilu), getString(R.string.freshman_main_zhilu_detail)),
+        FreshTextItem(getString(R.string.freshman_main_shedule), getString(R.string.freshman_main_shedule_detail)),
+        FreshTextItem(getString(R.string.freshman_main_xiaoyuanzhiyin), getString(R.string.freshman_main_xiaoyuanzhiyin_detail)),
+        FreshTextItem(getString(R.string.freshman_main_online), getString(R.string.freshman_main_online_detail)),
+        FreshTextItem(getString(R.string.freshman_main_more), getString(R.string.freshman_main_more_detail)),
+        FreshTextItem(getString(R.string.freshman_main_about), "")
         );
 
     class TextViewHolder(view: View): RecyclerView.ViewHolder(view) {
@@ -82,6 +94,11 @@ class FreshAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
                 val item = data[position - 1]
                 holder.discriptView.text = item.discript
                 holder.titleView.text = item.title
+                LogUtils.d("FreshAdapter", "1")
+                holder.itemView.setOnClickListener (View.OnClickListener {
+                    LogUtils.d("FreshAdapter", "12")
+                    mOnItemClickListener?.onItemClick(position)
+                })
             }
             is HeaderViewHolder -> {}
             is FooterViewHolder -> {}
@@ -96,4 +113,7 @@ class FreshAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         }
     }
 
+}
+interface OnItemClickListener {
+    fun onItemClick(position: Int)
 }

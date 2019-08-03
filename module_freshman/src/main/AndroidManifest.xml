@@ -22,6 +22,8 @@
         <activity android:name=".view.activity.EntranceRequirementsActivity" />
         <activity android:name=".view.activity.EnrollmentProcessActivity" />
         <activity android:name=".view.activity.OnlineCommunicationActivity" />
+        <activity android:name=".view.activity.CampusMapActivity" />
+        <activity android:name=".view.activity.MoreActivity" />
     </application>
 
 </manifest>
