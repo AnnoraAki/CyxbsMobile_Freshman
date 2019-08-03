@@ -14,4 +14,7 @@
     <color name="freshman_recycle_item_online_activity_name_text_color">#B3000000</color>
     <color name="freshman_recycle_item_online_activity_join_now_btn_bg_color">#A34A7BFE</color>
     <color name="freshman_recycle_item_online_activity_join_now_btn_border_color">#aec0ff</color>
+    <color name="freshman_recycle_item_main_activity_background">#c9e3ff</color>
+    <color name="freshman_recycle_item_main_activity_discript">#8e9092</color>
+    <color name="freshman_recycle_item_main_activity_title">#333333</color>
 </resources>
