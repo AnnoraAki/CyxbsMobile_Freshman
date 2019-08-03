@@ -1,3 +1,13 @@
 <resources>
-    <string name="app_name">CyxbsMobile_Freshman</string>
+    <string name="freshman_app_name">CyxbsMobile_Freshman</string>
+    <string name="freshman_data_disclosure">数据揭秘</string>
+    <string name="freshman_subject_data">学科数据</string>
+    <string name="freshman_sex_ratio">男女比例</string>
+    <string name="freshman_dormitory">宿舍</string>
+    <string name="freshman_canteen">食堂</string>
+    <string name="freshman_express">快递</string>
+    <string name="freshman_recycle_item_online_activity_join_now">立即参加</string>
+    <string name="freshman_tab_layout_online_communication_college_group">学院群</string>
+    <string name="freshman_tab_layout_online_communication_fellow_townsman_group">老乡群</string>
+    <string name="freshman_tab_layout_online_communication_online_activity">线上活动</string>
 </resources>

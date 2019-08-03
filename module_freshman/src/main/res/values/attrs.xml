@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <declare-styleable name="Histogram" tools:ignore="ResourceName">
+        <attr name="height" format="dimension"/>
+        <attr name="width" format="dimension"/>
+
+        <attr name="OToLeft" format="dimension"/>
+        <attr name="OToBottom" format="dimension"/>
+        <attr name="XYColor" format="color"/>
+        <attr name="XYWidth" format="dimension"/>
+        <attr name="YDescription" format="string"/>
+        <attr name="YDescriptionColor" format="color"/>
+        <attr name="YDescriptionTextSize" format="dimension"/>
+        <attr name="YPadding" format="dimension"/>
+        <attr name="XPadding" format="dimension"/>
+        <attr name="YDividerCount" format="integer"/>
+        <attr name="YDividerLength" format="dimension"/>
+
+        <attr name="title" format="string"/>
+        <attr name="titleColor" format="color"/>
+        <attr name="titleTextSize" format="dimension"/>
+        <attr name="titleMarginTop" format="dimension"/>
+        <attr name="titleMarginLeft" format="dimension"/>
+
+        <attr name="itemNameTextColor" format="color"/>
+        <attr name="itemNameTextSize" format="dimension"/>
+        <attr name="itemWidth" format="dimension"/>
+        <attr name="itemInterval" format="dimension"/>
+
+        <attr name="itemDataTextSize" format="dimension"/>
+        <attr name="itemDataTextColor" format="color"/>
+    </declare-styleable>
+</resources>
