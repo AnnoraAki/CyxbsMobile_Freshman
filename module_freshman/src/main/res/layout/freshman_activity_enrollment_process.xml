@@ -5,4 +5,13 @@
     android:layout_height="match_parent"
     android:background="@color/freshman_activity_background_color">
 
+    <include layout="@layout/common_toolbar"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/rv_enrollment_process"
+        android:overScrollMode="never">
+    </androidx.recyclerview.widget.RecyclerView>
+
 </LinearLayout>
