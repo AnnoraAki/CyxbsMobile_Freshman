@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/freshman_activity_background_color">
     
     <include layout="@layout/common_toolbar"/>
     
@@ -37,8 +38,10 @@
 
     </com.google.android.material.tabs.TabLayout>
 
-    <fragment
+    <androidx.viewpager.widget.ViewPager
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:id="@+id/vp_campus_guidelines">
+    </androidx.viewpager.widget.ViewPager>
 
 </LinearLayout>
