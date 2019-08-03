@@ -176,16 +176,16 @@ open class JCardViewPlus(context: Context, attrs: AttributeSet?, defStyleAttr: I
         val childLeft = parentLeft + lp.leftMargin
         val childTop = parentTop + lp.topMargin
         child.layout(childLeft, childTop, childLeft + child.measuredWidth, childTop + child.measuredHeight)
-//        layoutChildren(left, top, right, freshman_banner_bottom)
+//        layoutChildren(left, top, right, bottom)
     }
 
     /*
-        private fun layoutChildren(left: Int, top: Int, right: Int, freshman_banner_bottom: Int) {
+        private fun layoutChildren(left: Int, top: Int, right: Int, bottom: Int) {
             val parentLeft = paddingLeft + contentPaddingLeft
             val parentRight = right - left - paddingRight - contentPaddingRight
 
             val parentTop = paddingTop + contentPaddingTop
-            val parentBottom = freshman_banner_bottom - top - paddingBottom - contentPaddingBottom
+            val parentBottom = bottom - top - paddingBottom - contentPaddingBottom
 
             val child = getChildAt(0)
             if (child.visibility != View.GONE) {
