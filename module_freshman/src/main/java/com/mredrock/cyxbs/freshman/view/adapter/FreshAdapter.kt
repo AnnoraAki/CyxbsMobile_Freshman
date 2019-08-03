@@ -28,7 +28,7 @@ class FreshAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         return BaseApp.context.resources.getString(id)
     }
 
-    val data = listOf<FreshTextItem>(
+    private val data = listOf<FreshTextItem>(
         FreshTextItem(getString(R.string.freshman_main_essential), getString(R.string.freshman_main_essential_detail)),
         FreshTextItem(getString(R.string.freshman_main_zhilu), getString(R.string.freshman_main_zhilu_detail)),
         FreshTextItem(getString(R.string.freshman_main_shedule), getString(R.string.freshman_main_shedule_detail)),
