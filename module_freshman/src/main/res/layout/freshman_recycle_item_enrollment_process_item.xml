@@ -28,7 +28,7 @@
             android:id="@+id/tv_recycle_item_enrollment_process_message"
             android:textSize="15sp"
             tools:text="带上行李包裹去到自己对应的宿舍"
-            android:textColor="@color/freshman_recycler_item_enrollment_process_message_text_color"
+            android:textColor="@color/freshman_recycle_item_enrollment_process_message_text_color"
             android:layout_marginTop="15dp"
             android:layout_marginStart="13dp"
             android:layout_marginBottom="15dp"/>

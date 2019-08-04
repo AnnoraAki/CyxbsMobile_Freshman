@@ -30,4 +30,11 @@
         <attr name="itemDataTextSize" format="dimension"/>
         <attr name="itemDataTextColor" format="color"/>
     </declare-styleable>
+
+    <declare-styleable name="SuccessView" tools:ignore="ResourceName" >
+        <attr name="color" format="color"/>
+        <attr name="circleDuration" format="integer"/>
+        <attr name="gouDuration" format="integer"/>
+        <attr name="lineWidth" format="dimension"/>
+    </declare-styleable>
 </resources>

@@ -23,9 +23,12 @@
         <activity android:name=".view.activity.CampusGuidelinesActivity" />
         <activity android:name=".view.activity.EntranceRequirementsActivity" />
         <activity android:name=".view.activity.EnrollmentProcessActivity" />
-        <activity android:name=".view.activity.OnlineCommunicationActivity" />
+        <activity android:name=".view.activity.OnlineCommunicationActivity"
+            android:windowSoftInputMode="adjustPan"/>
         <activity android:name=".view.activity.CampusMapActivity" />
         <activity android:name=".view.activity.MoreActivity" />
+        <activity android:name=".view.activity.CopyQQNumberActivity"
+            android:theme="@style/Theme.AppCompat.DayNight.Dialog.Alert.CopyQQNumber"/>
     </application>
 
 </manifest>
