@@ -6,10 +6,12 @@
     <string name="freshman_dormitory">宿舍</string>
     <string name="freshman_canteen">食堂</string>
     <string name="freshman_express">快递</string>
+    <string name="freshman_enrollment_requirement">入学必备</string>
     <string name="freshman_recycle_item_online_activity_join_now">立即参加</string>
     <string name="freshman_tab_layout_online_communication_college_group">学院群</string>
     <string name="freshman_tab_layout_online_communication_fellow_townsman_group">老乡群</string>
     <string name="freshman_tab_layout_online_communication_online_activity">线上活动</string>
+    <string name="freshman_campus_guidelines">学校指引</string>
     <string name="freshman_online_communication">线上交流</string>
     <string name="freshman_enrollment_process">入学流程</string>
     <string name="freshman_main_essential">入学必备</string>
@@ -26,5 +28,12 @@
     <string name="freshman_main_xiaoyuanzhiyin_detail">宿舍 食堂 快递 数据揭秘</string>
     <string name="freshman_main_online_detail">老乡群 学院群 线上活动</string>
     <string name="freshman_main_more_detail">迎新网 重邮小帮手 发现</string>
+
+    <string name="freshman_hint_not_found_college_group">找不到学院群？试试搜索</string>
+    <string name="freshman_hint_not_found_fellow_townsman_group">找不到老乡群？试试搜索</string>
+    <string name="freshman_copy_qq_number_cancel">取消</string>
+    <string name="freshman_copy_qq_number_copy">复制</string>
+    <string name="freshman_copy_qq_number_success">复制成功</string>
+    <string name="freshman_recycle_item_online_communication_group_footer">没有更多了</string>
 
 </resources>

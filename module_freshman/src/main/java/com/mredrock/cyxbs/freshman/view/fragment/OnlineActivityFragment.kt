@@ -2,6 +2,7 @@ package com.mredrock.cyxbs.freshman.view.fragment
 
 import android.os.Bundle
 import android.view.View
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.base.BaseFragment
@@ -24,10 +25,15 @@ class OnlineActivityFragment :
 
     override fun onCreateView(view: View, savedInstanceState: Bundle?) {
         mActivities = view.findViewById(R.id.rv_online_communication_online_activity)
+        mActivities.layoutManager = LinearLayoutManager(context)
+        mAdapter = OnlineActivityAdapter()
+        mActivities.adapter = mAdapter
+
+        presenter?.requestOnlineActivityData()
     }
 
     override fun showOnlineActivities(activities: List<OnlineActivityText>) {
-
+        mAdapter.refreshData(activities)
     }
 
     override fun getLayoutRes() = R.layout.freshman_fragment_online_communication_online_activity

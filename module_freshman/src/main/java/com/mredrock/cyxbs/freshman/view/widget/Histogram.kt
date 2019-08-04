@@ -11,9 +11,15 @@ import androidx.annotation.ColorRes
  * Create by yuanbing
  * on 2019/8/2
  */
-class Histogram @JvmOverloads constructor(context: Context, attr: AttributeSet? = null,
-                                          defStyleAttr: Int = 0, defStyleRes: Int = 0) :
-        View(context, attr, defStyleAttr, defStyleRes) {
+class Histogram @JvmOverloads constructor(
+        context: Context,
+        attr: AttributeSet? = null,
+        defStyleAttr: Int = 0
+) : View(
+        context,
+        attr,
+        defStyleAttr
+) {
     // 写死了，只画三个柱子
     private var mHeight: Int = 0
     private var mWidth: Int  = 0

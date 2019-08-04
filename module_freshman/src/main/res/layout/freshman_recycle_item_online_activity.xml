@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="269dp"
+    android:layout_height="wrap_content"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_marginTop="15dp"
     android:layout_marginEnd="15dp"
@@ -21,13 +21,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/tv_recycle_item_online_activity_name"
-        android:layout_gravity="bottom"
         tools:text="学长学姐帮帮忙"
         android:textSize="15sp"
         android:textStyle="bold"
         android:textColor="@color/freshman_recycle_item_online_activity_name_text_color"
         android:layout_marginStart="18dp"
-        android:layout_marginBottom="25dp"/>
+        android:layout_below="@id/iv_recycle_item_online_activity_poster"
+        android:layout_marginTop="18dp"
+        android:layout_marginBottom="26dp"/>
 
     <Button
         android:id="@+id/btn_recycle_item_online_activity_join_now"
@@ -37,8 +38,9 @@
         android:background="@drawable/freshman_recycle_item_online_activity_join_now_btn_bg"
         android:textColor="@color/freshman_white_color"
         android:textSize="14sp"
-        android:layout_gravity="bottom|end"
-        android:layout_marginBottom="19dp"
-        android:layout_marginEnd="18dp"/>
+        android:layout_marginEnd="18dp"
+        android:layout_marginTop="12dp"
+        android:layout_below="@id/iv_recycle_item_online_activity_poster"
+        android:layout_alignParentEnd="true"/>
 
-</FrameLayout>
+</RelativeLayout>

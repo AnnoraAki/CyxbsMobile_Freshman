@@ -23,7 +23,7 @@ class CampusGuidelinesActivity : BaseActivity() {
 
     private fun initToolbar() {
         common_toolbar.init(
-                title = resources.getString(R.string.freshman_data_disclosure),
+                title = resources.getString(R.string.freshman_campus_guidelines),
                 listener = View.OnClickListener { finish() }
         )
     }

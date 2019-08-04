@@ -5,6 +5,7 @@ import android.view.View
 import com.google.android.material.tabs.TabLayout
 import com.mredrock.cyxbs.common.ui.BaseActivity
 import com.mredrock.cyxbs.freshman.R
+import com.mredrock.cyxbs.freshman.view.adapter.OnlineCommunicationPagerAdapter
 import kotlinx.android.synthetic.main.freshman_activity_online_communication.*
 
 /**
@@ -14,7 +15,7 @@ import kotlinx.android.synthetic.main.freshman_activity_online_communication.*
  */
 class OnlineCommunicationActivity : BaseActivity() {
     override val isFragmentActivity: Boolean
-        get() = false
+        get() = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,7 +35,7 @@ class OnlineCommunicationActivity : BaseActivity() {
 
     private fun initViewPager() {
         val manager = supportFragmentManager
-
+        vp_online_communication.adapter = OnlineCommunicationPagerAdapter(manager)
     }
 
     private fun initTabLayout() {
