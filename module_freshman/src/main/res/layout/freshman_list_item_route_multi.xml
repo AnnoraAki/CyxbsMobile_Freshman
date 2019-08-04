@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:background="@drawable/freshman_recycle_item_campus_map_background"
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/tv_recycle_item_campus_map_multi_title"
+        android:textSize="13sp"
+        android:textColor="@color/freshman_recycle_item_content_lightm"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="65dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/tv_recycle_item_campus_map_multi_content"
+        android:textSize="12sp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="65dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:textColor="@color/freshman_recycle_item_content_light"
+        android:layout_below="@id/tv_recycle_item_campus_map_multi_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</RelativeLayout>

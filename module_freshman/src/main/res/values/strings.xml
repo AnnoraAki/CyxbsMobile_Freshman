@@ -30,6 +30,9 @@
     <string name="freshman_campus_map">指路重邮</string>
     <string name="freshman_tab_layout_campus_map_bus">公交路线</string>
     <string name="freshman_tab_layout_campus_map_scenery">校园风光</string>
+    <string name="freshman_campus_map_copy">复制地址</string>
+    <string name="freshman_campus_map_recommend_route">推荐路线</string>
+
 
 
 </resources>
