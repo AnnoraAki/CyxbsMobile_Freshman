@@ -16,7 +16,11 @@ import io.reactivex.schedulers.Schedulers
  */
 class FragmentFellowTownsmanGroupModel : BaseModel(), IFragmentFellowTownsmanGroupModel {
     override fun searchFellowTownsmanGroup(callback: (List<FellowTownsmanGroupText>) -> Unit) {
-
+        val data = ArrayList<FellowTownsmanGroupText>()
+        for (i in 1..3) {
+            data.add(FellowTownsmanGroupText("1234567890", "重庆"))
+        }
+        callback(data)
     }
 
     @SuppressLint("CheckResult")

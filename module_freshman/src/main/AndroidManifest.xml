@@ -3,6 +3,7 @@
           package="com.mredrock.cyxbs.freshman">
 
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <application
             android:allowBackup="true"
@@ -28,7 +29,9 @@
         <activity android:name=".view.activity.CampusMapActivity" />
         <activity android:name=".view.activity.MoreActivity" />
         <activity android:name=".view.activity.CopyQQNumberActivity"
-            android:theme="@style/Theme.AppCompat.DayNight.Dialog.Alert.CopyQQNumber"/>
+            android:theme="@style/Theme.AppCompat.DayNight.Dialog.Alert.MyDialog"/>
+        <activity android:name=".view.activity.SaveQRActivity"
+            android:theme="@style/Theme.AppCompat.DayNight.Dialog.Alert.MyDialog"/>
     </application>
 
 </manifest>

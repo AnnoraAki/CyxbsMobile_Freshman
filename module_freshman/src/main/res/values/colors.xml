@@ -36,4 +36,5 @@
     <color name="freshman_recycle_item_online_communication_group_search_result_text_color">#999999</color>
     <color name="freshman_recycle_item_online_communication_group_search_result_bg_color">#f9fcff</color>
     <color name="freshman_recycle_item_online_communication_group_search_result_border_color">#bfceff</color>
+    <color name="freshman_save_qr_text_color">#888888</color>
 </resources>
