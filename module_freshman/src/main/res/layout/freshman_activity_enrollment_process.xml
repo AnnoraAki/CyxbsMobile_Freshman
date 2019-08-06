@@ -7,11 +7,23 @@
 
     <include layout="@layout/common_toolbar"/>
 
-    <androidx.recyclerview.widget.RecyclerView
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/rv_enrollment_process"
-        android:overScrollMode="never">
-    </androidx.recyclerview.widget.RecyclerView>
+        android:layout_height="match_parent">
+
+        <View
+            android:layout_width="2dp"
+            android:layout_height="match_parent"
+            android:background="@color/freshman_recycle_item_enrollment_process_line_bg_color"
+            android:layout_marginStart="21dp"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/rv_enrollment_process"
+            android:overScrollMode="never">
+        </androidx.recyclerview.widget.RecyclerView>
+
+    </FrameLayout>
 
 </LinearLayout>

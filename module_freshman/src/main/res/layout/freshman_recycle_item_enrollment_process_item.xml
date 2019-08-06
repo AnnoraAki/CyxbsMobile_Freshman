@@ -2,19 +2,22 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="horizontal"
     android:layout_marginStart="15dp"
     android:layout_marginEnd="15dp">
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_width="14dp"
+        android:layout_height="14dp"
         android:src="@drawable/freshman_enrollment_process_icon"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:scaleType="fitXY" />
+        android:layout_marginTop="32dp"/>
+
+    <View
+        android:layout_width="15dp"
+        android:layout_height="2dp"
+        android:layout_marginTop="38dp"
+        android:background="@color/freshman_recycle_item_enrollment_process_line_bg_color"/>
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -40,7 +43,7 @@
             android:src="@drawable/freshman_recycle_item_close"
             android:layout_alignParentEnd="true"
             android:layout_marginEnd="17dp"
-            android:layout_marginTop="26dp"/>
+            android:layout_marginTop="21dp"/>
 
         <TextView
             android:layout_width="match_parent"
