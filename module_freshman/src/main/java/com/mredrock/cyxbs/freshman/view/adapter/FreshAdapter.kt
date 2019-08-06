@@ -94,9 +94,7 @@ class FreshAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
                 val item = data[position - 1]
                 holder.discriptView.text = item.discript
                 holder.titleView.text = item.title
-                LogUtils.d("FreshAdapter", "1")
                 holder.itemView.setOnClickListener (View.OnClickListener {
-                    LogUtils.d("FreshAdapter", "12")
                     mOnItemClickListener?.onItemClick(position)
                 })
             }

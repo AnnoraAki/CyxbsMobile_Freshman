@@ -15,6 +15,11 @@ import org.jetbrains.anko.find
  * on 2019/8/5
  */
 class MoreAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+    private  var mOnItemClickListener: OnItemClickListener? = null
+    fun setOnItemClickListener(mOnItemClickListener: OnItemClickListener) {
+        this.mOnItemClickListener = mOnItemClickListener
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return TextViewHolder.from(parent)
     }
@@ -27,6 +32,9 @@ class MoreAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         if (holder is TextViewHolder) {
             holder.titleView.text = data[position].title
             holder.description.text = data[position].discript
+            holder.itemView.setOnClickListener (View.OnClickListener {
+                mOnItemClickListener?.onItemClick(position)
+            })
         }
     }
 

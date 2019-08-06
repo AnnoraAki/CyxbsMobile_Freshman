@@ -1,19 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="336dp"
-    android:background="@drawable/freshman_recycle_item_scenery_header_background"
-    android:layout_height="240dp">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="wrap_content"
+    android:background="@drawable/freshman_page_bg"
+    android:layout_marginTop="15dp"
+    android:layout_marginStart="5dp"
+    android:layout_marginEnd="5dp"
+    android:layout_height="wrap_content">
     <ImageView
         android:id="@+id/iv_scenery_recycle_item_header"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="17dp"
         android:layout_width="315dp"
         android:layout_height="164dp" />
     <TextView
         android:id="@+id/tv_scenery_recycle_item_header"
+        android:layout_alignStart="@id/iv_scenery_recycle_item_header"
+        android:layout_marginTop="12dp"
+        android:textSize="15sp"
+        android:textColor="@color/freshman_recycle_item_title_dark"
         android:layout_width="wrap_content"
+        android:layout_below="@id/iv_scenery_recycle_item_header"
         android:layout_height="wrap_content" />
     <TextView
+        android:layout_alignStart="@id/iv_scenery_recycle_item_header"
+        android:layout_marginTop="5dp"
+        android:textSize="13sp"
+        android:textColor="@color/freshman_recycle_item_content_light"
+        android:layout_below="@id/tv_scenery_recycle_item_header"
         android:text="@string/freshman_scenery_big"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
-</LinearLayout>
+</RelativeLayout>
