@@ -9,6 +9,7 @@ import com.mredrock.cyxbs.common.ui.BaseActivity
 import com.mredrock.cyxbs.common.utils.LogUtils
 import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.view.fragment.RouteFragment
+import com.mredrock.cyxbs.freshman.view.fragment.SceneryFragment
 import org.jetbrains.anko.find
 
 /**
@@ -19,7 +20,7 @@ import org.jetbrains.anko.find
 class CampusMapActivity : BaseActivity() {
     private lateinit var tabLayout: TabLayout
     private var routeFragment: RouteFragment? = null
-    private var routeFragment2: RouteFragment? = null
+    private var sceneryFragment: SceneryFragment? = null
     private var position: Int = 0
     override val isFragmentActivity: Boolean
         get() = true
@@ -55,11 +56,11 @@ class CampusMapActivity : BaseActivity() {
                 }
             }
             1 -> {
-                if (routeFragment2 == null) {
-                    routeFragment2 = RouteFragment()
-                    ft.add(R.id.fl_campus_map_container, routeFragment2!!, RouteFragment::class.java.name)
+                if (sceneryFragment == null) {
+                    sceneryFragment = SceneryFragment()
+                    ft.add(R.id.fl_campus_map_container, sceneryFragment!!, SceneryFragment::class.java.name)
                 } else {
-                    ft.show(routeFragment2!!)
+                    ft.show(sceneryFragment!!)
                 }
             }
             else -> throw Exception("不支持")
@@ -69,7 +70,7 @@ class CampusMapActivity : BaseActivity() {
 
     private fun hideFragment(ft: FragmentTransaction) {
         routeFragment?.let { ft.hide(it) }
-        routeFragment2?.let { ft.hide(it) }
+        sceneryFragment?.let { ft.hide(it) }
     }
 
     private fun initData(savedInstanceState: Bundle?) {

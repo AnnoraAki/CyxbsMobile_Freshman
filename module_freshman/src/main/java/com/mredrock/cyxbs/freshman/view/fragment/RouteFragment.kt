@@ -2,9 +2,7 @@ package com.mredrock.cyxbs.freshman.view.fragment
 
 import android.os.Bundle
 import android.view.View
-import android.widget.ExpandableListView
 import android.widget.TextView
-import com.mredrock.cyxbs.common.utils.LogUtils
 import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.base.BaseFragment
 import com.mredrock.cyxbs.freshman.bean.CampusAddress
@@ -15,16 +13,15 @@ import com.mredrock.cyxbs.freshman.interfaces.presenter.IFragmentRoutePresenter
 import com.mredrock.cyxbs.freshman.interfaces.view.IFragmentRouteView
 import com.mredrock.cyxbs.freshman.presenter.FragmentRoutePresenter
 import com.mredrock.cyxbs.freshman.view.adapter.RouteExpandableAdapter
-import org.jetbrains.anko.find
-import org.jetbrains.anko.support.v4.find
+import com.mredrock.cyxbs.freshman.view.widget.NonScrollExpandableListView
 
 /**
  * Create by roger
  * on 2019/8/3
  */
 class RouteFragment :
-    BaseFragment<IFragmentRouteView, IFragmentRoutePresenter, IFragmentRouteModel>(), IFragmentRouteView{
-    private lateinit var exListView: ExpandableListView
+        BaseFragment<IFragmentRouteView, IFragmentRoutePresenter, IFragmentRouteModel>(), IFragmentRouteView {
+    private lateinit var exListView: NonScrollExpandableListView
     private lateinit var schoolName: TextView
     private lateinit var address: TextView
     private lateinit var copy: TextView

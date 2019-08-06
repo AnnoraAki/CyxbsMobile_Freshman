@@ -8,3 +8,7 @@ data class GroupData(
         val title: String,
         val list: MutableList<String>
 )
+interface Callback {
+    fun onSuccess(route: BusRoute)
+    fun onFailed()
+}
