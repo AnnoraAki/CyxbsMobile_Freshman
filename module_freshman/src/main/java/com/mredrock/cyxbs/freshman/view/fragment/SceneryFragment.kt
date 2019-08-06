@@ -1,5 +1,6 @@
 package com.mredrock.cyxbs.freshman.view.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.recyclerview.widget.GridLayoutManager
@@ -13,6 +14,8 @@ import com.mredrock.cyxbs.freshman.interfaces.model.IFragmentSceneryModel
 import com.mredrock.cyxbs.freshman.interfaces.presenter.IFragmentSceneryPresenter
 import com.mredrock.cyxbs.freshman.interfaces.view.IFragmentSceneryView
 import com.mredrock.cyxbs.freshman.presenter.FragmentSceneryPresenter
+import com.mredrock.cyxbs.freshman.view.activity.PhotoSceneryActivity
+import com.mredrock.cyxbs.freshman.view.adapter.OnItemClickListener
 import com.mredrock.cyxbs.freshman.view.adapter.SceneryRecyclerViewAdapter
 import org.jetbrains.anko.find
 
@@ -30,6 +33,22 @@ class SceneryFragment :
         list.addAll(scenery.photos)
         val adapter = SceneryRecyclerViewAdapter(context!!, list)
         recycleview.adapter = adapter
+        adapter.setOnItemClickListener(object : OnItemClickListener {
+            override fun onItemClick(position: Int) {
+                if (position > 0) {
+                    val list2 = ArrayList<String>()
+                    for (x in scenery.photos) {
+                        list2.add(x.photo)
+                    }
+
+                    val intent: Intent = Intent(activity, PhotoSceneryActivity::class.java)
+                    intent.putExtra("position", position - 1)
+                    intent.putStringArrayListExtra("info", list2)
+                    startActivity(intent)
+                }
+            }
+
+        })
     }
 
     override fun showError() {

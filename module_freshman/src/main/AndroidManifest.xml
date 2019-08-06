@@ -26,6 +26,7 @@
         <activity android:name=".view.activity.OnlineCommunicationActivity" />
         <activity android:name=".view.activity.CampusMapActivity" />
         <activity android:name=".view.activity.MoreActivity" />
+        <activity android:name=".view.activity.PhotoSceneryActivity" />
     </application>
 
 </manifest>

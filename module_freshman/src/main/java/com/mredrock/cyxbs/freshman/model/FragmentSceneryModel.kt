@@ -16,6 +16,5 @@ class FragmentSceneryModel : BaseModel(), IFragmentSceneryModel {
         val list = listOf<Photo>(photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo)
         val scenery = Scenery("这是大标题", "https://data.chinatravel.com/images/focus/water-town/head.jpg", list)
         callback.onSuccess(scenery)
-
     }
 }

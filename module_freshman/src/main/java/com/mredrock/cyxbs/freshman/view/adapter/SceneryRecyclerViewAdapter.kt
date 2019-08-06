@@ -20,6 +20,11 @@ import org.jetbrains.anko.find
 class SceneryRecyclerViewAdapter(val ctx: Context, val list: List<Photo>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private val header = 0
     private val common = 1
+    private var mOnItemClickListener: OnItemClickListener? = null
+
+    fun setOnItemClickListener(mOnItemClickListener: OnItemClickListener) {
+        this.mOnItemClickListener = mOnItemClickListener
+    }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         var holder: RecyclerView.ViewHolder? = null
         if (header == viewType) {
@@ -50,9 +55,15 @@ class SceneryRecyclerViewAdapter(val ctx: Context, val list: List<Photo>) : Recy
         if (holder is CommonViewHolder) {
             holder.title.text = list.get(position).name
             Glide.with(ctx).load(list[position].photo).apply(options).into(holder.photo)
+            holder.itemView.setOnClickListener (View.OnClickListener {
+                mOnItemClickListener?.onItemClick(position)
+            })
         } else if (holder is HeaderViewHolder) {
             holder.title.text = list.get(position).name
             Glide.with(ctx).load(list[position].photo).apply(options).into(holder.photo)
+            holder.itemView.setOnClickListener (View.OnClickListener {
+                mOnItemClickListener?.onItemClick(position)
+            })
         } else {
             throw Exception("不支持")
         }
