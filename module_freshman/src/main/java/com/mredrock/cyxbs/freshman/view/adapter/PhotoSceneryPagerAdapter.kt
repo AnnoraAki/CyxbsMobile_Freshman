@@ -27,8 +27,7 @@ class PhotoSceneryPagerAdapter(private val urls: List<String>, private val  mCon
     }
 
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
-        val options = RequestOptions()
-        options.centerCrop()
+        val options = RequestOptions().centerCrop()
         val url = urls[position]
         val itemView = ImageView(mContext)
         Glide.with(mContext).load(url).apply(options).into(itemView)

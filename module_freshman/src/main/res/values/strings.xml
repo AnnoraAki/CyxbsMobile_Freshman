@@ -32,6 +32,8 @@
     <string name="freshman_tab_layout_campus_map_scenery">校园风光</string>
     <string name="freshman_campus_map_copy">复制地址</string>
     <string name="freshman_campus_map_recommend_route">推荐路线</string>
+    <string name="freshman_campus_map_route_1">路线一:</string>
+    <string name="freshman_campus_map_route_2">路线二:</string>
 
     <string name="freshman_scenery_big">重邮全景地图前往发现查看(发现->重邮地图)</string>
 

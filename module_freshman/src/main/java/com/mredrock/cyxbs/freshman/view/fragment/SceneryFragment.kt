@@ -14,6 +14,7 @@ import com.mredrock.cyxbs.freshman.interfaces.model.IFragmentSceneryModel
 import com.mredrock.cyxbs.freshman.interfaces.presenter.IFragmentSceneryPresenter
 import com.mredrock.cyxbs.freshman.interfaces.view.IFragmentSceneryView
 import com.mredrock.cyxbs.freshman.presenter.FragmentSceneryPresenter
+import com.mredrock.cyxbs.freshman.view.activity.PhotoMapActivity
 import com.mredrock.cyxbs.freshman.view.activity.PhotoSceneryActivity
 import com.mredrock.cyxbs.freshman.view.adapter.OnItemClickListener
 import com.mredrock.cyxbs.freshman.view.adapter.SceneryRecyclerViewAdapter
@@ -24,7 +25,7 @@ import org.jetbrains.anko.find
  * on 2019/8/3
  */
 class SceneryFragment :
-        BaseFragment<IFragmentSceneryView, IFragmentSceneryPresenter, IFragmentSceneryModel>(), IFragmentSceneryView{
+        BaseFragment<IFragmentSceneryView, IFragmentSceneryPresenter, IFragmentSceneryModel>(), IFragmentSceneryView {
     private lateinit var recycleview: RecyclerView
 
     override fun setPhotos(scenery: Scenery) {
@@ -35,7 +36,12 @@ class SceneryFragment :
         recycleview.adapter = adapter
         adapter.setOnItemClickListener(object : OnItemClickListener {
             override fun onItemClick(position: Int) {
-                if (position > 0) {
+                if (position == 0) {
+                    val url: String = scenery.photo
+                    val intent = Intent(activity, PhotoMapActivity::class.java)
+                    intent.putExtra("photo", url)
+                    startActivity(intent)
+                } else {
                     val list2 = ArrayList<String>()
                     for (x in scenery.photos) {
                         list2.add(x.photo)
@@ -66,7 +72,7 @@ class SceneryFragment :
                 }
             }
         }
-        recycleview.layoutManager =grid
+        recycleview.layoutManager = grid
 
         presenter?.start()
     }

@@ -34,6 +34,9 @@ class CampusMapActivity : BaseActivity() {
         showFragment(0)
     }
 
+
+
+
     private fun initToolbar() {
         common_toolbar.init(
                 title = resources.getString(R.string.freshman_campus_map),
@@ -88,5 +91,4 @@ class CampusMapActivity : BaseActivity() {
         })
 
     }
-
 }

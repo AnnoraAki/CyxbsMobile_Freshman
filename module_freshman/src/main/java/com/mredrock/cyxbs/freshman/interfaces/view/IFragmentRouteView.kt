@@ -9,7 +9,6 @@ import com.mredrock.cyxbs.freshman.bean.Route
  * on 2019/8/3
  */
 interface IFragmentRouteView : IBaseView {
-    fun setCampusAddress(address: CampusAddress)
-    fun setRoute(routeList: List<Route>)
+    fun setRoute(routeList: List<Route>, address: CampusAddress)
     fun showError()
 }

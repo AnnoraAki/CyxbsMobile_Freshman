@@ -2,7 +2,8 @@ package com.mredrock.cyxbs.freshman.view.fragment
 
 import android.os.Bundle
 import android.view.View
-import android.widget.TextView
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.base.BaseFragment
 import com.mredrock.cyxbs.freshman.bean.CampusAddress
@@ -12,8 +13,8 @@ import com.mredrock.cyxbs.freshman.interfaces.model.IFragmentRouteModel
 import com.mredrock.cyxbs.freshman.interfaces.presenter.IFragmentRoutePresenter
 import com.mredrock.cyxbs.freshman.interfaces.view.IFragmentRouteView
 import com.mredrock.cyxbs.freshman.presenter.FragmentRoutePresenter
-import com.mredrock.cyxbs.freshman.view.adapter.RouteExpandableAdapter
-import com.mredrock.cyxbs.freshman.view.widget.NonScrollExpandableListView
+import com.mredrock.cyxbs.freshman.view.adapter.BusRecyclerAdapter
+import org.jetbrains.anko.find
 
 /**
  * Create by roger
@@ -21,20 +22,11 @@ import com.mredrock.cyxbs.freshman.view.widget.NonScrollExpandableListView
  */
 class RouteFragment :
         BaseFragment<IFragmentRouteView, IFragmentRoutePresenter, IFragmentRouteModel>(), IFragmentRouteView {
-    private lateinit var exListView: NonScrollExpandableListView
-    private lateinit var schoolName: TextView
-    private lateinit var address: TextView
-    private lateinit var copy: TextView
+    private lateinit var recyclerView: RecyclerView
 
-    override fun setCampusAddress(address: CampusAddress) {
-        schoolName.text = address.title
-        this.address.text = address.message
-
-    }
-
-    override fun setRoute(routeList: List<Route>) {
+    override fun setRoute(routeList: List<Route>, address: CampusAddress) {
         val list: MutableList<GroupData> = mutableListOf()
-        for ((index, value) in routeList.withIndex()) {
+        for (value in routeList) {
 
             var flag = 0
             for ((index2, value2) in list.withIndex()) {
@@ -49,7 +41,7 @@ class RouteFragment :
                 list.add(data)
             }
         }
-        exListView.setAdapter(RouteExpandableAdapter(this.context!!, list))
+        recyclerView.adapter = BusRecyclerAdapter(list, address)
 
 
     }
@@ -58,10 +50,8 @@ class RouteFragment :
     }
 
     override fun onCreateView(view: View, savedInstanceState: Bundle?) {
-        exListView = view.findViewById(R.id.exlv_campus_map)
-        schoolName = view.findViewById(R.id.tv_school_name)
-        address = view.findViewById(R.id.tv_school_address)
-        copy = view.findViewById(R.id.tv_copy)
+        recyclerView = view.find(R.id.rv_campus_map)
+        recyclerView.layoutManager = LinearLayoutManager(activity)
         presenter?.start()
     }
 

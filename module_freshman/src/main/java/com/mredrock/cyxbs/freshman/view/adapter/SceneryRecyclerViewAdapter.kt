@@ -50,20 +50,19 @@ class SceneryRecyclerViewAdapter(val ctx: Context, val list: List<Photo>) : Recy
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        val options = RequestOptions()
-        options.centerCrop()
+        val options = RequestOptions().centerCrop()
         if (holder is CommonViewHolder) {
             holder.title.text = list.get(position).name
             Glide.with(ctx).load(list[position].photo).apply(options).into(holder.photo)
-            holder.itemView.setOnClickListener (View.OnClickListener {
+            holder.itemView.setOnClickListener {
                 mOnItemClickListener?.onItemClick(position)
-            })
+            }
         } else if (holder is HeaderViewHolder) {
             holder.title.text = list.get(position).name
             Glide.with(ctx).load(list[position].photo).apply(options).into(holder.photo)
-            holder.itemView.setOnClickListener (View.OnClickListener {
+            holder.itemView.setOnClickListener {
                 mOnItemClickListener?.onItemClick(position)
-            })
+            }
         } else {
             throw Exception("不支持")
         }
