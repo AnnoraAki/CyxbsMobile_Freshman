@@ -5,8 +5,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <com.mredrock.cyxbs.freshman.view.widget.Histogram
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
         android:id="@+id/histogram_data_disclosure_subject_data"
         android:layout_gravity="center_horizontal"
         android:background="@drawable/freshman_page_bg"
@@ -15,10 +17,16 @@
         app:secondGraphColor="@color/freshman_data_disclosure_subject_data_second_graph_bg_color"
         app:thirdGraphColor="@color/freshman_data_disclosure_subject_data_third_graph_bg_color"
         app:dataTextColor="@color/freshman_data_disclosure_subject_data_data_text_color"
-        app:titleTextColor="@color/freshman_recycle_item_main_activity_title"
+        app:titleTextColor="@color/freshman_data_disclosure_subject_data_title_text_color"
         app:descriptionTextColorY="@color/freshman_data_disclosure_subject_data_description_y_text_color"
         app:descriptionTextColorX="@color/freshman_data_disclosure_subject_data_description_x_text_color"
         app:decorationColor="@color/freshman_data_disclosure_subject_data_graph_decoration_color"
-        app:xYColor="@color/freshman_data_disclosure_subject_data_xy_color" />
+        app:xYColor="@color/freshman_data_disclosure_subject_data_xy_color"
+        app:titleTextSize="15sp"
+        app:descriptionTextSizeY="11sp"
+        app:descriptionTextSizeX="13sp"
+        app:graphDataTextSize="13sp"
+        app:title="@string/freshman_data_disclosure_subject_data_degree"
+        app:descriptionY=""/>
 
 </FrameLayout>

@@ -37,6 +37,7 @@ class FellowTownsmanGroupFragment : BaseFragment<IFragmentFellowTownsmanGroupVie
     private lateinit var mSearchResult: RecyclerView
     private lateinit var mEditText: EditText
     private lateinit var mSearchResultAdapter: SearchResultFellowTownsmanAdapter
+    private lateinit var mManager: InputMethodManager
 
     override fun onCreateView(view: View, savedInstanceState: Bundle?) {
         mFellowTownsmanGroup = view.findViewById(R.id.rv_online_communication_group)
@@ -48,7 +49,7 @@ class FellowTownsmanGroupFragment : BaseFragment<IFragmentFellowTownsmanGroupVie
         mSearchResultAdapter = SearchResultFellowTownsmanAdapter()
         mSearchResult.adapter = mSearchResultAdapter
         mSearchResult.layoutManager = LinearLayoutManager(context)
-
+        mManager = context?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         initEditText()
 
         presenter?.getFellowTownsmanGroup()
@@ -60,21 +61,18 @@ class FellowTownsmanGroupFragment : BaseFragment<IFragmentFellowTownsmanGroupVie
             if (i == EditorInfo.IME_ACTION_SEARCH) {
                 presenter?.search()
                 true
-            } else {
-                false
-            }
+            } else { false }
         }
         mEditText.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(p0: Editable?) {
-                presenter?.search()
+                if (mManager.isAcceptingText) presenter?.search()
             }
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
         })
         mEditText.onFocusChangeListener = View.OnFocusChangeListener { view, isFocus ->
             if (!isFocus) {
-                val manager = context?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-                manager.hideSoftInputFromWindow(view.windowToken, InputMethodManager.HIDE_NOT_ALWAYS)
+                mManager.hideSoftInputFromWindow(view.windowToken, InputMethodManager.HIDE_NOT_ALWAYS)
             }
         }
     }
@@ -102,6 +100,7 @@ class FellowTownsmanGroupFragment : BaseFragment<IFragmentFellowTownsmanGroupVie
         for (index in 0 until mAdapter.itemCount - 1) {
             if (event.name == mAdapter.mFellowTownsmanGroup[index].name) {
                 mFellowTownsmanGroup.layoutManager?.scrollToPosition(index)
+                return
             }
         }
     }

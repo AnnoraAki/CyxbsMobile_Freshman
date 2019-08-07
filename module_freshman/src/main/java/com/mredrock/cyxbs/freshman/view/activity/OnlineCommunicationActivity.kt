@@ -1,12 +1,16 @@
 package com.mredrock.cyxbs.freshman.view.activity
 
+import android.graphics.Typeface
 import android.os.Bundle
 import android.view.View
+import android.widget.TextView
 import com.google.android.material.tabs.TabLayout
 import com.mredrock.cyxbs.common.ui.BaseActivity
 import com.mredrock.cyxbs.freshman.R
+import com.mredrock.cyxbs.freshman.util.listener.FreshManOnTabSelectedListener
 import com.mredrock.cyxbs.freshman.view.adapter.OnlineCommunicationPagerAdapter
 import kotlinx.android.synthetic.main.freshman_activity_online_communication.*
+import org.jetbrains.anko.textColor
 
 /**
  * Create by yuanbing
@@ -40,16 +44,12 @@ class OnlineCommunicationActivity : BaseActivity() {
 
     private fun initTabLayout() {
         tl_online_communication.addOnTabSelectedListener(
-            object : TabLayout.BaseOnTabSelectedListener<TabLayout.Tab>{
-                override fun onTabReselected(p0: TabLayout.Tab?) {}
-
-                override fun onTabUnselected(p0: TabLayout.Tab?) {}
-
-                override fun onTabSelected(p0: TabLayout.Tab?) {
-                    if (p0 == null) return
+            object : FreshManOnTabSelectedListener() {
+                override fun doOnTabSelected(p0: TabLayout.Tab) {
                     vp_online_communication.currentItem = p0.position
                 }
             }
         )
+        tl_online_communication.getTabAt(0)?.select()
     }
 }
