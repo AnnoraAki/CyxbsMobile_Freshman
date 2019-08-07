@@ -8,9 +8,12 @@ import com.google.android.material.tabs.TabLayout
 import com.mredrock.cyxbs.common.ui.BaseActivity
 import com.mredrock.cyxbs.common.utils.LogUtils
 import com.mredrock.cyxbs.freshman.R
+import com.mredrock.cyxbs.freshman.util.listener.FreshManOnTabSelectedListener
 import com.mredrock.cyxbs.freshman.view.fragment.RouteFragment
 import com.mredrock.cyxbs.freshman.view.fragment.SceneryFragment
+import kotlinx.android.synthetic.main.freshman_activity_online_communication.*
 import org.jetbrains.anko.find
+import org.jetbrains.anko.tableLayout
 
 /**
  * Create by roger
@@ -35,8 +38,6 @@ class CampusMapActivity : BaseActivity() {
     }
 
 
-
-
     private fun initToolbar() {
         common_toolbar.init(
                 title = resources.getString(R.string.freshman_campus_map),
@@ -50,7 +51,7 @@ class CampusMapActivity : BaseActivity() {
         hideFragment(ft)
         when (index) {
             0 -> {
-                LogUtils.d("CampusMap", "showFragment():" + index  )
+                LogUtils.d("CampusMap", "showFragment():" + index)
                 if (routeFragment == null) {
                     routeFragment = RouteFragment()
                     ft.add(R.id.fl_campus_map_container, routeFragment!!, RouteFragment::class.java.name)
@@ -77,18 +78,16 @@ class CampusMapActivity : BaseActivity() {
     }
 
     private fun initData(savedInstanceState: Bundle?) {
-        tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
-            override fun onTabReselected(p0: TabLayout.Tab?) {
-            }
-
-            override fun onTabUnselected(p0: TabLayout.Tab?) {
+        tabLayout.addOnTabSelectedListener(object : FreshManOnTabSelectedListener() {
+            override fun doOnTabSelected(p0: TabLayout.Tab) {
+                vp_online_communication.currentItem = p0.position
             }
 
             override fun onTabSelected(p0: TabLayout.Tab?) {
-                p0?.let {showFragment(it.position)}
+                p0?.let { showFragment(it.position) }
             }
-
         })
+        tabLayout.getTabAt(0)?.select()
 
     }
 }
