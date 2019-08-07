@@ -1,5 +1,6 @@
 package com.mredrock.cyxbs.freshman.view.adapter
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +11,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.mredrock.cyxbs.common.utils.extensions.setImageFromUrl
 import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.bean.OnlineActivityText
+import com.mredrock.cyxbs.freshman.config.INTENT_MESSAGE
+import com.mredrock.cyxbs.freshman.config.INTENT_QR
+import com.mredrock.cyxbs.freshman.view.activity.SaveQRActivity
 
 /**
  * Create by yuanbing
@@ -33,7 +37,10 @@ class OnlineActivityAdapter() :
         holder.mActivityPoster.setImageFromUrl(activity.photo)
 
         holder.mJoinNow.setOnClickListener {
-
+            val intent = Intent(it.context, SaveQRActivity::class.java)
+            intent.putExtra(INTENT_QR, activity.QR)
+            intent.putExtra(INTENT_MESSAGE, activity.message)
+            it.context.startActivity(intent)
         }
     }
 

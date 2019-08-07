@@ -13,7 +13,7 @@ import com.mredrock.cyxbs.freshman.model.FragmentFellowTownsmanGroupModel
 class FragmentFellowTownsmanGroupPresenter : BasePresenter<IFragmentFellowTownsmanGroupView,
         IFragmentFellowTownsmanGroupModel>(), IFragmentFellowTownsmanGroupPresenter {
     override fun search() {
-
+        model?.searchFellowTownsmanGroup { view?.showSearchResult(it) }
     }
 
     override fun attachModel() = FragmentFellowTownsmanGroupModel()

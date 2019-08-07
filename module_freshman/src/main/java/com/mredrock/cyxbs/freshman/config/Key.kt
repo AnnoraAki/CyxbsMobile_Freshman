@@ -9,3 +9,6 @@ const val INTENT_DATA = "data"
 
 const val BUNDLE_NAME = INTENT_NAME
 const val BUNDLE_DATA = INTENT_DATA
+
+const val INTENT_QR = "qr"
+const val INTENT_MESSAGE = "message"

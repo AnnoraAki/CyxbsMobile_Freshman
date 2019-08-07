@@ -9,6 +9,7 @@ import android.view.View
 import androidx.annotation.ColorInt
 import com.mredrock.cyxbs.freshman.R
 import org.jetbrains.anko.dip
+import java.lang.RuntimeException
 import kotlin.math.min
 
 /**
@@ -24,7 +25,7 @@ class SuccessView @JvmOverloads constructor(
         attr,
         defStyleAttr
 ) {
-    private var mWidth = 100f
+    private var mWidth = dip(65).toFloat()
     private var mHeight = mWidth
     private var mRadius = mWidth  / 2
     private var mDecorationRadius = 0f
@@ -64,6 +65,15 @@ class SuccessView @JvmOverloads constructor(
 
     private var mOnAnimationFinish: (() -> Unit)? = null
 
+    init {
+        val typedArray = context.obtainStyledAttributes(attr, R.styleable.SuccessView)
+        mColor = typedArray.getColor(R.styleable.SuccessView_color, Color.BLACK)
+        mCircleAnimationDuration = typedArray.getInteger(R.styleable.SuccessView_circleDuration, 0).toLong()
+        mGouAnimationDuration = typedArray.getInteger(R.styleable.SuccessView_gouDuration, 0).toLong()
+        mLineWidth = typedArray.getDimension(R.styleable.SuccessView_lineWidth, 0f)
+        typedArray.recycle()
+    }
+
     override fun onDraw(canvas: Canvas?) {
         // 画外圆环
         mCirclePathMeasure.getSegment(0f, mCircleProgress, mCircleAnimationPath, true)
@@ -82,15 +92,6 @@ class SuccessView @JvmOverloads constructor(
         if (mGouAnimationEnd) {
             canvas?.drawCircle(mPointXR, mPointYR, mDecorationRadius, mDecorationPaint)
         }
-    }
-
-    init {
-        val typedArray = context.obtainStyledAttributes(attr, R.styleable.SuccessView)
-        mColor = typedArray.getColor(R.styleable.SuccessView_color, Color.BLACK)
-        mCircleAnimationDuration = typedArray.getInteger(R.styleable.SuccessView_circleDuration, 0).toLong()
-        mGouAnimationDuration = typedArray.getInteger(R.styleable.SuccessView_gouDuration, 0).toLong()
-        mLineWidth = dip(typedArray.getDimension(R.styleable.SuccessView_lineWidth, 0f)).toFloat()
-        typedArray.recycle()
     }
 
     private fun initPaint() {
@@ -116,38 +117,37 @@ class SuccessView @JvmOverloads constructor(
     }
 
     private fun initPoint() {
-        mPointXL = mOX - ((mRadius - mLineWidth) / 3 * 2)
+        mPointXL = mOX - ((mRadius - mLineWidth) / 4 * 3)
         mPointYL = mOY
 
-        mPointXM = mPointXL + ((mRadius - mPointXL) / 3 * 2)
+        mPointXM = mPointXL + ((mRadius - mPointXL) / 6 * 5)
         mPointYM = mOY + (mRadius - mLineWidth) / 2
 
         mPointXR = mOX + (mRadius - mLineWidth) / 3 * 2
         mPointYR = mOY - (mRadius - mLineWidth) / 2
     }
 
-    fun setOnAnimationFinish(onAnimationFinish: () -> Unit) {
-        mOnAnimationFinish = onAnimationFinish
-    }
-
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
-        val mWidthMeasure = MeasureSpec.getSize(widthMeasureSpec)
-        val mHeightMeasure = MeasureSpec.getSize(heightMeasureSpec)
+        var widthMeasure = MeasureSpec.getSize(widthMeasureSpec)
+        var heightMeasure = MeasureSpec.getSize(heightMeasureSpec)
+        val widthMeasureMode = MeasureSpec.getMode(widthMeasureSpec)
+        val heightMeasureMode = MeasureSpec.getMode(heightMeasureSpec)
 
-        mWidth = min(mWidthMeasure, mHeightMeasure).toFloat()
+        if (widthMeasureMode == MeasureSpec.AT_MOST) widthMeasure = mWidth.toInt()
+        if (heightMeasureMode == MeasureSpec.AT_MOST) heightMeasure = mHeight.toInt()
+
+        mWidth = min(widthMeasure, heightMeasure).toFloat()
         mHeight = mWidth
-        mRadius = mWidth / 2 - 2 * mLineWidth
+        mRadius = mWidth / 2 - 1.5f * mLineWidth
         mOX = left + mWidth / 2
         mOY = top + mHeight / 2
 
-        println("$mWidth $mHeight $mRadius")
-
+        setMeasuredDimension(widthMeasure, heightMeasure)
         initPath()
         initPaint()
         initPoint()
-        initAnimation()
 
-        setMeasuredDimension(mWidthMeasure, mHeightMeasure)
+        initAnimation()
     }
 
     private fun initAnimation() {

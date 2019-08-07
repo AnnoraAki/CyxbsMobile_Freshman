@@ -17,7 +17,11 @@ import com.mredrock.cyxbs.freshman.view.activity.CopyQQNumberActivity
  * on 2019/8/4
  */
 class CollegeGroupAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-    private var mCollegeGroup: List<CollegeGroupText> = listOf()
+    var mCollegeGroup: List<CollegeGroupText> = listOf()
+        set(value) {
+            field = value
+            notifyDataSetChanged()
+        }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return if (viewType == 0) {
@@ -50,11 +54,6 @@ class CollegeGroupAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
                 it.context.startActivity(intent)
             }
         }
-    }
-
-    fun refreshData(collegeGroup: List<CollegeGroupText>) {
-        mCollegeGroup = collegeGroup
-        notifyDataSetChanged()
     }
 }
 

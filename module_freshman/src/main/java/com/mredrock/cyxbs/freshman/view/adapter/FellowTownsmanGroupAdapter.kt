@@ -17,7 +17,11 @@ import com.mredrock.cyxbs.freshman.view.activity.CopyQQNumberActivity
  * on 2019/8/4
  */
 class FellowTownsmanGroupAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-    private var mFellowTownsmanGroup: List<FellowTownsmanGroupText> = listOf()
+    var mFellowTownsmanGroup: List<FellowTownsmanGroupText> = listOf()
+        set(value) {
+            field = value
+            notifyDataSetChanged()
+        }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return if (viewType == 0) {
@@ -50,11 +54,6 @@ class FellowTownsmanGroupAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>
                 it.context.startActivity(intent)
             }
         }
-    }
-
-    fun refreshData(fellowTownsmanGroup: List<FellowTownsmanGroupText>) {
-        mFellowTownsmanGroup = fellowTownsmanGroup
-        notifyDataSetChanged()
     }
 }
 
