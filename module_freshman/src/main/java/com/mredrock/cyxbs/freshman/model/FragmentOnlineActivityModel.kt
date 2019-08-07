@@ -17,6 +17,14 @@ import io.reactivex.schedulers.Schedulers
 class FragmentOnlineActivityModel : BaseModel(), IFragmentOnlineActivityModel {
     @SuppressLint("CheckResult")
     override fun request(callback: (List<OnlineActivityText>) -> Unit) {
+
+        val data = ArrayList<OnlineActivityText>()
+        for (i in 1..10) {
+            data.add(OnlineActivityText("https://f12.baidu.com/it/u=3405894939,1324349563&fm=72", "关注“重邮小帮手”微信公众号，参与学长学姐帮帮忙。", "学长学姐帮帮忙", "https://f12.baidu.com/it/u=3405894939,1324349563&fm=72"))
+        }
+        callback(data)
+        return
+
         val service = createService(OnlineActivityService::class.java)
         service.requestOnlineActivityActivity()
                 .subscribeOn(Schedulers.io())

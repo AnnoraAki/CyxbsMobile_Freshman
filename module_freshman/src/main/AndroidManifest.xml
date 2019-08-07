@@ -2,7 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.mredrock.cyxbs.freshman">
 
+<<<<<<< HEAD
     <uses-permission android:name="android.permission.INTERNET" />
+=======
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+>>>>>>> work
 
     <application
         android:name="com.mredrock.cyxbs.common.BaseApp"
@@ -23,7 +28,6 @@
         <activity android:name=".view.activity.CampusGuidelinesActivity" />
         <activity android:name=".view.activity.EntranceRequirementsActivity" />
         <activity android:name=".view.activity.EnrollmentProcessActivity" />
-        <activity android:name=".view.activity.OnlineCommunicationActivity" />
         <activity
             android:name=".view.activity.CampusMapActivity"
             android:configChanges="keyboardHidden|orientation|screenSize">
@@ -36,6 +40,12 @@
             android:screenOrientation="sensor">
 
         </activity>
+        <activity android:name=".view.activity.OnlineCommunicationActivity"
+            android:windowSoftInputMode="adjustPan"/>
+        <activity android:name=".view.activity.CopyQQNumberActivity"
+            android:theme="@style/Theme.AppCompat.DayNight.Dialog.Alert.MyDialog"/>
+        <activity android:name=".view.activity.SaveQRActivity"
+            android:theme="@style/Theme.AppCompat.DayNight.Dialog.Alert.MyDialog"/>
     </application>
 
 </manifest>

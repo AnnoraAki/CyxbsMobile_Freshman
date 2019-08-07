@@ -21,7 +21,7 @@ class ActivityEnrollmentProcessModel : BaseModel(), IActivityEnrollmentProcessMo
         val data = ArrayList<EnrollmentProcessText>(10)
         for (i in 1..10) {
             if (i == 1) data.add(EnrollmentProcessText("", "6月5-6月6", "", "报到时间"))
-            else data.add(EnrollmentProcessText("好歹i花费工会的法规的", "ejwseiofhjiehf", "https://avatar.csdn.net/B/3/D/3_qq_23179075.jpg", "enenene"))
+            else data.add(EnrollmentProcessText("好歹i花费工会的法规的", "ejwseiofhjiehf", "https://avatar.csdn.net/B/3/D/3_qq_23179075.jpg", "这个是入学的流程"))
         }
         callback(data)
         return

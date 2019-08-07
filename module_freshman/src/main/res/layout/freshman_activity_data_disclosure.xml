@@ -12,6 +12,7 @@
     <com.google.android.material.tabs.TabLayout
         android:layout_width="match_parent"
         android:layout_height="49dp"
+        android:id="@+id/tl_data_disclosure"
         app:tabSelectedTextColor="@color/freshman_tab_selected_color"
         app:tabTextAppearance="@style/TextAppearance.Design.Tab.TabTextSize"
         app:tabIndicatorHeight="0dp"
@@ -28,5 +29,11 @@
             android:text="@string/freshman_sex_ratio"/>
 
     </com.google.android.material.tabs.TabLayout>
+
+    <androidx.viewpager.widget.ViewPager
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/vp_data_disclosure">
+    </androidx.viewpager.widget.ViewPager>
 
 </LinearLayout>

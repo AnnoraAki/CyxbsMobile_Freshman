@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
+    
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" 
+        android:id="@+id/tv_copy_qq_number_name"
+        android:layout_marginTop="37dp"
+        android:textSize="15sp"
+        android:textColor="@color/freshman_copy_qq_number_text_color"
+        android:gravity="center"
+        tools:text="计算机科学与技术/人工智能学院"/>
+    
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" 
+        android:id="@+id/tv_copy_qq_number_data"
+        android:layout_below="@id/tv_copy_qq_number_name"
+        android:layout_marginTop="3dp"
+        android:textSize="15sp"
+        android:gravity="center"
+        android:textColor="@color/freshman_copy_qq_number_text_color"
+        tools:text="QQ群：2854561645"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:id="@+id/view_copy_qq_number_divider"
+        android:layout_below="@id/tv_copy_qq_number_data"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/freshman_copy_qq_number_divider_bg"/>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:layout_below="@id/view_copy_qq_number_divider">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:id="@+id/tv_copy_qq_number_cancel"
+            android:gravity="center"
+            android:text="@string/freshman_copy_qq_number_cancel"
+            android:textSize="16sp"
+            android:textColor="@color/freshman_copy_qq_number_cancel_text_color"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:id="@+id/tv_copy_qq_number_copy"
+            android:text="@string/freshman_copy_qq_number_copy"
+            android:gravity="center"
+            android:textColor="@color/freshman_copy_qq_number_copy_text_color"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

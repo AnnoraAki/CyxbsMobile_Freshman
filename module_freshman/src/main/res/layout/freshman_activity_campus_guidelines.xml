@@ -11,6 +11,7 @@
     <com.google.android.material.tabs.TabLayout
         android:layout_width="match_parent"
         android:layout_height="49dp"
+        android:id="@+id/tl_campus_guidelines"
         app:tabSelectedTextColor="@color/freshman_tab_selected_color"
         app:tabTextAppearance="@style/TextAppearance.Design.Tab.TabTextSize"
         app:tabIndicatorHeight="0dp"
@@ -38,10 +39,10 @@
 
     </com.google.android.material.tabs.TabLayout>
 
-    <androidx.viewpager.widget.ViewPager
+    <com.mredrock.cyxbs.freshman.view.widget.ScrollEnableViewPager
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/vp_campus_guidelines">
-    </androidx.viewpager.widget.ViewPager>
+    </com.mredrock.cyxbs.freshman.view.widget.ScrollEnableViewPager>
 
 </LinearLayout>

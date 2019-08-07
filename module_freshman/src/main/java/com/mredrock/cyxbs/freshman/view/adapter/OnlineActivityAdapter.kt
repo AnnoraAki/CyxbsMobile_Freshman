@@ -1,5 +1,6 @@
 package com.mredrock.cyxbs.freshman.view.adapter
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -7,9 +8,12 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.mredrock.cyxbs.common.utils.extensions.setImageFromUrl
 import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.bean.OnlineActivityText
-import kotlinx.android.synthetic.main.freshman_recycle_item_online_activity.*
+import com.mredrock.cyxbs.freshman.config.INTENT_MESSAGE
+import com.mredrock.cyxbs.freshman.config.INTENT_QR
+import com.mredrock.cyxbs.freshman.view.activity.SaveQRActivity
 
 /**
  * Create by yuanbing
@@ -17,7 +21,7 @@ import kotlinx.android.synthetic.main.freshman_recycle_item_online_activity.*
  */
 class OnlineActivityAdapter() :
         RecyclerView.Adapter<OnlineActivityViewHolder>() {
-    private val activities: List<OnlineActivityText> = listOf()
+    private var mActivities: List<OnlineActivityText> = listOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OnlineActivityViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(
@@ -25,20 +29,29 @@ class OnlineActivityAdapter() :
         return OnlineActivityViewHolder(view)
     }
 
-    override fun getItemCount() = activities.size
+    override fun getItemCount() = mActivities.size
 
     override fun onBindViewHolder(holder: OnlineActivityViewHolder, position: Int) {
-        val activity = activities[position]
+        val activity = mActivities[position]
         holder.mActivityName.text = activity.name
+        holder.mActivityPoster.setImageFromUrl(activity.photo)
 
         holder.mJoinNow.setOnClickListener {
-            // TODO
+            val intent = Intent(it.context, SaveQRActivity::class.java)
+            intent.putExtra(INTENT_QR, activity.QR)
+            intent.putExtra(INTENT_MESSAGE, activity.message)
+            it.context.startActivity(intent)
         }
+    }
+
+    fun refreshData(activities: List<OnlineActivityText>) {
+        mActivities = activities
+        notifyDataSetChanged()
     }
 }
 
 class OnlineActivityViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-    val mActivityPoster = view.findViewById<ImageView>(R.id.iv_recycle_item_online_activity_poster)
-    val mActivityName = view.findViewById<TextView>(R.id.tv_recycle_item_online_activity_name)
-    val mJoinNow = view.findViewById<Button>(R.id.btn_recycle_item_online_activity_join_now)
+    val mActivityPoster: ImageView = view.findViewById(R.id.iv_recycle_item_online_activity_poster)
+    val mActivityName: TextView = view.findViewById(R.id.tv_recycle_item_online_activity_name)
+    val mJoinNow: Button = view.findViewById(R.id.btn_recycle_item_online_activity_join_now)
 }
