@@ -9,7 +9,14 @@ import com.mredrock.cyxbs.freshman.R
  * on 2019/8/7
  */
 abstract class FreshManOnTabSelectedListener : TabLayout.BaseOnTabSelectedListener<TabLayout.Tab> {
-    override fun onTabReselected(p0: TabLayout.Tab?) { onTabSelected(p0) }
+    private var mIsNeedDo = true
+    private var mIsUseReSelect = useReSelect()
+
+    override fun onTabReselected(p0: TabLayout.Tab?) {
+        mIsNeedDo = !mIsNeedDo
+        onTabSelected(p0)
+        mIsNeedDo = !mIsNeedDo
+    }
 
     override fun onTabUnselected(p0: TabLayout.Tab?) { p0?.customView = null }
 
@@ -20,8 +27,10 @@ abstract class FreshManOnTabSelectedListener : TabLayout.BaseOnTabSelectedListen
             val text: TextView = p0.customView!!.findViewById(R.id.tv_tab_layout_custom_view)
             text.text = p0.text
         }
-        doOnTabSelected(p0)
+        if (mIsUseReSelect || mIsNeedDo) doOnTabSelected(p0)
     }
+
+    fun useReSelect() = false
 
     abstract fun doOnTabSelected(p0: TabLayout.Tab)
 }

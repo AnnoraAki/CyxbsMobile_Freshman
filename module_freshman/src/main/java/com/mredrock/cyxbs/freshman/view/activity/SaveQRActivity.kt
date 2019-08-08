@@ -1,6 +1,7 @@
 package com.mredrock.cyxbs.freshman.view.activity
 
 import android.Manifest
+import android.app.Activity
 import android.content.Intent
 import android.graphics.drawable.BitmapDrawable
 import android.net.Uri
@@ -43,14 +44,23 @@ class SaveQRActivity : BaseActivity<IActivitySaveQRView, IActivitySaveQRPresente
 
         val detector = GestureDetector(object : GestureDetector.SimpleOnGestureListener() {
             override fun onLongPress(e: MotionEvent?) {
+                val intent = Intent(this@SaveQRActivity, ChooseSaveQrActivity::class.java)
+                startActivityForResult(intent, 0)
+            }
+        })
+        iv_save_qr_qr.setOnTouchListener { _, motionEvent -> detector.onTouchEvent(motionEvent) }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        when (requestCode) {
+            0 -> if (resultCode == Activity.RESULT_OK)  {
                 val bitmapDrawable = iv_save_qr_qr.drawable as BitmapDrawable
                 doPermissionAction(Manifest.permission.WRITE_EXTERNAL_STORAGE) {
                     doAfterGranted { presenter?.saveBitmapToDisk(bitmapDrawable.bitmap,
                             intent.getStringExtra(INTENT_QR)) }
                 }
             }
-        })
-        iv_save_qr_qr.setOnTouchListener { _, motionEvent -> detector.onTouchEvent(motionEvent) }
+        }
     }
 
     override fun getViewToAttach() = this
@@ -58,11 +68,9 @@ class SaveQRActivity : BaseActivity<IActivitySaveQRView, IActivitySaveQRPresente
     override fun createPresenter() = ActivitySaveQRPresenter()
 
     override fun saveSuccess(file: File) {
-        toast("保存成功")
         val intent = Intent()
         intent.action = Intent.ACTION_MEDIA_SCANNER_SCAN_FILE
         intent.data = Uri.fromFile(file)
         sendBroadcast(intent)
-        finish()
     }
 }

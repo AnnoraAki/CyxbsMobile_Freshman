@@ -14,6 +14,8 @@ import com.mredrock.cyxbs.common.utils.extensions.setImageFromUrl
 import com.mredrock.cyxbs.common.utils.extensions.visible
 import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.bean.EnrollmentProcessText
+import com.mredrock.cyxbs.freshman.config.API_BASE_IMG_URL
+import com.mredrock.cyxbs.freshman.config.API_BASE_URL
 
 /**
  * Create by yuanbing
@@ -77,7 +79,7 @@ class EnrollmentProcessAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>()
         }
         holder.mMessage.text = itemText.title
         holder.mDetail.text = itemText.detail
-        holder.mPhoto.setImageFromUrl(itemText.photo)
+        holder.mPhoto.setImageFromUrl("$API_BASE_IMG_URL${itemText.photo}")
         if (itemText.detail.isNotBlank()) close()
         if (mCurrentOpenedItemIndex != position) {
             close()

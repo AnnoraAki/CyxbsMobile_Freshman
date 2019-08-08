@@ -11,5 +11,5 @@ import com.mredrock.cyxbs.freshman.interfaces.view.IFragmentFellowTownsmanGroupV
 interface IFragmentFellowTownsmanGroupPresenter : IBasePresenter<IFragmentFellowTownsmanGroupView,
         IFragmentFellowTownsmanGroupModel> {
     fun getFellowTownsmanGroup()
-    fun search()
+    fun search(province: String)
 }
