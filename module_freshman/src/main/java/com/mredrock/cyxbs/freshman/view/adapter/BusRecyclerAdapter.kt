@@ -1,12 +1,18 @@
 package com.mredrock.cyxbs.freshman.view.adapter
 
+import android.content.ClipData
+import android.content.ClipboardManager
+import android.content.Context
+import android.media.Image
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.RelativeLayout
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.mredrock.cyxbs.common.BaseApp
 import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.bean.BusRoute
 import com.mredrock.cyxbs.freshman.bean.CampusAddress
@@ -18,12 +24,11 @@ import org.jetbrains.anko.find
  * Create by roger
  * on 2019/8/7
  */
-class BusRecyclerAdapter(val list: List<GroupData>, val address: CampusAddress) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class BusRecyclerAdapter(val list: List<GroupData>, val address: CampusAddress, val ctx: Context) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private val ITEM_HEADER = 0
     private val ITEM_TWO_CHILD = 1
     private val ITEM_COMMON = 2
-
     private var mExpandedPosition = -1
     private var mPreviousExpandedPosition = -1
 
@@ -85,6 +90,13 @@ class BusRecyclerAdapter(val list: List<GroupData>, val address: CampusAddress) 
             is HeaderViewHolder -> {
                 holder.titleView.text = address.title
                 holder.discriptView.text = address.message
+                holder.copy.setOnClickListener {
+                    Toast.makeText(ctx, "已复制", Toast.LENGTH_SHORT).show()
+                    val clip: ClipboardManager = ctx.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+                    val clipData: ClipData = ClipData.newPlainText("address", holder.discriptView.text)
+
+                    clip.primaryClip = clipData
+                }
             }
         }
     }
@@ -103,7 +115,7 @@ class BusRecyclerAdapter(val list: List<GroupData>, val address: CampusAddress) 
     class HeaderViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val titleView: TextView = view.find(R.id.tv_school_name)
         val discriptView: TextView = view.find(R.id.tv_school_address)
-
+        val copy: TextView = view.find(R.id.tv_copy)
         companion object {
             fun from(parent: ViewGroup): HeaderViewHolder {
                 val layoutInflater = LayoutInflater.from(parent.context)

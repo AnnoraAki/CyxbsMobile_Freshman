@@ -1,14 +1,17 @@
 package com.mredrock.cyxbs.freshman.view.activity
 
+import android.content.Context
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
+import androidx.viewpager.widget.ViewPager
 import com.google.android.material.tabs.TabLayout
 import com.mredrock.cyxbs.common.ui.BaseActivity
 import com.mredrock.cyxbs.common.utils.LogUtils
 import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.util.listener.FreshManOnTabSelectedListener
+import com.mredrock.cyxbs.freshman.view.adapter.CampusMapPagerAdapter
 import com.mredrock.cyxbs.freshman.view.fragment.RouteFragment
 import com.mredrock.cyxbs.freshman.view.fragment.SceneryFragment
 import kotlinx.android.synthetic.main.freshman_activity_online_communication.*
@@ -22,9 +25,7 @@ import org.jetbrains.anko.tableLayout
  */
 class CampusMapActivity : BaseActivity() {
     private lateinit var tabLayout: TabLayout
-    private var routeFragment: RouteFragment? = null
-    private var sceneryFragment: SceneryFragment? = null
-    private var position: Int = 0
+    private lateinit var viewPager: ViewPager
     override val isFragmentActivity: Boolean
         get() = true
 
@@ -33,8 +34,8 @@ class CampusMapActivity : BaseActivity() {
         setContentView(R.layout.freshman_activity_campus_map)
         initToolbar()
         tabLayout = find(R.id.tl_campus_map_activity)
-        initData(savedInstanceState)
-        showFragment(0)
+        viewPager = find(R.id.vp_campus_map)
+        initViewPager()
     }
 
 
@@ -45,49 +46,15 @@ class CampusMapActivity : BaseActivity() {
         )
     }
 
-    private fun showFragment(index: Int) {
-        val ft = supportFragmentManager.beginTransaction()
-        position = index
-        hideFragment(ft)
-        when (index) {
-            0 -> {
-                LogUtils.d("CampusMap", "showFragment():" + index)
-                if (routeFragment == null) {
-                    routeFragment = RouteFragment()
-                    ft.add(R.id.fl_campus_map_container, routeFragment!!, RouteFragment::class.java.name)
-                } else {
-                    ft.show(routeFragment!!)
-                }
-            }
-            1 -> {
-                if (sceneryFragment == null) {
-                    sceneryFragment = SceneryFragment()
-                    ft.add(R.id.fl_campus_map_container, sceneryFragment!!, SceneryFragment::class.java.name)
-                } else {
-                    ft.show(sceneryFragment!!)
-                }
-            }
-            else -> throw Exception("不支持")
-        }
-        ft.commit()
-    }
-
-    private fun hideFragment(ft: FragmentTransaction) {
-        routeFragment?.let { ft.hide(it) }
-        sceneryFragment?.let { ft.hide(it) }
-    }
-
-    private fun initData(savedInstanceState: Bundle?) {
-        tabLayout.addOnTabSelectedListener(object : FreshManOnTabSelectedListener() {
-            override fun doOnTabSelected(p0: TabLayout.Tab) {
-                vp_online_communication.currentItem = p0.position
-            }
-
-            override fun onTabSelected(p0: TabLayout.Tab?) {
-                p0?.let { showFragment(it.position) }
-            }
-        })
-        tabLayout.getTabAt(0)?.select()
-
+    private fun initViewPager() {
+        val adapter = CampusMapPagerAdapter(supportFragmentManager)
+        viewPager.adapter = adapter
+        tabLayout.setupWithViewPager(viewPager)
+        //未统一
+//        tabLayout.addOnTabSelectedListener(object : FreshManOnTabSelectedListener() {
+//            override fun doOnTabSelected(p0: TabLayout.Tab) {
+//                vp_online_communication?.currentItem = p0.position
+//            }
+//        })
     }
 }
