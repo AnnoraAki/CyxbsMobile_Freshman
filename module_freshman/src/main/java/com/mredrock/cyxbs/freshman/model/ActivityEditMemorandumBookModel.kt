@@ -35,10 +35,9 @@ class ActivityEditMemorandumBookModel : BaseModel(), IActivityEditMemorandumBook
                 .map {
                     for (name in it) {
                         MemorandumManager.remove(name)
-                        println("REMOVE")
                     }
                 }
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({}, { println(it)})
+                .safeSubscribeBy { callback() }
     }
 }

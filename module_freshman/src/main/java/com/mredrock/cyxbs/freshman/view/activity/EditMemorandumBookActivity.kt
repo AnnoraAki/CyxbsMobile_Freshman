@@ -1,6 +1,7 @@
 package com.mredrock.cyxbs.freshman.view.activity
 
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mredrock.cyxbs.freshman.R
@@ -54,14 +55,26 @@ class EditMemorandumBookActivity :
         freshman_toolbar_title.text = resources.getString(
                 R.string.freshman_add_enrollment_requiremnets_edit)
 
-        freshman_toolbar_text_right.text = resources.getString(R.string.freshman_edit_memorandum_book_delete)
+        freshman_toolbar_text_right.text = resources.getString(
+                R.string.freshman_edit_memorandum_book_delete)
         freshman_toolbar_text_right.setOnClickListener {
             presenter?.deleteMemorandumBook(mSelectedMemorandumBookItem)
-            mSelectedMemorandumBookItem.clear()
-            freshman_toolbar_text_right.text = resources.getString(R.string.freshman_edit_memorandum_book_delete)
+            freshman_toolbar_text_right.text = resources.getString(
+                    R.string.freshman_edit_memorandum_book_delete)
         }
 
-        freshman_toolbar_text_left.text = resources.getString(R.string.freshman_edit_memorandum_book_cancel)
+        freshman_toolbar_text_left.text = resources.getString(
+                R.string.freshman_edit_memorandum_book_cancel)
+        freshman_toolbar_text_left.setOnClickListener {
+            if (mSelectedMemorandumBookItem.isNotEmpty()) {
+                mSelectedMemorandumBookItem.clear()
+                freshman_toolbar_text_right.text = resources.getString(
+                        R.string.freshman_edit_memorandum_book_delete)
+            } else {
+                setResult(Activity.RESULT_OK)
+                finish()
+            }
+        }
     }
 
     override fun getViewToAttach() = this
@@ -70,6 +83,7 @@ class EditMemorandumBookActivity :
 
     override fun deleteSuccess() {
         presenter?.getMemorandumBook()
+        mSelectedMemorandumBookItem.clear()
     }
 
     override fun showMemorandumBook(memorandumBook: List<ParseBean>) {
@@ -93,5 +107,10 @@ class EditMemorandumBookActivity :
         if (mSelectedMemorandumBookItem.isNotEmpty()) count = "(${mSelectedMemorandumBookItem.size})"
         freshman_toolbar_text_right.text =
                 "${resources.getString(R.string.freshman_edit_memorandum_book_delete)}$count"
+    }
+
+    override fun onBackPressed() {
+        setResult(Activity.RESULT_OK)
+        finish()
     }
 }

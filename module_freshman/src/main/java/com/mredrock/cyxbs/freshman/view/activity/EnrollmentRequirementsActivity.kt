@@ -60,13 +60,13 @@ class EnrollmentRequirementsActivity :
         freshman_toolbar_text_right.setOnClickListener {
             val intent = Intent(this@EnrollmentRequirementsActivity,
                     EditMemorandumBookActivity::class.java)
-            startActivity(intent)
+            startActivityForResult(intent, 1)
         }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         when (requestCode) {
-            0 -> if (resultCode == Activity.RESULT_OK) presenter?.getEnrollmentRequirements()
+            0, 1 -> if (resultCode == Activity.RESULT_OK) presenter?.getEnrollmentRequirements()
         }
     }
 

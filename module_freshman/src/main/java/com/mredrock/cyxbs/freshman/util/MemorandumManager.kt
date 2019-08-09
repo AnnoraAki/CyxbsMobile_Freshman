@@ -52,7 +52,7 @@ object MemorandumManager {
     }
 
     fun remove(name: String) {
-        val sql = "DELETE FROM $TABLE_MEMORANDUM_BOOK WHERE $FIELD_MEMORANDUM_BOOK_STATUS='$name';"
+        val sql = "DELETE FROM $TABLE_MEMORANDUM_BOOK WHERE $FIELD_MEMORANDUM_BOOK_CONTENT='$name';"
         database.execSQL(sql)
     }
 

@@ -48,19 +48,20 @@ class EditMemorandumBookAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>(
             holder.mDescription.gone()
             holder.mSwitch.gone()
             holder.mName.text = memorandumBook.name
+            memorandumBook.status = STATUS_FALSE_CUSTOM
             val status = memorandumBook.status
             when (status) {
-                STATUS_TRUE_CUSTOM -> {
+                STATUS_FALSE_CUSTOM -> {
                     holder.mTag.setImageResource(
                             R.drawable.freshman_recycle_item_enrollment_requirements_todo)
                 }
-                STATUS_FALSE_CUSTOM -> {
+                STATUS_TRUE_CUSTOM -> {
                     holder.mTag.setImageResource(
                             R.drawable.freshman_recycle_item_edit_memorandum_book_selected)
                 }
             }
             holder.itemView.setOnClickListener {
-                if (status == STATUS_FALSE_CUSTOM) {
+                if (status == STATUS_TRUE_CUSTOM) {
                     EventBus.getDefault().post(MemorandumBookItemUnSelectedEvent(memorandumBook.name))
                 } else {
                     EventBus.getDefault().post(MemorandumBookItemSelectedEvent(memorandumBook.name))
