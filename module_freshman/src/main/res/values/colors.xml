@@ -66,4 +66,15 @@
     <color name="freshman_recycle_item_campus_guidelines_place_text_color">#B3000000</color>
     <color name="freshman_recycle_item_campus_guidelines_description_text_color">#A6000000</color>
     <color name="freshman_no_research_result_hint_text_color">#FF0000</color>
+    <color name="freshman_add_memorandum_book_hint_text_color">#777777</color>
+    <color name="freshman_add_memorandum_book_input_hint_text_color">#b6b6b6</color>
+    <color name="freshman_add_memorandum_book_input_bg_color">#99FFFFFF</color>
+    <color name="freshman_add_memorandum_book_input_border_color">#bfceff</color>
+    <color name="freshman_toolbar_text_color">#ffffff</color>
+    <color name="freshman_recycle_item_enrollment_requirements_title_text_color">#999999</color>
+    <color name="freshman_recycle_item_enrollment_requirements_item_name_text_color">#333333</color>
+    <color name="freshman_recycle_item_enrollment_requirements_item_description_text_color">#666666</color>
+    <color name="freshman_recycle_item_enrollment_requirements_item_name_done_text_color">#bfbfbd</color>
+    <color name="freshman_recycle_item_enrollment_requirements_item_bg_color">#99FFFFFF</color>
+    <color name="freshman_recycle_item_enrollment_requirements_item_border_color">#bfceff</color>
 </resources>

@@ -1,12 +1,12 @@
 package com.mredrock.cyxbs.freshman.model
 
 import android.annotation.SuppressLint
+import com.mredrock.cyxbs.common.network.ApiGenerator
 import com.mredrock.cyxbs.common.utils.extensions.safeSubscribeBy
 import com.mredrock.cyxbs.freshman.base.BaseModel
 import com.mredrock.cyxbs.freshman.bean.FellowTownsmanGroupText
 import com.mredrock.cyxbs.freshman.interfaces.model.IFragmentFellowTownsmanGroupModel
 import com.mredrock.cyxbs.freshman.interfaces.network.FellowTownsmanGroupService
-import com.mredrock.cyxbs.freshman.util.network.createService
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
@@ -17,7 +17,7 @@ import io.reactivex.schedulers.Schedulers
 class FragmentFellowTownsmanGroupModel : BaseModel(), IFragmentFellowTownsmanGroupModel {
     @SuppressLint("CheckResult")
     override fun searchFellowTownsmanGroup(province: String, callback: (List<FellowTownsmanGroupText>) -> Unit) {
-        val service = createService(FellowTownsmanGroupService::class.java)
+        val service = ApiGenerator.getApiService(FellowTownsmanGroupService::class.java)
         service.search(province)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -26,7 +26,7 @@ class FragmentFellowTownsmanGroupModel : BaseModel(), IFragmentFellowTownsmanGro
 
     @SuppressLint("CheckResult")
     override fun requestFellowTownsmanGroup(callback: (List<FellowTownsmanGroupText>) -> Unit) {
-        val service = createService(FellowTownsmanGroupService::class.java)
+        val service = ApiGenerator.getApiService(FellowTownsmanGroupService::class.java)
         service.requestFellowTownsmanGroupService()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())

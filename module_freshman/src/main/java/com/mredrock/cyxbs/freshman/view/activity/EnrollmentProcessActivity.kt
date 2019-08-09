@@ -41,8 +41,6 @@ class EnrollmentProcessActivity : BaseActivity<IActivityEnrollmentProcessView,
         mAdapter = EnrollmentProcessAdapter()
         rv_enrollment_process.adapter = mAdapter
         rv_enrollment_process.layoutManager = LinearLayoutManager(this)
-        rv_enrollment_process.itemAnimator?.changeDuration = 2000
-        rv_enrollment_process.itemAnimator?.moveDuration = 2000
         view_enrollment_process.gone()
     }
 

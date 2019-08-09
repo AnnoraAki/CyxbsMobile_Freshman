@@ -1,4 +1,4 @@
-package com.mredrock.cyxbs.freshman.presenter
+package com.mredrock.cyxbs.freshman.view.adapter
 
 import android.view.LayoutInflater
 import android.view.View

@@ -4,8 +4,6 @@ import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.animation.Animation
-import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -15,7 +13,6 @@ import com.mredrock.cyxbs.common.utils.extensions.visible
 import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.bean.EnrollmentProcessText
 import com.mredrock.cyxbs.freshman.config.API_BASE_IMG_URL
-import com.mredrock.cyxbs.freshman.config.API_BASE_URL
 
 /**
  * Create by yuanbing
@@ -26,6 +23,7 @@ class EnrollmentProcessAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>()
     private val header = 0
     private val item = 1
     private var mCurrentOpenedItemIndex = -1
+    private var mPreviousOpenedItemIndex = -1
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return if (viewType == header) {
@@ -62,7 +60,6 @@ class EnrollmentProcessAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>()
     private fun bindItem(holder: ItemEnrollmentProcessViewHolder, position: Int) {
         val itemText = mEnrollmentProcess[position]
         fun open() {
-            mCurrentOpenedItemIndex = position
             holder.mShowDetail.setImageResource(R.drawable.freshman_recycle_item_open)
             holder.mDetail.visible()
             if (itemText.photo.isBlank()) {
@@ -81,20 +78,22 @@ class EnrollmentProcessAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>()
         holder.mDetail.text = itemText.detail
         holder.mPhoto.setImageFromUrl("$API_BASE_IMG_URL${itemText.photo}")
         if (itemText.detail.isNotBlank()) close()
-        if (mCurrentOpenedItemIndex != position) {
+        if (mPreviousOpenedItemIndex == position) {
             close()
-        } else {
+        }
+        if (mCurrentOpenedItemIndex == position) {
             open()
         }
         holder.itemView.setOnClickListener {
             if (mCurrentOpenedItemIndex == position) {
+                mPreviousOpenedItemIndex = position
                 mCurrentOpenedItemIndex = -1
-                close()
             } else {
+                mPreviousOpenedItemIndex = mCurrentOpenedItemIndex
                 mCurrentOpenedItemIndex = position
-                open()
             }
-            notifyDataSetChanged()
+            notifyItemChanged(mPreviousOpenedItemIndex)
+            notifyItemChanged(position)
         }
     }
 

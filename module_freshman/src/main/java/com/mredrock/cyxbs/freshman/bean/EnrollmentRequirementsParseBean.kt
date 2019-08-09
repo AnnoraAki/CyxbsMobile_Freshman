@@ -6,7 +6,13 @@ import com.mredrock.cyxbs.freshman.interfaces.ParseBean
  * Create by yuanbing
  * on 2019/8/8
  */
-data class EnrollmentRequirementsParseBean(val beans: List<ParseBean>)
+const val STATUS_FALSE_CUSTOM = -1
+
+const val STATUS_TRUE_CUSTOM = 1
+
+const val STATUS_FALSE_MUST = -2
+
+const val STATUS_TRUE_MUST = 2
 
 data class EnrollmentRequirementsTitleBean(
         val title: String
@@ -14,5 +20,6 @@ data class EnrollmentRequirementsTitleBean(
 
 data class EnrollmentRequirementsItemBean(
         val name: String,
-        val detail: String
+        val detail: String,
+        var status: Int
 ) : ParseBean

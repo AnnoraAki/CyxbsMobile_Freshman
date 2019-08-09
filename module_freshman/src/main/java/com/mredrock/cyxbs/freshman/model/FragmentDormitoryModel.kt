@@ -1,11 +1,11 @@
 package com.mredrock.cyxbs.freshman.model
 
+import com.mredrock.cyxbs.common.network.ApiGenerator
 import com.mredrock.cyxbs.common.utils.extensions.safeSubscribeBy
 import com.mredrock.cyxbs.freshman.base.BaseModel
 import com.mredrock.cyxbs.freshman.bean.DormitoryAndCanteenMessage
 import com.mredrock.cyxbs.freshman.interfaces.model.IFragmentDormitoryModel
 import com.mredrock.cyxbs.freshman.interfaces.network.DormitoryAndCanteenService
-import com.mredrock.cyxbs.freshman.util.network.createService
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
@@ -35,7 +35,7 @@ class FragmentDormitoryModel : BaseModel(), IFragmentDormitoryModel {
         callback(listOf("明荔苑", "明荔苑", "明荔苑", "明荔苑"))
         return
 
-        val service = createService(DormitoryAndCanteenService::class.java)
+        val service = ApiGenerator.getApiService(DormitoryAndCanteenService::class.java)
         service.requestDormitoryAndCanteen()
                 .subscribeOn(Schedulers.io())
                 .observeOn(Schedulers.io())

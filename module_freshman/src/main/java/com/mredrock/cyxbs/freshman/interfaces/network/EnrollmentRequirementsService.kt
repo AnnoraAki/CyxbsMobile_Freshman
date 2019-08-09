@@ -11,5 +11,5 @@ import retrofit2.http.GET
  */
 interface EnrollmentRequirementsService {
     @GET(API_ENROLLMENT_REQUIREMENTS)
-    fun requestEnrollmentRequirments(): Observable<EnrollmentRequirementsBean>
+    fun requestEnrollmentRequirements(): Observable<EnrollmentRequirementsBean>
 }

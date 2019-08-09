@@ -24,7 +24,7 @@
         </activity>
         <activity android:name=".view.activity.DataDisclosureActivity" />
         <activity android:name=".view.activity.CampusGuidelinesActivity" />
-        <activity android:name=".view.activity.EntranceRequirementsActivity" />
+        <activity android:name=".view.activity.EnrollmentRequirementsActivity" />
         <activity android:name=".view.activity.EnrollmentProcessActivity" />
         <activity
             android:name=".view.activity.CampusMapActivity"
@@ -46,6 +46,8 @@
             android:theme="@style/Theme.AppCompat.DayNight.Dialog.Alert.MyDialog"/>
         <activity android:name=".view.activity.ChooseSaveQrActivity"
             android:theme="@style/Theme.AppCompat.DayNight.Dialog.Alert.MyChooseDialog"/>
+        <activity android:name=".view.activity.AddMemorandumBookActivity" />
+        <activity android:name=".view.activity.EditMemorandumBookActivity" />
     </application>
 
 </manifest>

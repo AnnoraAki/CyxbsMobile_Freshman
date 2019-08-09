@@ -61,5 +61,13 @@
     <string name="freshman_no_search_result">暂时没有你想要的群号</string>
     <string name="freshman_choose_save_qr_save">保存</string>
     <string name="freshman_choose_save_qr_cancel">取消</string>
+    <string name="freshman_add_memorandum_book_hint">添加备忘物品</string>
+    <string name="freshman_add_memorandum_book_input_hint">输入不多于15个字</string>
+    <string name="freshman_add_memorandum_book_toolbar_cancel">取消</string>
+    <string name="freshman_add_memorandum_toolbar_title">备忘录</string>
+    <string name="freshman_add_memorandum_book_save">保存</string>
+    <string name="freshman_add_enrollment_requiremnets_edit">编辑</string>
+    <string name="freshman_edit_memorandum_book_delete">删除</string>
+    <string name="freshman_edit_memorandum_book_cancel">取消</string>
 
 </resources>

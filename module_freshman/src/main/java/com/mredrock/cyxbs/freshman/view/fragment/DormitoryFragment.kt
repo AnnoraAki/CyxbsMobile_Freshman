@@ -11,7 +11,7 @@ import com.mredrock.cyxbs.freshman.bean.DormitoryAndCanteenMessage
 import com.mredrock.cyxbs.freshman.interfaces.model.IFragmentDormitoryModel
 import com.mredrock.cyxbs.freshman.interfaces.presenter.IFragmentDormitoryPresenter
 import com.mredrock.cyxbs.freshman.interfaces.view.IFragmentDormitoryView
-import com.mredrock.cyxbs.freshman.presenter.DormitoryAndCanteenAdapter
+import com.mredrock.cyxbs.freshman.view.adapter.DormitoryAndCanteenAdapter
 import com.mredrock.cyxbs.freshman.presenter.FragmentDormitoryPresenter
 
 /**
