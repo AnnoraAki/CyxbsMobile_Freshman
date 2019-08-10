@@ -4,6 +4,7 @@ import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
 import android.media.Image
+import android.text.Html
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,8 +12,10 @@ import android.widget.ImageView
 import android.widget.RelativeLayout
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.text.HtmlCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.mredrock.cyxbs.common.BaseApp
+import com.mredrock.cyxbs.common.utils.LogUtils
 import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.bean.BusRoute
 import com.mredrock.cyxbs.freshman.bean.CampusAddress
@@ -20,6 +23,7 @@ import com.mredrock.cyxbs.freshman.bean.GroupData
 import com.mredrock.cyxbs.freshman.bean.Route
 import kotlinx.android.synthetic.main.freshman_recycle_item_bus_common.view.*
 import org.jetbrains.anko.find
+import java.lang.StringBuilder
 
 /**
  * Create by roger
@@ -51,9 +55,25 @@ class BusRecyclerAdapter(val list: List<Route>, val address: CampusAddress, val 
         val listPos = position - 1
         when (holder) {
             is CommonViewHolder -> {
-
+                //字符串分割
+                val str = list[listPos].routes[0]
+                val arr = str.split("→")
+                val stringBuilder = StringBuilder()
+                for (i in arr.withIndex()) {
+                    if (i.index == 0 || i.index == (arr.size - 1)) {
+                        stringBuilder.append("<font color='#b573ff'>").append(i.value).append("</font>")
+                    } else {
+                        stringBuilder.append(i.value)
+                    }
+                    if (i.index != arr.size - 1) {
+                        stringBuilder.append("→")
+                    }
+                }
+                LogUtils.d("roger", arr.toString())
                 holder.titleView.text = list[listPos].name
-                holder.discriptView.text = list[listPos].routes[0]
+                holder.discriptView.text = HtmlCompat.fromHtml(stringBuilder.toString(), HtmlCompat.FROM_HTML_MODE_LEGACY)
+
+
                 val isExpanded = position == mExpandedPosition
                 holder.discriptView.visibility = if (isExpanded) View.VISIBLE else View.GONE
                 if (isExpanded) mPreviousExpandedPosition = position
@@ -70,9 +90,35 @@ class BusRecyclerAdapter(val list: List<Route>, val address: CampusAddress, val 
                 }
             }
             is TwoChildViewHolder -> {
+                //字体变色
+                for (i in 1..2) {
+                    val str = list[listPos].routes[i - 1]
+                    val arr = str.split("→")
+                    val stringBuilder = StringBuilder()
+                    for (i in arr.withIndex()) {
+                        if (i.index == 0 || i.index == (arr.size - 1)) {
+                            stringBuilder.append("<font color='#b573ff'>").append(i.value).append("</font>")
+                        } else {
+                            stringBuilder.append(i.value)
+                        }
+                        if (i.index != arr.size - 1) {
+                            stringBuilder.append("→")
+                        }
+                    }
+                    if (i == 1) {
+                        holder.discriptView1.text = HtmlCompat.fromHtml(stringBuilder.toString(), HtmlCompat.FROM_HTML_MODE_LEGACY)
+                    } else {
+                        holder.discriptView2.text = HtmlCompat.fromHtml(stringBuilder.toString(), HtmlCompat.FROM_HTML_MODE_LEGACY)
+
+                    }
+                }
+
+
+
+
+
                 holder.titleView.text = list[listPos].name
-                holder.discriptView1.text = list[listPos].routes[0]
-                holder.discriptView2.text = list[listPos].routes[1]
+
 
                 val isExpanded = position == mExpandedPosition
                 holder.rv.visibility = if (isExpanded) View.VISIBLE else View.GONE

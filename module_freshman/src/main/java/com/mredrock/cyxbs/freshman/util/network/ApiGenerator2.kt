@@ -2,7 +2,7 @@ package com.mredrock.cyxbs.freshman.util.network
 
 import com.mredrock.cyxbs.common.network.converter.QualifiedTypeConverterFactory
 import com.mredrock.cyxbs.freshman.BuildConfig
-import com.mredrock.cyxbs.freshman.config.API_BASE_URL2
+import com.mredrock.cyxbs.freshman.config.API_BASE_URL
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -24,7 +24,7 @@ object ApiGenerator2 {
     init {
         okHttpClient = configureOkHttp(OkHttpClient.Builder())
         retrofit = Retrofit.Builder()
-                .baseUrl(API_BASE_URL2)
+                .baseUrl(API_BASE_URL)
                 .client(okHttpClient)
                 .addConverterFactory(QualifiedTypeConverterFactory(GsonConverterFactory.create(), SimpleXmlConverterFactory.create()))
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())

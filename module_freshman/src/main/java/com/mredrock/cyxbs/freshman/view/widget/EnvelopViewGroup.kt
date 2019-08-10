@@ -15,7 +15,9 @@ class EnvelopViewGroup : ViewGroup {
     private val radiusWidth = dp2px(70)
     private val radiusHeight = dp2px(25)
 
-    private val duration: Long = 2500
+    private val duration: Long = 1500
+
+    private val secDuration: Long = 2000
 
     constructor(ctx: Context): this(ctx, null) {
 
@@ -30,7 +32,7 @@ class EnvelopViewGroup : ViewGroup {
         val cCount = childCount
         var cWidth = 0
         var cHeight = 0
-        var cParams: MarginLayoutParams? = null
+//        var cParams: MarginLayoutParams? = null
 
         for (i  in 0 until cCount) {
             val childView = getChildAt(i)
@@ -43,13 +45,27 @@ class EnvelopViewGroup : ViewGroup {
             var cr = 0
             var cb = 0
             when (i) {
-                0 -> {
-                    cl = 0
-                    ct = 0
-                    cr = width
-                    cb = height
+                1 -> {
+                    val mTop = dp2px(40)
+                    val mLR = dp2px(25)
+                    val mBottom = dp2px(110)
+                    val marginWidth = width - mLR * 2
+                    val marginHeight = height - mBottom - mTop
+                    val mRatio = marginHeight.toDouble() / marginWidth
+                    val cRatio = 430.toDouble() / 270
+                    if (mRatio > cRatio) {
+                        cl = mLR
+                        cr = width - mLR
+                        ct = mTop
+                        cb = (mTop + cRatio * marginWidth).toInt()
+                    } else {
+                        ct = mTop
+                        cb = height - mBottom
+                        cl = width / 2 - (marginHeight / cRatio).toInt() / 2
+                        cr = width - cl
+                    }
                 }
-                1, 2 -> {
+                0, 2 -> {
                     cl = centerX - radiusWidth
                     ct = centerY - radiusHeight
                     cr = centerX + radiusWidth
@@ -118,15 +134,16 @@ class EnvelopViewGroup : ViewGroup {
             var cb = 0
             when (i) {
                 0 -> {
-                    childView.animate().alpha(1F).setDuration(duration).setStartDelay(3000).start()
-                }
-                1 -> {
                     val ratioX = width / cWidth.toDouble()
                     val ratioY = height / cHeight.toDouble()
                     childView.animate().scaleX(ratioX.toFloat()).scaleY(ratioY.toFloat()).setDuration(duration).start()
-                    childView.animate().alpha(0F).setDuration(500).start()
 
                 }
+
+                1 -> {
+                    childView.animate().alpha(1F).setDuration(secDuration).setStartDelay(duration).start()
+                }
+
 
                 2 -> {
                     val ratioX = width / cWidth.toDouble()
@@ -167,7 +184,7 @@ class EnvelopViewGroup : ViewGroup {
                     childView.animate().translationX((width - cr).toFloat()).translationY((height - cb).toFloat()).setDuration(duration).start()
                 }
                 7 -> {
-                    childView.animate().alpha(1F).setDuration(duration).setStartDelay(3000).start()
+                    childView.animate().alpha(1F).setDuration(secDuration).setStartDelay(duration).start()
                 }
 
 

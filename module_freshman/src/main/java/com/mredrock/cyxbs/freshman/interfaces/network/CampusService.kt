@@ -10,6 +10,6 @@ import retrofit2.http.GET
  */
 interface CampusService {
 
-    @GET("/zsqy/json/5")
+    @GET("zsqy/json/5")
     fun getRoutes() : Observable<BusRoute>
 }

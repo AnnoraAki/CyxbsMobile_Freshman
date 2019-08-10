@@ -63,10 +63,10 @@ class MainActivity : BaseActivity() {
             }
         })
         rv.adapter = adapter
-        val shared = context.sharedPreferences("HasEnvelop")
-        if (!shared.getBoolean("envelop", false)) {
+//        val shared = context.sharedPreferences("HasEnvelop")
+//        if (!shared.getBoolean("envelop", false)) {
             showDialog()
-        }
+//        }
 
 
     }

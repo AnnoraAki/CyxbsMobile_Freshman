@@ -50,11 +50,9 @@ class CampusMapActivity : BaseActivity() {
         val adapter = CampusMapPagerAdapter(supportFragmentManager)
         viewPager.adapter = adapter
         tabLayout.setupWithViewPager(viewPager)
-        //未统一
-//        tabLayout.addOnTabSelectedListener(object : FreshManOnTabSelectedListener() {
-//            override fun doOnTabSelected(p0: TabLayout.Tab) {
-//                vp_online_communication?.currentItem = p0.position
-//            }
-//        })
+        tabLayout.addOnTabSelectedListener(object : FreshManOnTabSelectedListener() {
+            override fun doOnTabSelected(p0: TabLayout.Tab) {
+            }
+        })
     }
 }

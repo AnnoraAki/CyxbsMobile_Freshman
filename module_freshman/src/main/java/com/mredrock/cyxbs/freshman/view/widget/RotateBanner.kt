@@ -1,6 +1,7 @@
 package com.mredrock.cyxbs.freshman.view.widget
 
 import android.animation.ObjectAnimator
+import android.animation.TimeInterpolator
 import android.animation.ValueAnimator
 import android.content.Context
 import android.util.AttributeSet
@@ -50,15 +51,15 @@ class RotateBanner : ViewGroup {
                     cb = height
                 }
                 1 -> {
-                    cl = (width / 2.1).toInt()
-                    ct = (height / 3.4).toInt()
+                    cl = (width / 2.07).toInt()
+                    ct = (height / 3.6).toInt()
 
                     cr = cl + cWidth
                     cb = ct + cHeight
                 }
                 2 -> {
-                    cl = (width / 1.28).toInt()
-                    ct = (height / 2.41).toInt()
+                    cl = (width / 1.29).toInt()
+                    ct = (height / 2.36).toInt()
                     cr = cl + cWidth
                     cb = ct + cHeight
                 }

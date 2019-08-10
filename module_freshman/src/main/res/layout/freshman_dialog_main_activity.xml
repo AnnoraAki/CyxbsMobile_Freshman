@@ -10,19 +10,20 @@
         android:id="@+id/envelop_effect"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
-        <ImageView
-            android:src="@drawable/freshman_dialog_envelop_word"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scaleType="fitXY"
-            android:alpha="0" />
-
         <ImageView
             android:layout_width="140dp"
             android:layout_height="50dp"
             android:scaleType="fitXY"
             android:src="@drawable/freshman_dialog_envelop_background" />
+
+        <ImageView
+            android:src="@drawable/freshman_dialog_envelop_word"
+            android:layout_width="271dp"
+            android:layout_height="424dp"
+            android:scaleType="fitXY"
+            android:alpha="0" />
+
+
 
         <ImageView
             android:id="@+id/envelop_iv"

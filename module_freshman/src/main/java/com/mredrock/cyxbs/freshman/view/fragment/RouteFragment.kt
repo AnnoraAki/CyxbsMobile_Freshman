@@ -1,15 +1,12 @@
 package com.mredrock.cyxbs.freshman.view.fragment
 
-import android.content.Context
 import android.os.Bundle
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.mredrock.cyxbs.common.utils.LogUtils
 import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.base.BaseFragment
 import com.mredrock.cyxbs.freshman.bean.CampusAddress
-import com.mredrock.cyxbs.freshman.bean.GroupData
 import com.mredrock.cyxbs.freshman.bean.Route
 import com.mredrock.cyxbs.freshman.interfaces.model.IFragmentRouteModel
 import com.mredrock.cyxbs.freshman.interfaces.presenter.IFragmentRoutePresenter
@@ -27,23 +24,6 @@ class RouteFragment :
     private lateinit var recyclerView: RecyclerView
 
     override fun setRoute(routeList: List<Route>, address: CampusAddress) {
-//        val list: MutableList<GroupData> = mutableListOf()
-//        for (value in routeList!!) {
-//
-//            var flag = 0
-//            for ((index2, value2) in list.withIndex()) {
-//                if (value2.title == value.name) {
-//                    list[index2].list.add(value.)
-//                    flag = 1
-//                    break;
-//                }
-//            }
-//            val data = GroupData(value.name, mutableListOf(value.route))
-//            if (flag == 0) {
-//                list.add(data)
-//            }
-//        }
-        LogUtils.d("roger", routeList.toString() + address.toString())
         recyclerView.adapter = BusRecyclerAdapter(routeList, address, this.activity!!)
 
 

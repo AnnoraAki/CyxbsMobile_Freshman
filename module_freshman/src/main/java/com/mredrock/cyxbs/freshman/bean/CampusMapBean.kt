@@ -15,7 +15,6 @@ data class CampusAddress(
 
 data class Route(
         val name: String,
-
         @SerializedName("route")
         val routes: List<String>
 )
@@ -28,7 +27,6 @@ data class RecommendRoute(
 //接口返回的数据bean类
 data class BusRoute(
         var code: Int,
-        var info: String? = null,
         var text_1: CampusAddress? = null,
         var text_2: RecommendRoute? = null
-) : Serializable
+) : RedrockApiStatus()
