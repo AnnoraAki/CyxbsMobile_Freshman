@@ -14,6 +14,7 @@ import com.mredrock.cyxbs.freshman.util.listener.FreshmanOnMainTabSelectedListen
 import com.mredrock.cyxbs.freshman.view.adapter.CampusGuidelinesPagerAdapter
 import com.mredrock.cyxbs.freshman.view.fragment.CampusGuidelinesFragment
 import com.mredrock.cyxbs.freshman.view.fragment.DataDisclosureFragment
+import com.mredrock.cyxbs.freshman.view.fragment.ExpressFragment
 import kotlinx.android.synthetic.main.freshman_activity_campus_guidelines.*
 
 /**
@@ -70,6 +71,7 @@ class CampusGuidelinesActivity :
         val fragments = listOf(
                 CampusGuidelinesFragment(dormitoryAndCanteenText[0]),
                 CampusGuidelinesFragment(dormitoryAndCanteenText[1]),
+                ExpressFragment(),
                 DataDisclosureFragment()
         )
         mAdapter.refreshData(fragments)
