@@ -69,5 +69,6 @@
     <string name="freshman_add_enrollment_requiremnets_edit">编辑</string>
     <string name="freshman_edit_memorandum_book_delete">删除</string>
     <string name="freshman_edit_memorandum_book_cancel">取消</string>
+    <string name="freshman_edit_memorandum_book_add_hint">还未添加内容，点击我添加备忘录清单</string>
 
 </resources>

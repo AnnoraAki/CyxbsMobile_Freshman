@@ -95,7 +95,7 @@ object MemorandumManager {
         doMust(name, STATUS_FALSE_MUST)
     }
 
-    fun doMust(name: String, status: Int = STATUS_FALSE_MUST) {
+    fun doMust(name: String, status: Int = STATUS_TRUE_MUST) {
         BaseApp.context.sharedPreferences(XML_ENROLLMENT_REQUIREMENTS).editor {
             putInt(name, status)
         }

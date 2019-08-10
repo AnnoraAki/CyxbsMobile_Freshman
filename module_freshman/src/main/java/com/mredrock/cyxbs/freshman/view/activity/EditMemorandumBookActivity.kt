@@ -2,6 +2,7 @@ package com.mredrock.cyxbs.freshman.view.activity
 
 import android.annotation.SuppressLint
 import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mredrock.cyxbs.freshman.R
@@ -43,7 +44,7 @@ class EditMemorandumBookActivity :
 
     private fun initView() {
         rv_edit_memorandum_book.layoutManager = LinearLayoutManager(this)
-        mAdapter = EditMemorandumBookAdapter()
+        mAdapter = EditMemorandumBookAdapter(this)
         rv_edit_memorandum_book.adapter = mAdapter
     }
 
@@ -112,5 +113,11 @@ class EditMemorandumBookActivity :
     override fun onBackPressed() {
         setResult(Activity.RESULT_OK)
         finish()
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        when (requestCode) {
+            0 -> if (resultCode == Activity.RESULT_OK) presenter?.getMemorandumBook()
+        }
     }
 }
