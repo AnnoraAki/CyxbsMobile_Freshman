@@ -3,10 +3,12 @@ package com.mredrock.cyxbs.freshman.view.activity
 import android.graphics.Typeface
 import android.os.Bundle
 import android.view.View
+import android.view.ViewGroup
 import android.widget.TextView
 import com.google.android.material.tabs.TabLayout
 import com.mredrock.cyxbs.common.ui.BaseActivity
 import com.mredrock.cyxbs.freshman.R
+import com.mredrock.cyxbs.freshman.util.listener.FreshManOnTabSelectedListener
 import kotlinx.android.synthetic.main.freshman_activity_campus_guidelines.*
 import org.jetbrains.anko.textColor
 
@@ -29,17 +31,13 @@ class CampusGuidelinesActivity : BaseActivity() {
 
     private fun initTabLayout() {
         tl_campus_guidelines.addOnTabSelectedListener(
-                object : TabLayout.BaseOnTabSelectedListener<TabLayout.Tab>{
-                    override fun onTabReselected(p0: TabLayout.Tab?) {  }
-
-                    override fun onTabUnselected(p0: TabLayout.Tab?) {  }
-
-                    override fun onTabSelected(p0: TabLayout.Tab?) {
-                        if (p0 == null) return
+                object : FreshManOnTabSelectedListener() {
+                    override fun doOnTabSelected(p0: TabLayout.Tab) {
                         vp_campus_guidelines.currentItem = p0.position
                     }
                 }
         )
+        tl_campus_guidelines.getTabAt(0)?.select()
     }
 
     private fun initToolbar() {

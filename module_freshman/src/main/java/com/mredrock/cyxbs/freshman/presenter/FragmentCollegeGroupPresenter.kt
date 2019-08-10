@@ -12,8 +12,8 @@ import com.mredrock.cyxbs.freshman.model.FragmentCollegeGroupModel
  */
 class FragmentCollegeGroupPresenter: BasePresenter<IFragmentCollegeGroupView, IFragmentCollegeGroupModel>(),
         IFragmentCollegeGroupPresenter {
-    override fun search() {
-        model?.searchCollegeGroup { view?.showSearchResult(it) }
+    override fun search(college: String) {
+        model?.searchCollegeGroup(college) { view?.showSearchResult(it) }
     }
 
     override fun attachModel() = FragmentCollegeGroupModel()

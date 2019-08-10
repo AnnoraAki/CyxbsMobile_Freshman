@@ -38,6 +38,8 @@ class SearchResultCollegeGroupAdapter : RecyclerView.Adapter<SearchResultCollege
         mCollegeGroupText = collegeGroupText
         notifyDataSetChanged()
     }
+
+    fun mostMatch() = if (mCollegeGroupText.isNotEmpty()) mCollegeGroupText[0].name else ""
 }
 
 class SearchResultCollegeGroupViewHolder(view: View) : RecyclerView.ViewHolder(view) {

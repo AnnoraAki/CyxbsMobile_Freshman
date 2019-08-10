@@ -52,13 +52,13 @@ class PieChart @JvmOverloads constructor(
     private var mOX = 0f
     private var mOY = 0f
 
-    // Data
+    // EnrollmentRequirementsData
     private var mFirstGraphDataTextX = 0f
     private var mFirstGraphDataTextY = 0f
     private var mSecondGraphDataTextX = 0f
     private var mSecondGraphDataTextY = 0f
 
-    // Text
+    // DormitoryAndCanteenText
     var mTitleText = "传媒艺术学院男女比例"
     var mFirstItemText = "男"
     var mSecondItemText = "女"
@@ -85,8 +85,8 @@ class PieChart @JvmOverloads constructor(
     private lateinit var mSecondGraphDataTextPaint: Paint
     private lateinit var mItemTextPaint: Paint
 
-    var mFirstGraphWeight = 0.5f
-    var mSecondGraphWeight = 0.5f
+    var mFirstGraphWeight = 0.90f
+    var mSecondGraphWeight = 0.10f
 
     private var mFirstAnimationCurrentProgress = 0f
     private var mSecondAnimationCurrentProgress = 0f
@@ -122,11 +122,13 @@ class PieChart @JvmOverloads constructor(
 
     private fun drawGraphData(canvas: Canvas?) {
         mFirstGraphDataText = String.format("%.1f", (mFirstGraphWeight * mFirstAnimationCurrentProgress * 100)) + "%"
-        mSecondGraphDataText = String.format("%.1f", (mSecondGraphWeight * mSecondAnimationCurrentProgress * 100)) + "%"
         canvas?.drawText(mFirstGraphDataText, mFirstGraphDataTextX, mFirstGraphDataTextY,
                 mFirstGraphDataTextPaint)
-        canvas?.drawText(mSecondGraphDataText, mSecondGraphDataTextX, mSecondGraphDataTextY,
-                mSecondGraphDataTextPaint)
+        if (mIsNeedDrawSecondItem) {
+            mSecondGraphDataText = String.format("%.1f", (mSecondGraphWeight * mSecondAnimationCurrentProgress * 100)) + "%"
+            canvas?.drawText(mSecondGraphDataText, mSecondGraphDataTextX, mSecondGraphDataTextY,
+                    mSecondGraphDataTextPaint)
+        }
     }
 
     private fun drawTitle(canvas: Canvas?) {

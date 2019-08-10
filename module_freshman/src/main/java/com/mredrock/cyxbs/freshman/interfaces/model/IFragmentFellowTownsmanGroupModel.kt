@@ -9,5 +9,5 @@ import com.mredrock.cyxbs.freshman.bean.FellowTownsmanGroupText
  */
 interface IFragmentFellowTownsmanGroupModel : IBaseModel {
     fun requestFellowTownsmanGroup(callback: (List<FellowTownsmanGroupText>) -> Unit)
-    fun searchFellowTownsmanGroup(callback: (List<FellowTownsmanGroupText>) -> Unit)
+    fun searchFellowTownsmanGroup(province: String, callback: (List<FellowTownsmanGroupText>) -> Unit)
 }

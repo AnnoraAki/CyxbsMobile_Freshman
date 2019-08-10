@@ -9,5 +9,5 @@ import com.mredrock.cyxbs.freshman.bean.CollegeGroupText
  */
 interface IFragmentCollegeGroupView : IBaseView {
     fun showCollegeGroup(collegeGroup: List<CollegeGroupText>)
-    fun showSearchResult(collegeFroup: List<CollegeGroupText>)
+    fun showSearchResult(collegeGroup: List<CollegeGroupText>)
 }

@@ -2,8 +2,6 @@ package com.mredrock.cyxbs.freshman.view.activity
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
-import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.mredrock.cyxbs.common.ui.BaseActivity
@@ -29,7 +27,7 @@ class MainActivity : BaseActivity() {
                 when (position) {
 
                     1 -> {
-                        val intent = Intent(this@MainActivity, EntranceRequirementsActivity::class.java)
+                        val intent = Intent(this@MainActivity, EnrollmentRequirementsActivity::class.java)
                         startActivity(intent)
                     }
                     2 -> {
@@ -41,7 +39,7 @@ class MainActivity : BaseActivity() {
                         startActivity(intent)
                     }
                     4 -> {
-                        val intent = Intent(this@MainActivity, CampusGuidelinesActivity::class.java)
+                        val intent = Intent(this@MainActivity, DataDisclosureActivity::class.java)
                         startActivity(intent)
                     }
                     5 -> {

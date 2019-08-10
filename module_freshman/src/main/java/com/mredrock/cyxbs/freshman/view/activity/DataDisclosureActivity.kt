@@ -10,6 +10,7 @@ import com.mredrock.cyxbs.common.ui.BaseActivity
 import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.util.event.SexRatoEvent
 import com.mredrock.cyxbs.freshman.util.event.SubjectDataEvent
+import com.mredrock.cyxbs.freshman.util.listener.FreshManOnTabSelectedListener
 import com.mredrock.cyxbs.freshman.view.adapter.DataDisclosurePagerAdapter
 import kotlinx.android.synthetic.main.freshman_activity_data_disclosure.*
 import org.greenrobot.eventbus.EventBus
@@ -56,11 +57,8 @@ class DataDisclosureActivity: BaseActivity() {
 
     private fun initTabLayout() {
         tl_data_disclosure.addOnTabSelectedListener(
-                object : TabLayout.BaseOnTabSelectedListener<TabLayout.Tab>{
-                    override fun onTabReselected(p0: TabLayout.Tab?) {  }
-                    override fun onTabUnselected(p0: TabLayout.Tab?) {  }
-                    override fun onTabSelected(p0: TabLayout.Tab?) {
-                        if (p0 == null) return
+                object : FreshManOnTabSelectedListener() {
+                    override fun doOnTabSelected(p0: TabLayout.Tab) {
                         vp_data_disclosure.currentItem = p0.position
                         when(p0.position) {
                             0 -> {
@@ -75,6 +73,7 @@ class DataDisclosureActivity: BaseActivity() {
                     }
                 }
         )
+        tl_data_disclosure.getTabAt(0)?.select()
     }
 
     private fun initToolbar() {

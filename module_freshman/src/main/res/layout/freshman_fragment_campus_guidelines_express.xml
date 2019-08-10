@@ -8,12 +8,11 @@
     <com.google.android.material.tabs.TabLayout
         android:layout_width="match_parent"
         android:layout_height="30dp"
-        android:id="@+id/tl_campus_guidelines_express"
+        android:id="@+id/tl_campus_guidelines_second_express"
         app:tabMode="scrollable"
-        android:overScrollMode="never"
         app:tabIndicatorHeight="0dp"
-        app:tabSelectedTextColor="@color/freshman_tab_layout_express_tab_selected_text_color"
-        app:tabTextAppearance="@style/TextAppearance.Design.Tab.ExpressTabTextSize">
+        app:tabSelectedTextColor="@color/freshman_tab_layout_second_tab_layout_tab_selected_text_color"
+        app:tabTextAppearance="@style/TextAppearance.Design.Tab.SecondTabTextSize">
     </com.google.android.material.tabs.TabLayout>
 
     <androidx.viewpager.widget.ViewPager

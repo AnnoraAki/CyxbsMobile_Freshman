@@ -14,6 +14,7 @@
         <View
             android:layout_width="2dp"
             android:layout_height="match_parent"
+            android:id="@+id/view_enrollment_process"
             android:background="@color/freshman_recycle_item_enrollment_process_line_bg_color"
             android:layout_marginStart="21dp"/>
 

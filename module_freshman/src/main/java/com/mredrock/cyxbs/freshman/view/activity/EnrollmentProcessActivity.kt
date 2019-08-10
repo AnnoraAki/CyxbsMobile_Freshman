@@ -3,6 +3,8 @@ package com.mredrock.cyxbs.freshman.view.activity
 import android.os.Bundle
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.mredrock.cyxbs.common.utils.extensions.gone
+import com.mredrock.cyxbs.common.utils.extensions.visible
 import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.base.BaseActivity
 import com.mredrock.cyxbs.freshman.bean.EnrollmentProcessText
@@ -39,8 +41,7 @@ class EnrollmentProcessActivity : BaseActivity<IActivityEnrollmentProcessView,
         mAdapter = EnrollmentProcessAdapter()
         rv_enrollment_process.adapter = mAdapter
         rv_enrollment_process.layoutManager = LinearLayoutManager(this)
-        rv_enrollment_process.itemAnimator?.changeDuration = 2000
-        rv_enrollment_process.itemAnimator?.moveDuration = 2000
+        view_enrollment_process.gone()
     }
 
     private fun initToolbar() {
@@ -52,6 +53,7 @@ class EnrollmentProcessActivity : BaseActivity<IActivityEnrollmentProcessView,
 
     override fun showEnrollmentProcess(enrollmentProcess: List<EnrollmentProcessText>) {
         mAdapter.refreshData(enrollmentProcess)
+        view_enrollment_process.visible()
     }
 
     override fun getViewToAttach() = this
