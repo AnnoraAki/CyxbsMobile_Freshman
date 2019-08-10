@@ -11,7 +11,6 @@ import com.mredrock.cyxbs.freshman.interfaces.presenter.IFragmentDataDisclosureP
 import com.mredrock.cyxbs.freshman.interfaces.view.IFragmentDataDisclosureView
 import com.mredrock.cyxbs.freshman.presenter.FragmentDataDisclosurePresenter
 import com.mredrock.cyxbs.freshman.view.adapter.CollegeDataAdapter
-import kotlinx.android.synthetic.main.freshman_fragment_campus_guidelines_data_closure.*
 
 /**
  * Create by yuanbing

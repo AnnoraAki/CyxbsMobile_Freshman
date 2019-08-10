@@ -3,6 +3,7 @@ package com.mredrock.cyxbs.freshman.interfaces.network
 import com.mredrock.cyxbs.freshman.bean.SubjectDataBean
 import com.mredrock.cyxbs.freshman.bean.DormitoryAndCanteenBean
 import com.mredrock.cyxbs.freshman.config.API_COLLEGE_DATA
+import com.mredrock.cyxbs.freshman.config.API_DORMITORY_AND_CANTEEN
 import io.reactivex.Observable
 import retrofit2.http.GET
 
@@ -11,11 +12,11 @@ import retrofit2.http.GET
  * on 2019/8/7
  */
 interface DormitoryAndCanteenService {
-    @GET()
+    @GET(API_DORMITORY_AND_CANTEEN)
     fun requestDormitoryAndCanteen(): Observable<DormitoryAndCanteenBean>
 }
 
 interface SubjectDataService {
     @GET(API_COLLEGE_DATA)
-    fun requestCollegeData(): Observable<SubjectDataBean>
+    fun requestSubjectData(): Observable<SubjectDataBean>
 }

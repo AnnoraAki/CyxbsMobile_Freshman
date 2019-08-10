@@ -2,18 +2,16 @@ package com.mredrock.cyxbs.freshman.view.activity
 
 import android.os.Bundle
 import android.view.View
-import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import com.google.android.material.tabs.TabLayout
 import com.mredrock.cyxbs.common.ui.BaseActivity
 import com.mredrock.cyxbs.common.utils.LogUtils
 import com.mredrock.cyxbs.freshman.R
-import com.mredrock.cyxbs.freshman.util.listener.FreshManOnTabSelectedListener
+import com.mredrock.cyxbs.freshman.util.listener.FreshmanOnMainTabSelectedListener
 import com.mredrock.cyxbs.freshman.view.fragment.RouteFragment
 import com.mredrock.cyxbs.freshman.view.fragment.SceneryFragment
 import kotlinx.android.synthetic.main.freshman_activity_online_communication.*
 import org.jetbrains.anko.find
-import org.jetbrains.anko.tableLayout
 
 /**
  * Create by roger
@@ -78,7 +76,7 @@ class CampusMapActivity : BaseActivity() {
     }
 
     private fun initData(savedInstanceState: Bundle?) {
-        tabLayout.addOnTabSelectedListener(object : FreshManOnTabSelectedListener() {
+        tabLayout.addOnTabSelectedListener(object : FreshmanOnMainTabSelectedListener() {
             override fun doOnTabSelected(p0: TabLayout.Tab) {
                 vp_online_communication.currentItem = p0.position
             }

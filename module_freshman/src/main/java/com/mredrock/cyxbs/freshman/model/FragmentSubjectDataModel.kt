@@ -12,7 +12,7 @@ import io.reactivex.schedulers.Schedulers
 class FragmentSubjectDataModel : BaseModel(), IFragmentSubjectDataModel {
     override fun requestSubjectData(college: String, callback: (List<SubjectDataMessage>) -> Unit) {
         val service = ApiGenerator.getApiService(SubjectDataService::class.java)
-        service.requestCollegeData()
+        service.requestSubjectData()
                 .subscribeOn(Schedulers.io())
                 .observeOn(Schedulers.io())
                 .map { subjectDataBean ->

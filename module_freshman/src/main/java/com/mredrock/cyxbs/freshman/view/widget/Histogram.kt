@@ -1,6 +1,5 @@
 package com.mredrock.cyxbs.freshman.view.widget
 
-import android.animation.Animator
 import android.animation.ValueAnimator
 import android.content.Context
 import android.graphics.*
@@ -10,6 +9,8 @@ import com.mredrock.cyxbs.freshman.R
 import org.jetbrains.anko.dip
 import org.jetbrains.anko.px2dip
 import org.jetbrains.anko.sp
+import kotlin.math.ceil
+import kotlin.math.max
 
 /**
  * Create by yuanbing
@@ -28,6 +29,7 @@ class Histogram @JvmOverloads constructor(
     // 图表整体的相关参数
     private var mWidth = dip(335)
     private var mHeight = dip(298)
+    private var mOffsetY = 0f
 
     // 距离相关参数
     private var mFirstToY = 0f  // 第一条柱形图到Y轴的距离
@@ -118,8 +120,30 @@ class Histogram @JvmOverloads constructor(
     var mTitle = ""
     var mYDescription = "难度系数"
     var mFirstGraphDescription = ""
+        set(value) {
+            field = value
+            val maxLength = max(max(mFirstGraphDescription.length, mSecondGraphDescription.length),
+                    mThirdGraphDescription.length)
+            mOffsetY = ceil(maxLength.toFloat() / mXDescriptionTextCountInLine) * mXDescriptionTextSize
+            requestLayout()
+        }
     var mSecondGraphDescription = ""
+        set(value) {
+            field = value
+            val maxLength = max(max(mFirstGraphDescription.length, mSecondGraphDescription.length),
+                    mThirdGraphDescription.length)
+            mOffsetY = ceil(maxLength.toFloat() / mXDescriptionTextCountInLine) * mXDescriptionTextSize
+            requestLayout()
+        }
     var mThirdGraphDescription = ""
+        set(value) {
+            field = value
+            val maxLength = max(max(mFirstGraphDescription.length, mSecondGraphDescription.length),
+                    mThirdGraphDescription.length)
+            mOffsetY = ceil(maxLength.toFloat() / mXDescriptionTextCountInLine) * mXDescriptionTextSize
+            requestLayout()
+        }
+    private val mXDescriptionTextCountInLine = 4
 
     // 当前播放的动画的进度
     private var mCurrentProgress = 0f
@@ -234,9 +258,27 @@ class Histogram @JvmOverloads constructor(
     }
 
     private fun drawXDescription(canvas: Canvas?) {
-        canvas?.drawText(mFirstGraphDescription, mFirstGraphX, mXDescriptionY, mXDescriptionPaint)
-        canvas?.drawText(mSecondGraphDescription, mSecondGraphX, mXDescriptionY, mXDescriptionPaint)
-        canvas?.drawText(mThirdGraphDescription, mThirdGraphX, mXDescriptionY, mXDescriptionPaint)
+        drawXDescription(canvas, mFirstGraphDescription, mFirstGraphX, mXDescriptionY)
+        drawXDescription(canvas, mSecondGraphDescription, mSecondGraphX, mXDescriptionY)
+        drawXDescription(canvas, mThirdGraphDescription, mThirdGraphX, mXDescriptionY)
+    }
+
+    private fun drawXDescription(canvas: Canvas?, text: String, x: Float, y: Float) {
+        // 横向最大字符数量
+        var subStr = text
+        var i = 0
+        while (subStr.isNotEmpty()) {
+            var drawText: String
+            if (mXDescriptionTextCountInLine < subStr.length) {
+                drawText = subStr.substring(0, mXDescriptionTextCountInLine)
+                subStr = subStr.substring(drawText.length ,subStr.length)
+            } else {
+                drawText = subStr
+                subStr = ""
+            }
+            canvas?.drawText(drawText, x, y + i * mXDescriptionTextSize, mXDescriptionPaint)
+            i++
+        }
     }
 
     private fun drawTitle(canvas: Canvas?) {
@@ -293,6 +335,7 @@ class Histogram @JvmOverloads constructor(
                 heightMeasure = (308f / 335 * widthMeasure).toInt()
             }
         }
+        left = 0
 
         mWidth = widthMeasure.toFloat()
         mHeight = heightMeasure.toFloat()
@@ -300,7 +343,7 @@ class Histogram @JvmOverloads constructor(
         initPoint()
         initAnimation()
 
-        setMeasuredDimension(mWidth.toInt(), mHeight.toInt())
+        setMeasuredDimension(mWidth.toInt(), (mHeight + mOffsetY).toInt())
     }
 
     private fun initPaint() {
@@ -315,7 +358,6 @@ class Histogram @JvmOverloads constructor(
         mTitlePaint.textAlign = Paint.Align.LEFT
         mTitlePaint.textSize = mTitleTextSize
         mTitlePaint.color = mTitleTextColor
-        mTitlePaint.isFakeBoldText = true
 
         mYDescriptionPaint = Paint()
         mYDescriptionPaint.isAntiAlias = true
@@ -326,7 +368,7 @@ class Histogram @JvmOverloads constructor(
         mXDescriptionPaint.isAntiAlias = true
         mXDescriptionPaint.color = mXDescriptionTextColor
         mXDescriptionPaint.textSize = mXDescriptionTextSize
-        mXDescriptionPaint.textAlign = Paint.Align.CENTER   
+        mXDescriptionPaint.textAlign = Paint.Align.CENTER
 
         mFirstGraphPaint = Paint()
         mFirstGraphPaint.isAntiAlias = true
@@ -359,6 +401,9 @@ class Histogram @JvmOverloads constructor(
     private fun initPoint() {
         mOX = left + scaleXDip(54)
         mOY = top + scaleYDip(249)
+        println(left)
+        println("$mOX, $mOY")
+
 
         mYLength = scaleYDip(173)
 

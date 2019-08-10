@@ -11,7 +11,7 @@ import io.reactivex.schedulers.Schedulers
 class FragmentDataDisclosureModel : BaseModel(), IFragmentDataDisclosureModel {
     override fun requestCollegeData(callback: (List<String>) -> Unit) {
         val service = ApiGenerator.getApiService(SubjectDataService::class.java)
-        service.requestCollegeData()
+        service.requestSubjectData()
                 .subscribeOn(Schedulers.io())
                 .observeOn(Schedulers.io())
                 .map { collegeDataBean -> collegeDataBean.text.asSequence().map { it.name } }
