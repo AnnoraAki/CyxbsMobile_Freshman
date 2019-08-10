@@ -65,9 +65,9 @@ class Histogram @JvmOverloads constructor(
     private var mDecorationWidth = 0f
 
     // 三个条形图分别的权重
-    var mFirstGraphWeight = 0.8f
-    var mSecondGraphWeight = 0.5f
-    var mThirdGraphWeight = 0.9f
+    var mFirstGraphWeight = 0f
+    var mSecondGraphWeight = 0f
+    var mThirdGraphWeight = 0f
 
     private var mFirstData = ""
     private var mSecondData = ""
@@ -115,8 +115,8 @@ class Histogram @JvmOverloads constructor(
     private lateinit var mDecorationPaint: Paint
 
     // 文本
-    var mTitle = "2018-2019部分学科挂科率"
-    var mYDescription = "挂科率前三"
+    var mTitle = ""
+    var mYDescription = "难度系数"
     var mFirstGraphDescription = ""
     var mSecondGraphDescription = ""
     var mThirdGraphDescription = ""
@@ -130,18 +130,18 @@ class Histogram @JvmOverloads constructor(
 
     init {
         val typeArray = context.obtainStyledAttributes(attr, R.styleable.Histogram)
-        mTitle = typeArray.getString(R.styleable.Histogram_title) ?: "2018-2019部分学科挂科率"
+        mTitle = typeArray.getString(R.styleable.Histogram_title) ?: ""
         mTitleTextColor = typeArray.getColor(R.styleable.Histogram_titleTextColor, Color.BLACK)
-        mYDescription = typeArray.getString(R.styleable.Histogram_descriptionY) ?: "挂科率前三"
+        mYDescription = typeArray.getString(R.styleable.Histogram_descriptionY) ?: "难度系数"
         mYDescriptionTextColor = typeArray.getColor(R.styleable.Histogram_descriptionTextColorY, Color.BLACK)
         mXDescriptionTextColor = typeArray.getColor(R.styleable.Histogram_descriptionTextColorX, Color.BLACK)
         mDataTextColor = typeArray.getColor(R.styleable.Histogram_dataTextColor, Color.BLACK)
         mFirstGraphColor = typeArray.getColor(R.styleable.Histogram_firstGraphColor, Color.BLACK)
         mSecondGraphColor = typeArray.getColor(R.styleable.Histogram_secondGraphColor, Color.BLACK)
         mThirdGraphColor = typeArray.getColor(R.styleable.Histogram_thirdGraphColor, Color.BLACK)
-        mFirstGraphDescription = typeArray.getString(R.styleable.Histogram_firstDescriptionX) ?: "高等数学"
-        mSecondGraphDescription = typeArray.getString(R.styleable.Histogram_secondDescriptionX) ?: "大学物理"
-        mThirdGraphDescription = typeArray.getString(R.styleable.Histogram_thirdDescriptionX) ?: "离散数学"
+        mFirstGraphDescription = typeArray.getString(R.styleable.Histogram_firstDescriptionX) ?: ""
+        mSecondGraphDescription = typeArray.getString(R.styleable.Histogram_secondDescriptionX) ?: ""
+        mThirdGraphDescription = typeArray.getString(R.styleable.Histogram_thirdDescriptionX) ?: ""
         mDecorationColor = typeArray.getColor(R.styleable.Histogram_decorationColor, Color.BLACK)
         mXYColor = typeArray.getColor(R.styleable.Histogram_xYColor, Color.BLACK)
         mTitleTextSize = typeArray.getDimension(R.styleable.Histogram_titleTextSize, sp(15))
@@ -326,7 +326,7 @@ class Histogram @JvmOverloads constructor(
         mXDescriptionPaint.isAntiAlias = true
         mXDescriptionPaint.color = mXDescriptionTextColor
         mXDescriptionPaint.textSize = mXDescriptionTextSize
-        mXDescriptionPaint.textAlign = Paint.Align.CENTER
+        mXDescriptionPaint.textAlign = Paint.Align.CENTER   
 
         mFirstGraphPaint = Paint()
         mFirstGraphPaint.isAntiAlias = true

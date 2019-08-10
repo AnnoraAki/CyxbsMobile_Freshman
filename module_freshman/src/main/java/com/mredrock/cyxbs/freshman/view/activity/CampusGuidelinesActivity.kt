@@ -9,6 +9,7 @@ import com.google.android.material.tabs.TabLayout
 import com.mredrock.cyxbs.common.ui.BaseActivity
 import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.util.listener.FreshManOnTabSelectedListener
+import com.mredrock.cyxbs.freshman.view.adapter.CampusGuidelinesPagerAdapter
 import kotlinx.android.synthetic.main.freshman_activity_campus_guidelines.*
 import org.jetbrains.anko.textColor
 
@@ -27,6 +28,11 @@ class CampusGuidelinesActivity : BaseActivity() {
 
         initToolbar()
         initTabLayout()
+        initViewPager()
+    }
+
+    private fun initViewPager() {
+        vp_campus_guidelines.adapter = CampusGuidelinesPagerAdapter(supportFragmentManager)
     }
 
     private fun initTabLayout() {

@@ -15,7 +15,7 @@ import org.greenrobot.eventbus.ThreadMode
  * Create by yuanbing
  * on 2019/8/6
  */
-class SexRatoFragment : BaseFragment() {
+class SexRatoFragment(val college: String) : BaseFragment() {
     private lateinit var mPieChart: PieChart
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
