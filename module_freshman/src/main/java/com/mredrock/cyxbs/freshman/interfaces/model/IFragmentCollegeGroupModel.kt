@@ -9,5 +9,5 @@ import com.mredrock.cyxbs.freshman.bean.CollegeGroupText
  */
 interface IFragmentCollegeGroupModel : IBaseModel {
     fun requestCollegeGroup(callback: (List<CollegeGroupText>) -> Unit)
-    fun searchCollegeGroup(callback: (List<CollegeGroupText>) -> Unit)
+    fun searchCollegeGroup(college: String, callback: (List<CollegeGroupText>) -> Unit)
 }

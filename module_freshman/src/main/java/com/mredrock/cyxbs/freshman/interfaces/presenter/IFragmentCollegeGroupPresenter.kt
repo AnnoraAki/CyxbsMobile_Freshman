@@ -10,5 +10,5 @@ import com.mredrock.cyxbs.freshman.interfaces.view.IFragmentCollegeGroupView
  */
 interface IFragmentCollegeGroupPresenter : IBasePresenter<IFragmentCollegeGroupView, IFragmentCollegeGroupModel> {
     fun getCollegeGroup()
-    fun search()
+    fun search(college: String)
 }

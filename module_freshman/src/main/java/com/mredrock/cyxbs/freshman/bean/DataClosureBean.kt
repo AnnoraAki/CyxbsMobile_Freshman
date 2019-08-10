@@ -1,14 +1,15 @@
 package com.mredrock.cyxbs.freshman.bean
 
+import com.mredrock.cyxbs.common.bean.RedrockApiStatus
+
 /**
  * Create by yuanbing
  * on 2019/8/2
  */
 data class DataClosureBean(
     val code: Int,
-    val info: String,
     val text: List<DataClosureText>
-)
+) : RedrockApiStatus()
 
 data class DataClosureText(
     val message: List<DataClosureMessage>,

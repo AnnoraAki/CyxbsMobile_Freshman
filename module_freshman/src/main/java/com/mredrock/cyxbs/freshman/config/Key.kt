@@ -13,3 +13,8 @@ const val BUNDLE_DATA = INTENT_DATA
 const val INTENT_QR = "qr"
 const val INTENT_MESSAGE = "message"
 
+<<<<<<< HEAD
+=======
+const val API_COLLEGE = "college"
+const val API_PROVINCE = "province"
+>>>>>>> work

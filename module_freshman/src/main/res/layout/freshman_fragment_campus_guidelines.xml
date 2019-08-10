@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    
+    <com.google.android.material.tabs.TabLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:id="@+id/tl_campus_guidelines_second"
+        app:tabMode="scrollable"
+        app:tabIndicatorHeight="0dp"
+        app:tabSelectedTextColor="@color/freshman_tab_layout_second_tab_layout_tab_selected_text_color"
+        app:tabTextAppearance="@style/TextAppearance.Design.Tab.SecondTabTextSize">
+    </com.google.android.material.tabs.TabLayout>
+
+    <com.mredrock.cyxbs.freshman.view.widget.ScrollEnableViewPager
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/scroll_enable_view_pager_campus_guidelines_second"
+        android:layout_below="@id/tl_campus_guidelines_second">
+    </com.mredrock.cyxbs.freshman.view.widget.ScrollEnableViewPager>
+
+</RelativeLayout>

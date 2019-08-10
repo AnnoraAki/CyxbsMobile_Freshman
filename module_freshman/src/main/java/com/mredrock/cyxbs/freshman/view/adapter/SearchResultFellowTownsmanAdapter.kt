@@ -38,6 +38,8 @@ class SearchResultFellowTownsmanAdapter : RecyclerView.Adapter<SearchResultFello
         mFellowTownsmanGroup = fellowTownsmanGroup
         notifyDataSetChanged()
     }
+
+    fun mostMatch() = if (mFellowTownsmanGroup.isNotEmpty()) mFellowTownsmanGroup[0].name else ""
 }
 
 class SearchResultFellowTownsmanViewHolder(view: View) : RecyclerView.ViewHolder(view) {

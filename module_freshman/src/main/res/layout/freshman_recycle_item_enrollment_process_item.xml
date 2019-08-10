@@ -11,12 +11,12 @@
         android:layout_width="14dp"
         android:layout_height="14dp"
         android:src="@drawable/freshman_enrollment_process_icon"
-        android:layout_marginTop="32dp"/>
+        android:layout_marginTop="20dp"/>
 
     <View
         android:layout_width="15dp"
         android:layout_height="2dp"
-        android:layout_marginTop="38dp"
+        android:layout_marginTop="27dp"
         android:background="@color/freshman_recycle_item_enrollment_process_line_bg_color"/>
 
     <RelativeLayout
@@ -30,11 +30,9 @@
             android:layout_height="wrap_content"
             android:id="@+id/tv_recycle_item_enrollment_process_message"
             android:textSize="15sp"
+            android:layout_marginEnd="40dp"
             tools:text="带上行李包裹去到自己对应的宿舍"
-            android:textColor="@color/freshman_recycle_item_enrollment_process_message_text_color"
-            android:layout_marginTop="15dp"
-            android:layout_marginStart="13dp"
-            android:layout_marginBottom="15dp"/>
+            android:textColor="@color/freshman_recycle_item_enrollment_process_message_text_color"/>
         
         <ImageView
             android:layout_width="15dp"
@@ -43,14 +41,14 @@
             android:src="@drawable/freshman_recycle_item_close"
             android:layout_alignParentEnd="true"
             android:layout_marginEnd="17dp"
-            android:layout_marginTop="21dp"/>
+            android:layout_marginTop="6dp"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/tv_recycle_item_enrollment_process_detail"
             android:layout_marginEnd="40dp"
-            android:layout_marginStart="13dp"
+            android:layout_marginTop="15dp"
             android:textSize="14sp"
             android:layout_below="@id/tv_recycle_item_enrollment_process_message"
             tools:text="带上行李包裹去到自己对应的宿舍带上行李包裹去到自己对应的宿舍带上行李包裹去到自己对应的宿舍带上行李包裹去到自己对应的宿舍"/>
@@ -63,7 +61,6 @@
             tools:src="@drawable/freshman_banner_top"
             android:layout_below="@id/tv_recycle_item_enrollment_process_detail"
             android:layout_marginBottom="20dp"
-            android:layout_marginStart="13dp"
             android:layout_marginEnd="40dp"/>
 
     </RelativeLayout>
