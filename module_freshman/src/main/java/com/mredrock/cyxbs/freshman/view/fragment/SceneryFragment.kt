@@ -1,13 +1,10 @@
 package com.mredrock.cyxbs.freshman.view.fragment
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.mredrock.cyxbs.common.component.PhotoViewerActivity
 import com.mredrock.cyxbs.common.component.start
-import com.mredrock.cyxbs.common.utils.LogUtils
 import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.base.BaseFragment
 import com.mredrock.cyxbs.freshman.bean.Photo
@@ -16,8 +13,6 @@ import com.mredrock.cyxbs.freshman.interfaces.model.IFragmentSceneryModel
 import com.mredrock.cyxbs.freshman.interfaces.presenter.IFragmentSceneryPresenter
 import com.mredrock.cyxbs.freshman.interfaces.view.IFragmentSceneryView
 import com.mredrock.cyxbs.freshman.presenter.FragmentSceneryPresenter
-import com.mredrock.cyxbs.freshman.view.activity.PhotoMapActivity
-import com.mredrock.cyxbs.freshman.view.activity.PhotoSceneryActivity
 import com.mredrock.cyxbs.freshman.view.adapter.OnItemClickListener
 import com.mredrock.cyxbs.freshman.view.adapter.SceneryRecyclerViewAdapter
 import org.jetbrains.anko.find

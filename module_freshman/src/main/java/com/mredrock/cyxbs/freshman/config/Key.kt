@@ -12,3 +12,4 @@ const val BUNDLE_DATA = INTENT_DATA
 
 const val INTENT_QR = "qr"
 const val INTENT_MESSAGE = "message"
+

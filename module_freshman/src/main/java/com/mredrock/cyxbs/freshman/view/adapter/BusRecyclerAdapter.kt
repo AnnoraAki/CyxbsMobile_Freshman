@@ -17,6 +17,7 @@ import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.bean.BusRoute
 import com.mredrock.cyxbs.freshman.bean.CampusAddress
 import com.mredrock.cyxbs.freshman.bean.GroupData
+import com.mredrock.cyxbs.freshman.bean.Route
 import kotlinx.android.synthetic.main.freshman_recycle_item_bus_common.view.*
 import org.jetbrains.anko.find
 
@@ -24,7 +25,7 @@ import org.jetbrains.anko.find
  * Create by roger
  * on 2019/8/7
  */
-class BusRecyclerAdapter(val list: List<GroupData>, val address: CampusAddress, val ctx: Context) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class BusRecyclerAdapter(val list: List<Route>, val address: CampusAddress, val ctx: Context) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private val ITEM_HEADER = 0
     private val ITEM_TWO_CHILD = 1
@@ -51,8 +52,8 @@ class BusRecyclerAdapter(val list: List<GroupData>, val address: CampusAddress, 
         when (holder) {
             is CommonViewHolder -> {
 
-                holder.titleView.text = list[listPos].title
-                holder.discriptView.text = list[listPos].list[0]
+                holder.titleView.text = list[listPos].name
+                holder.discriptView.text = list[listPos].routes[0]
                 val isExpanded = position == mExpandedPosition
                 holder.discriptView.visibility = if (isExpanded) View.VISIBLE else View.GONE
                 if (isExpanded) mPreviousExpandedPosition = position
@@ -69,9 +70,9 @@ class BusRecyclerAdapter(val list: List<GroupData>, val address: CampusAddress, 
                 }
             }
             is TwoChildViewHolder -> {
-                holder.titleView.text = list[listPos].title
-                holder.discriptView1.text = list[listPos].list[0]
-                holder.discriptView2.text = list[listPos].list[1]
+                holder.titleView.text = list[listPos].name
+                holder.discriptView1.text = list[listPos].routes[0]
+                holder.discriptView2.text = list[listPos].routes[1]
 
                 val isExpanded = position == mExpandedPosition
                 holder.rv.visibility = if (isExpanded) View.VISIBLE else View.GONE
@@ -105,7 +106,7 @@ class BusRecyclerAdapter(val list: List<GroupData>, val address: CampusAddress, 
         if (position == 0) {
             return ITEM_HEADER
         }
-        if (list[position - 1].list.size > 1) {
+        if (list[position - 1].routes.size > 1) {
             return ITEM_TWO_CHILD
         } else {
             return ITEM_COMMON

@@ -13,6 +13,7 @@ import com.bumptech.glide.RequestManager
 import com.github.chrisbanes.photoview.PhotoView
 import com.mredrock.cyxbs.common.R
 import com.mredrock.cyxbs.common.ui.BaseActivity
+import com.mredrock.cyxbs.common.utils.LogUtils
 import kotlinx.android.synthetic.main.common_activity_photo_viewer.*
 import org.jetbrains.anko.startActivity
 
@@ -41,11 +42,13 @@ open class PhotoViewerActivity : BaseActivity() {
             finish()
             return
         }
+        LogUtils.d("PhotoView", "position = " + curPos + " photos = " + list.toString())
         g = Glide.with(this)
 
         adapter = object : BasePagerAdapter<PhotoView, String>(list) {
             override fun createView(context: Context) = PhotoView(context)
             override fun PhotoView.initView(mData: String, mPos: Int) {
+                LogUtils.d("PhotoView", "here")
                 g.load(mData).thumbnail(0.1f).into(this)
                 setOnClickListener { onPhotoClick(mData, mPos) }
             }
