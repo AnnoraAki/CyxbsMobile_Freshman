@@ -69,7 +69,6 @@ class BusRecyclerAdapter(val list: List<Route>, val address: CampusAddress, val 
                         stringBuilder.append("→")
                     }
                 }
-                LogUtils.d("roger", arr.toString())
                 holder.titleView.text = list[listPos].name
                 holder.discriptView.text = HtmlCompat.fromHtml(stringBuilder.toString(), HtmlCompat.FROM_HTML_MODE_LEGACY)
 

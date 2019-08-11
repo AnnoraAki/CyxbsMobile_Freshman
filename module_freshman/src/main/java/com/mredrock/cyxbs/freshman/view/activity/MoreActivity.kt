@@ -1,17 +1,31 @@
 package com.mredrock.cyxbs.freshman.view.activity
 
+import android.Manifest
+import android.app.Activity
+import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.drawable.BitmapDrawable
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import android.view.Window
+import android.widget.Toast
+import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.mredrock.cyxbs.common.BaseApp
 import com.mredrock.cyxbs.common.ui.BaseActivity
+import com.mredrock.cyxbs.common.utils.encrypt.md5Encoding
+import com.mredrock.cyxbs.common.utils.extensions.doPermissionAction
 import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.view.adapter.MoreAdapter
 import com.mredrock.cyxbs.freshman.view.adapter.OnItemClickListener
 import com.mredrock.cyxbs.freshman.view.fragment.MoreDialogFragment
 import com.mredrock.cyxbs.freshman.view.fragment.MoreDialogListener
 import org.jetbrains.anko.find
+import java.io.File
+import java.io.FileOutputStream
+import java.util.*
 
 
 /**
@@ -20,7 +34,19 @@ import org.jetbrains.anko.find
  */
 class MoreActivity : BaseActivity(), MoreDialogListener {
     override fun onDialogLongClick() {
+        val intent = Intent(this@MoreActivity, ChooseSaveQrActivity::class.java)
+        startActivityForResult(intent, 0)
+    }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        when (requestCode) {
+            0 -> if (resultCode == Activity.RESULT_OK) {
+                doPermissionAction(Manifest.permission.WRITE_EXTERNAL_STORAGE) {
+                    val bitmap = ResourcesCompat.getDrawable(resources, R.drawable.freshman_dialog_qr_code, null) as BitmapDrawable
+                    com.mredrock.cyxbs.freshman.view.widget.saveImage(bitmap.bitmap)
+                }
+            }
+        }
     }
 
     override fun onDialogClick() {
@@ -63,4 +89,6 @@ class MoreActivity : BaseActivity(), MoreDialogListener {
         val dialogFragment = MoreDialogFragment()
         dialogFragment.show(supportFragmentManager, "more_dialog")
     }
+
 }
+
