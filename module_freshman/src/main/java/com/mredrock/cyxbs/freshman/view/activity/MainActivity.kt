@@ -15,6 +15,7 @@ import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.view.adapter.OnItemClickListener
 import com.mredrock.cyxbs.freshman.view.dialog.EnvelopDialog
 import com.mredrock.cyxbs.freshman.view.widget.RotateBanner
+import com.mredrock.cyxbs.freshman.view.widget.bubble.BubbleEffect
 import org.jetbrains.anko.find
 
 class MainActivity : BaseActivity() {
@@ -22,6 +23,8 @@ class MainActivity : BaseActivity() {
     override val isFragmentActivity: Boolean
         get() = false
     private lateinit var banner: RotateBanner
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
