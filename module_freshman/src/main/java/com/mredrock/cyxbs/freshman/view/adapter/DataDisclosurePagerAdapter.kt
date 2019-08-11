@@ -10,10 +10,10 @@ import com.mredrock.cyxbs.freshman.view.fragment.SubjectDataFragment
  * Create by yuanbing
  * on 2019/8/5
  */
-class DataDisclosurePagerAdapter(manager: FragmentManager) : FragmentPagerAdapter(manager) {
-    private val mPages = listOf(
-            SubjectDataFragment(),
-            SexRatoFragment()
+class DataDisclosurePagerAdapter(college: String, manager: FragmentManager) : FragmentPagerAdapter(manager) {
+    private val mPages: List<Fragment> = listOf(
+            SubjectDataFragment(college),
+            SexRatoFragment(college)
     )
 
     override fun getItem(position: Int) = mPages[position]

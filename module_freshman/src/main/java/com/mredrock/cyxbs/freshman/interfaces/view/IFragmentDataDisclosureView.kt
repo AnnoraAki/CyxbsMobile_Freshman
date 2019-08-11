@@ -4,8 +4,8 @@ import com.mredrock.cyxbs.freshman.base.IBaseView
 
 /**
  * Create by yuanbing
- * on 2019/8/7
+ * on 2019/08/10
  */
-interface IFragmentDataDisclosure : IBaseView {
-    fun showCollege()
+interface IFragmentDataDisclosureView : IBaseView {
+    fun showCollege(college: List<String>)
 }

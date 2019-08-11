@@ -1,10 +1,8 @@
 package com.mredrock.cyxbs.freshman.view.activity
 
 import android.app.Activity
-import android.content.Intent
 import android.os.Bundle
 import android.view.Gravity
-import android.view.ViewGroup
 import com.mredrock.cyxbs.common.ui.BaseActivity
 import com.mredrock.cyxbs.freshman.R
 import kotlinx.android.synthetic.main.freshman_activity_choose_save_qr.*

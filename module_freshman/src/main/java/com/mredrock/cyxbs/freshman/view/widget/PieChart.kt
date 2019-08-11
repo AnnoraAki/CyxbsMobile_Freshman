@@ -85,8 +85,16 @@ class PieChart @JvmOverloads constructor(
     private lateinit var mSecondGraphDataTextPaint: Paint
     private lateinit var mItemTextPaint: Paint
 
-    var mFirstGraphWeight = 0.90f
-    var mSecondGraphWeight = 0.10f
+    var mFirstGraphWeight = 0f
+        set(value) {
+            field = value
+            requestLayout()
+        }
+    var mSecondGraphWeight = 0f
+        set(value) {
+            field = value
+            requestLayout()
+        }
 
     private var mFirstAnimationCurrentProgress = 0f
     private var mSecondAnimationCurrentProgress = 0f
@@ -168,7 +176,7 @@ class PieChart @JvmOverloads constructor(
         if (mIsNeedDrawSecondItem) {
             canvas?.drawArc(mGraphLeft, mGraphTop, mGraphRight, mGraphBottom,
                     mFirstGraphWeight * 360 + 90,
-                    mSecondGraphWeight * mSecondAnimationCurrentProgress * 360, false, mBorderPaint)
+                    mSecondGraphWeight * mSecondAnimationCurrentProgress * 360, true, mBorderPaint)
         }
     }
 
@@ -245,7 +253,6 @@ class PieChart @JvmOverloads constructor(
         mTitleTextPaint = Paint()
         mTitleTextPaint.isAntiAlias = true
         mTitleTextPaint.textSize = mTitleTextSize
-        mTitleTextPaint.isFakeBoldText = true
         mTitleTextPaint.color = mTitleTextColor
 
         mItemTextPaint = Paint()

@@ -11,6 +11,7 @@
         android:id="@+id/tl_campus_guidelines_second_express"
         app:tabMode="scrollable"
         app:tabIndicatorHeight="0dp"
+        android:background="@color/freshman_white_color"
         app:tabSelectedTextColor="@color/freshman_tab_layout_second_tab_layout_tab_selected_text_color"
         app:tabTextAppearance="@style/TextAppearance.Design.Tab.SecondTabTextSize">
     </com.google.android.material.tabs.TabLayout>

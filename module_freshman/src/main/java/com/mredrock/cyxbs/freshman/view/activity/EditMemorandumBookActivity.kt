@@ -117,7 +117,7 @@ class EditMemorandumBookActivity :
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         when (requestCode) {
-            0 -> if (resultCode == Activity.RESULT_OK) presenter?.getMemorandumBook()
+            0 -> if (resultCode == Activity.RESULT_OK) presenter?.getMemorandumBook() else finish()
         }
     }
 }

@@ -8,7 +8,7 @@ import com.mredrock.cyxbs.freshman.R
  * Create by yuanbing
  * on 2019/8/7
  */
-abstract class FreshManOnTabSelectedListener : TabLayout.BaseOnTabSelectedListener<TabLayout.Tab> {
+abstract class FreshmanOnMainTabSelectedListener : TabLayout.BaseOnTabSelectedListener<TabLayout.Tab> {
     private var mIsNeedDo = true
     private var mIsUseReSelect = useReSelect()
 
@@ -23,7 +23,7 @@ abstract class FreshManOnTabSelectedListener : TabLayout.BaseOnTabSelectedListen
     override fun onTabSelected(p0: TabLayout.Tab?) {
         if (p0 == null) return
         if (p0.customView == null) {
-            p0.setCustomView(R.layout.freshman_tab_layout_custom_view)
+            p0.setCustomView(R.layout.freshman_main_tab_layout_custom_view)
             val text: TextView = p0.customView!!.findViewById(R.id.tv_tab_layout_custom_view)
             text.text = p0.text
         }
