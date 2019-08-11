@@ -14,9 +14,9 @@
 
     <com.mredrock.cyxbs.freshman.view.widget.RotateBanner
         android:id="@+id/banner"
-        android:layout_alignParentTop="true"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true">
 
         <ImageView
             android:layout_width="wrap_content"
@@ -33,11 +33,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/freshman_banner_right_screw" />
+
         <com.mredrock.cyxbs.freshman.view.widget.bubble.BubbleEffect
+            android:id="@+id/bf_1"
             android:layout_width="100dp"
             android:layout_height="100dp" />
 
         <com.mredrock.cyxbs.freshman.view.widget.bubble.BubbleEffect
+            android:id="@+id/bf_2"
             android:layout_width="100dp"
             android:layout_height="100dp" />
     </com.mredrock.cyxbs.freshman.view.widget.RotateBanner>

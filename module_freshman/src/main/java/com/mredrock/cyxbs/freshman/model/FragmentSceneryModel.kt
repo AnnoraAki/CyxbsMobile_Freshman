@@ -12,6 +12,7 @@ import com.mredrock.cyxbs.freshman.interfaces.model.SceneryCallback
  */
 class FragmentSceneryModel : BaseModel(), IFragmentSceneryModel {
     override fun getData(callback: SceneryCallback) {
+
         val photo = Photo("这是标题ddddddd", "https://data.chinatravel.com/images/focus/water-town/head.jpg")
         val list = listOf<Photo>(photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo)
         val scenery = Scenery("这是大标题", "https://data.chinatravel.com/images/focus/water-town/head.jpg", list)
