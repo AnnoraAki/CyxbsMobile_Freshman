@@ -176,7 +176,7 @@ class PieChart @JvmOverloads constructor(
         if (mIsNeedDrawSecondItem) {
             canvas?.drawArc(mGraphLeft, mGraphTop, mGraphRight, mGraphBottom,
                     mFirstGraphWeight * 360 + 90,
-                    mSecondGraphWeight * mSecondAnimationCurrentProgress * 360, false, mBorderPaint)
+                    mSecondGraphWeight * mSecondAnimationCurrentProgress * 360, true, mBorderPaint)
         }
     }
 
@@ -253,7 +253,6 @@ class PieChart @JvmOverloads constructor(
         mTitleTextPaint = Paint()
         mTitleTextPaint.isAntiAlias = true
         mTitleTextPaint.textSize = mTitleTextSize
-        mTitleTextPaint.isFakeBoldText = true
         mTitleTextPaint.color = mTitleTextColor
 
         mItemTextPaint = Paint()

@@ -41,7 +41,10 @@ class AddMemorandumBookActivity : BaseActivity<IActivityAddMemorandumBookView, I
         freshman_toolbar_title.text = resources.getString(R.string.freshman_add_memorandum_toolbar_title)
 
         freshman_toolbar_text_left.text = resources.getString(R.string.freshman_add_memorandum_book_toolbar_cancel)
-        freshman_toolbar_text_left.setOnClickListener { finish() }
+        freshman_toolbar_text_left.setOnClickListener {
+            setResult(Activity.RESULT_CANCELED)
+            finish()
+        }
 
         freshman_toolbar_text_right.text = getString(R.string.freshman_add_memorandum_book_save)
         freshman_toolbar_text_right.setOnClickListener {
