@@ -15,7 +15,8 @@
             android:theme="@style/AppTheme"
             android:name="com.mredrock.cyxbs.common.BaseApp"
             android:usesCleartextTraffic="true">
-        <activity android:name=".view.activity.MainActivity">
+        <activity android:name=".view.activity.MainActivity"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

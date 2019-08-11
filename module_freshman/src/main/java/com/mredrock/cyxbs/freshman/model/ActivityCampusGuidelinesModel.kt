@@ -1,12 +1,12 @@
 package com.mredrock.cyxbs.freshman.model
 
-import com.mredrock.cyxbs.common.network.ApiGenerator
 import com.mredrock.cyxbs.common.utils.extensions.safeSubscribeBy
 import com.mredrock.cyxbs.freshman.base.BaseModel
 import com.mredrock.cyxbs.freshman.bean.DormitoryAndCanteenText
 import com.mredrock.cyxbs.freshman.config.API_BASE_IMG_URL
 import com.mredrock.cyxbs.freshman.interfaces.model.IActivityCampusGuidelinesModel
 import com.mredrock.cyxbs.freshman.interfaces.network.DormitoryAndCanteenService
+import com.mredrock.cyxbs.freshman.util.network.ApiGenerator
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 

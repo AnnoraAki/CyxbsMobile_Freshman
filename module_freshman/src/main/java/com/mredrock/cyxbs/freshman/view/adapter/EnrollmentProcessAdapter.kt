@@ -13,6 +13,7 @@ import com.mredrock.cyxbs.common.utils.extensions.visible
 import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.bean.EnrollmentProcessText
 import com.mredrock.cyxbs.freshman.config.API_BASE_IMG_URL
+import com.mredrock.cyxbs.freshman.view.activity.showPhotosToMap
 
 /**
  * Create by yuanbing
@@ -78,6 +79,9 @@ class EnrollmentProcessAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>()
         holder.mDetail.text = itemText.detail
 
         holder.mPhoto.setImageFromUrl("$API_BASE_IMG_URL${itemText.photo}")
+        holder.mPhoto.setOnClickListener {
+            showPhotosToMap(holder.itemView.context, listOf(itemText.photo))
+        }
         if (itemText.detail.isNotBlank()) close()
         if (mPreviousOpenedItemIndex == position) {
 

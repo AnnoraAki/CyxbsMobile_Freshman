@@ -5,6 +5,6 @@
     <solid android:color="@color/freshman_white_color"/>
 
     <stroke android:color="@color/freshman_tab_layout_border_color"
-        android:width="1dp"/>
+        android:width="0.5dp"/>
 
 </shape>

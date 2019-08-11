@@ -14,6 +14,7 @@ import com.mredrock.cyxbs.freshman.config.BUNDLE_NAME
 import com.mredrock.cyxbs.freshman.config.INTENT_DATA
 import com.mredrock.cyxbs.freshman.config.INTENT_NAME
 import com.mredrock.cyxbs.freshman.util.event.OnCopyQQNumberSuccessEvent
+import com.mredrock.cyxbs.freshman.util.event.SuccessViewFinishEvent
 import com.mredrock.cyxbs.freshman.view.fragment.CopyQQNumberFragment
 import com.mredrock.cyxbs.freshman.view.fragment.CopyQQNumberSuccessFragment
 import org.greenrobot.eventbus.EventBus
@@ -26,7 +27,7 @@ import org.greenrobot.eventbus.ThreadMode
  */
 class CopyQQNumberActivity : BaseActivity() {
     override val isFragmentActivity: Boolean
-        get() = false
+        get() = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,6 +48,11 @@ class CopyQQNumberActivity : BaseActivity() {
     @Subscribe(threadMode = ThreadMode.MAIN)
     fun onCopyQQNumberSuccess(message: OnCopyQQNumberSuccessEvent) {
         replaceFragment(CopyQQNumberSuccessFragment())
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    fun onFinishHint(event: SuccessViewFinishEvent) {
+        finish()
     }
 
     private fun replaceFragment(fragment: Fragment) {

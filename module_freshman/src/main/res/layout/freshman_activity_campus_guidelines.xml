@@ -11,6 +11,8 @@
     <com.google.android.material.tabs.TabLayout
         android:layout_width="match_parent"
         android:layout_height="49dp"
+        app:tabBackground="@color/freshman_transparent_bg"
+        app:tabRippleColor="@color/freshman_transparent_bg"
         android:id="@+id/tl_campus_guidelines"
         app:tabSelectedTextColor="@color/freshman_tab_selected_color"
         app:tabTextAppearance="@style/TextAppearance.Design.Tab.TabTextSize"
@@ -20,7 +22,7 @@
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="@string/freshman_dormitory"/>
+            android:text="@string/freshman_dormitory" />
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"

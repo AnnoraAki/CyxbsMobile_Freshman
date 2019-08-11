@@ -28,7 +28,6 @@ import com.mredrock.cyxbs.freshman.view.adapter.SearchResultCollegeGroupAdapter
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
 import org.jetbrains.anko.hintTextColor
-import org.jetbrains.anko.support.v4.dip
 
 /**
  * Create by yuanbing
