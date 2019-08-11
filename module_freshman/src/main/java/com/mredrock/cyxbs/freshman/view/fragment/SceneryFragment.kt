@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.mredrock.cyxbs.common.component.start
+import com.mredrock.cyxbs.common.component.showPhotos
 import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.base.BaseFragment
 import com.mredrock.cyxbs.freshman.bean.Photo
@@ -13,6 +13,8 @@ import com.mredrock.cyxbs.freshman.interfaces.model.IFragmentSceneryModel
 import com.mredrock.cyxbs.freshman.interfaces.presenter.IFragmentSceneryPresenter
 import com.mredrock.cyxbs.freshman.interfaces.view.IFragmentSceneryView
 import com.mredrock.cyxbs.freshman.presenter.FragmentSceneryPresenter
+import com.mredrock.cyxbs.freshman.view.activity.showPhotosToMap
+import com.mredrock.cyxbs.freshman.view.activity.showPhotosToScenery
 import com.mredrock.cyxbs.freshman.view.adapter.OnItemClickListener
 import com.mredrock.cyxbs.freshman.view.adapter.SceneryRecyclerViewAdapter
 import org.jetbrains.anko.find
@@ -35,23 +37,13 @@ class SceneryFragment :
             override fun onItemClick(position: Int) {
                 if (position == 0) {
                     val url: String = scenery.photo
-//                    val intent = Intent(activity, PhotoViewerActivity::class.java)
-//                    intent.putExtra("photo", url)
-//                    LogUtils.d("roger", "onItemClick1")
-//                    startActivity(intent)
-                    activity?.let { start(it, listOf(url)) }
+                    activity?.let { showPhotosToMap(it, listOf(url)) }
                 } else {
                     val list2 = ArrayList<String>()
                     for (x in scenery.photos) {
                         list2.add(x.photo)
                     }
-
-//                    val intent = Intent(activity, PhotoViewerActivity::class.java)
-//                    intent.putExtra("position", position - 1)
-//                    intent.putStringArrayListExtra("photos", list2)
-//                    LogUtils.d("roger", "onItemClick1")
-//                    startActivity(intent)
-                    activity?.let { start(it, list2, position -1) }
+                    activity?.let { showPhotosToScenery(it, list2, position -1) }
 
                 }
             }

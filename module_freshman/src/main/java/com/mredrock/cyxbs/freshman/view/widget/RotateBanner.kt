@@ -63,6 +63,19 @@ class RotateBanner : ViewGroup {
                     cr = cl + cWidth
                     cb = ct + cHeight
                 }
+                3 -> {
+                    cl = (width / 5).toInt()
+                    ct = (height / 2.8).toInt()
+                    cr = cl + dp2px(100)
+                    cb = ct + dp2px(100)
+                }
+                4 -> {
+                    cl = (width / 1.8).toInt()
+                    ct = (height / 2.8).toInt()
+                    cr = cl + dp2px(100)
+                    cb = ct + dp2px(100)
+
+                }
 
 
             }
