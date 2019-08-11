@@ -21,7 +21,7 @@ class FragmentRoutePresenter :
     }
 
     override fun onAddressLoad(busRoute: BusRoute) {
-        view?.setRoute(busRoute.text_2.message, busRoute.text_1)
+        view?.setRoute(busRoute.text_2?.message!!, busRoute.text_1!!)
     }
 
     override fun onDataNotAvailable() {

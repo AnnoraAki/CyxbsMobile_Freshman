@@ -76,9 +76,11 @@ class EnrollmentProcessAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>()
         }
         holder.mMessage.text = itemText.title
         holder.mDetail.text = itemText.detail
+
         holder.mPhoto.setImageFromUrl("$API_BASE_IMG_URL${itemText.photo}")
         if (itemText.detail.isNotBlank()) close()
         if (mPreviousOpenedItemIndex == position) {
+
             close()
         }
         if (mCurrentOpenedItemIndex == position) {
