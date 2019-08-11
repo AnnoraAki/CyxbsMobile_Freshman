@@ -35,6 +35,7 @@ class MoreDialogFragment : DialogFragment() {
 
     }
 }
+
 interface MoreDialogListener {
     fun onDialogLongClick()
     fun onDialogClick()
