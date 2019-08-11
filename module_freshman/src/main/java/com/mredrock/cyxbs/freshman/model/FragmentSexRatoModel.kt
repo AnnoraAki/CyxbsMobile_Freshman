@@ -1,10 +1,10 @@
 package com.mredrock.cyxbs.freshman.model
 
 import android.annotation.SuppressLint
-import com.mredrock.cyxbs.common.network.ApiGenerator
 import com.mredrock.cyxbs.freshman.base.BaseModel
 import com.mredrock.cyxbs.freshman.interfaces.model.IFragmentSexRatoModel
 import com.mredrock.cyxbs.freshman.interfaces.network.SexRatoService
+import com.mredrock.cyxbs.freshman.util.network.ApiGenerator
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 

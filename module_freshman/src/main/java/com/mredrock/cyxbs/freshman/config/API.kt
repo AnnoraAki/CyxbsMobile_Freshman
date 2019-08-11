@@ -6,7 +6,7 @@ package com.mredrock.cyxbs.freshman.config
  */
 const val API_BASE_URL = "http://129.28.185.138:9025/"
 
-const val API_BASE_IMG_URL = "zsqy/image/"
+const val API_BASE_IMG_URL = "${API_BASE_URL}zsqy/image/"
 
 const val API_BASE_JSON_URL = "zsqy/json/"
 

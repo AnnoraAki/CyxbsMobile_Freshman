@@ -29,6 +29,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/tv_campus_guidelines_place_photos"
             android:textSize="14sp"
+            android:textStyle="bold"
             android:textColor="@color/freshman_recycle_item_campus_guidelines_place_text_color"
             android:layout_below="@id/banner_campus_guidelines_photos"
             android:layout_marginTop="15dp"

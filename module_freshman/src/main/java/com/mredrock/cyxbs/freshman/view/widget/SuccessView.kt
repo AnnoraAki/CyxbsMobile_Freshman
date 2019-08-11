@@ -63,7 +63,7 @@ class SuccessView @JvmOverloads constructor(
     private var mCircleAnimationDuration = 0L
     private var mGouAnimationDuration = 0L
 
-    private var mOnAnimationFinish: (() -> Unit)? = null
+    var mOnAnimationFinish: (() -> Unit)? = null
 
     init {
         val typedArray = context.obtainStyledAttributes(attr, R.styleable.SuccessView)
@@ -161,6 +161,7 @@ class SuccessView @JvmOverloads constructor(
             override fun onAnimationEnd(p0: Animator?) {
                 mGouAnimationEnd = true
                 invalidate()
+                Thread.sleep(100)
                 mOnAnimationFinish?.let { it() }
             }
             override fun onAnimationCancel(p0: Animator?) {}

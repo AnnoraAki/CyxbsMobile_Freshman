@@ -21,7 +21,7 @@ import org.greenrobot.eventbus.EventBus
  */
 class DataDisclosureActivity: BaseActivity() {
     override val isFragmentActivity: Boolean
-        get() = false
+        get() = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

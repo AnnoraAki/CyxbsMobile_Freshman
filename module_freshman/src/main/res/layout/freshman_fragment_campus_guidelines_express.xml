@@ -8,6 +8,8 @@
     <com.google.android.material.tabs.TabLayout
         android:layout_width="match_parent"
         android:layout_height="30dp"
+        app:tabBackground="@color/freshman_transparent_bg"
+        app:tabRippleColor="@color/freshman_transparent_bg"
         android:id="@+id/tl_campus_guidelines_second_express"
         app:tabMode="scrollable"
         app:tabIndicatorHeight="0dp"

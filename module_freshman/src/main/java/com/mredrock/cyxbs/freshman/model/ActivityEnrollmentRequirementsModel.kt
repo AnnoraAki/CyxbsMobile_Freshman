@@ -1,7 +1,6 @@
 package com.mredrock.cyxbs.freshman.model
 
 import android.annotation.SuppressLint
-import com.mredrock.cyxbs.common.network.ApiGenerator
 import com.mredrock.cyxbs.common.utils.extensions.safeSubscribeBy
 import com.mredrock.cyxbs.freshman.base.BaseModel
 import com.mredrock.cyxbs.freshman.bean.EnrollmentRequirementsItemBean
@@ -10,6 +9,7 @@ import com.mredrock.cyxbs.freshman.interfaces.ParseBean
 import com.mredrock.cyxbs.freshman.interfaces.model.IActivityEnrollmentRequirementsModel
 import com.mredrock.cyxbs.freshman.interfaces.network.EnrollmentRequirementsService
 import com.mredrock.cyxbs.freshman.util.MemorandumManager
+import com.mredrock.cyxbs.freshman.util.network.ApiGenerator
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 

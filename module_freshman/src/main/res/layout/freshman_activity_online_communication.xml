@@ -11,6 +11,8 @@
     <com.google.android.material.tabs.TabLayout
         android:layout_width="match_parent"
         android:layout_height="49dp"
+        app:tabBackground="@color/freshman_transparent_bg"
+        app:tabRippleColor="@color/freshman_transparent_bg"
         android:id="@+id/tl_online_communication"
         app:tabSelectedTextColor="@color/freshman_tab_selected_color"
         app:tabTextAppearance="@style/TextAppearance.Design.Tab.TabTextSize"
