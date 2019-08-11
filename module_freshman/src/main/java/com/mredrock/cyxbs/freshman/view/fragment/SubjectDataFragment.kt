@@ -3,6 +3,7 @@ package com.mredrock.cyxbs.freshman.view.fragment
 import android.os.Bundle
 import android.view.View
 import com.mredrock.cyxbs.common.utils.extensions.gone
+import com.mredrock.cyxbs.common.utils.extensions.visible
 import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.base.BaseFragment
 import com.mredrock.cyxbs.freshman.bean.SubjectDataMessage
@@ -25,7 +26,7 @@ class SubjectDataFragment(val college: String) : BaseFragment<IFragmentSubjectDa
 
     override fun onCreateView(view: View, savedInstanceState: Bundle?) {
         mHistogram = view.findViewById(R.id.histogram_data_disclosure_subject_data)
-
+        mHistogram.gone()
         presenter?.getSubjectData(college)
     }
 
@@ -45,6 +46,7 @@ class SubjectDataFragment(val college: String) : BaseFragment<IFragmentSubjectDa
         mHistogram.mThirdGraphWeight = subjectData[2].data.toFloat()
         mHistogram.mThirdGraphDescription = subjectData[2].subject
 
+        mHistogram.visible()
         mHistogram.mAnimation?.start()
     }
 
