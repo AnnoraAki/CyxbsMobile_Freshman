@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.view.View
 import androidx.viewpager.widget.ViewPager
 import com.google.android.material.tabs.TabLayout
+import com.mredrock.cyxbs.common.utils.extensions.gone
+import com.mredrock.cyxbs.common.utils.extensions.visible
 import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.base.BaseFragment
 import com.mredrock.cyxbs.freshman.bean.ExpressText
@@ -24,6 +26,7 @@ class ExpressFragment :
 
     override fun onCreateView(view: View, savedInstanceState: Bundle?) {
         mTab = view.findViewById(R.id.tl_campus_guidelines_second_express)
+        mTab.gone()
         mViewPager = view.findViewById(R.id.vp_campus_guidelines_express)
         initViewPager()
         presenter?.getExpress()
@@ -38,6 +41,7 @@ class ExpressFragment :
     override fun showExpress(express: List<ExpressText>) {
         mData = express
         initTabLayout()
+        mTab.visible()
         mAdapter.refreshData(List(mData.size) { ExpressDetailFragment(mData[it]) })
     }
 
