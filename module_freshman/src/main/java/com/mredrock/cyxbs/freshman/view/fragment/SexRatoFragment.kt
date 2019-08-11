@@ -4,6 +4,7 @@ package com.mredrock.cyxbs.freshman.view.fragment
 import android.os.Bundle
 import android.view.View
 import com.mredrock.cyxbs.common.utils.extensions.gone
+import com.mredrock.cyxbs.common.utils.extensions.visible
 import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.base.BaseFragment
 import com.mredrock.cyxbs.freshman.bean.SexRatoText
@@ -28,6 +29,7 @@ class SexRatoFragment(val college: String) : BaseFragment<IFragmentSexRatoView,
 
     override fun onCreateView(view: View, savedInstanceState: Bundle?) {
         mPieChart = view.findViewById(R.id.pie_chart_data_disclosure_sex_rato)
+        mPieChart.gone()
         presenter?.getSexRato(college)
     }
 
@@ -42,6 +44,7 @@ class SexRatoFragment(val college: String) : BaseFragment<IFragmentSexRatoView,
         val girl = text.girl.split("%")[0].toFloat() / 100
         mPieChart.mFirstGraphWeight = max(boy, girl)
         mPieChart.mSecondGraphWeight = min(boy, girl)
+        mPieChart.visible()
         mPieChart.mAnimation?.start()
     }
 
