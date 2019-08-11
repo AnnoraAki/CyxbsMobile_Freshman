@@ -2,6 +2,7 @@ package com.mredrock.cyxbs.freshman.view.activity
 
 import android.os.Bundle
 import android.view.View
+import androidx.viewpager.widget.ViewPager
 import com.google.android.material.tabs.TabLayout
 import com.mredrock.cyxbs.common.ui.BaseActivity
 import com.mredrock.cyxbs.freshman.R
@@ -37,6 +38,15 @@ class OnlineCommunicationActivity : BaseActivity() {
     private fun initViewPager() {
         val manager = supportFragmentManager
         vp_online_communication.adapter = OnlineCommunicationPagerAdapter(manager)
+        vp_online_communication.addOnPageChangeListener(
+                object : ViewPager.OnPageChangeListener {
+                    override fun onPageScrollStateChanged(state: Int) {  }
+                    override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {  }
+                    override fun onPageSelected(position: Int) {
+                        tl_online_communication.getTabAt(position)?.select()
+                    }
+                }
+        )
     }
 
     private fun initTabLayout() {
