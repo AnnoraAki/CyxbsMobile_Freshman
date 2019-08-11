@@ -2,6 +2,7 @@ package com.mredrock.cyxbs.freshman.view.fragment
 
 import android.os.Bundle
 import android.view.View
+import com.mredrock.cyxbs.common.utils.extensions.gone
 import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.base.BaseFragment
 import com.mredrock.cyxbs.freshman.bean.SubjectDataMessage
@@ -45,6 +46,10 @@ class SubjectDataFragment(val college: String) : BaseFragment<IFragmentSubjectDa
         mHistogram.mThirdGraphDescription = subjectData[2].subject
 
         mHistogram.mAnimation?.start()
+    }
+
+    override fun getSubJectDataFailed() {
+        mHistogram.gone()
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)

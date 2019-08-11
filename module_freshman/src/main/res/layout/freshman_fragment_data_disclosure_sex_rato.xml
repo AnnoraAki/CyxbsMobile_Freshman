@@ -10,6 +10,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:layout_gravity="center_horizontal"
+        app:titleText="@string/freshman_sex_ratio"
         android:background="@drawable/freshman_page_bg"
         android:layout_marginTop="15dp"
         android:id="@+id/pie_chart_data_disclosure_sex_rato"

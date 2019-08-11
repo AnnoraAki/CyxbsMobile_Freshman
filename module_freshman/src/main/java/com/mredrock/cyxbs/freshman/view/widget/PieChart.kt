@@ -85,8 +85,16 @@ class PieChart @JvmOverloads constructor(
     private lateinit var mSecondGraphDataTextPaint: Paint
     private lateinit var mItemTextPaint: Paint
 
-    var mFirstGraphWeight = 0.90f
-    var mSecondGraphWeight = 0.10f
+    var mFirstGraphWeight = 0f
+        set(value) {
+            field = value
+            requestLayout()
+        }
+    var mSecondGraphWeight = 0f
+        set(value) {
+            field = value
+            requestLayout()
+        }
 
     private var mFirstAnimationCurrentProgress = 0f
     private var mSecondAnimationCurrentProgress = 0f

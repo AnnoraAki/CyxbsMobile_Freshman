@@ -1,5 +1,6 @@
 package com.mredrock.cyxbs.freshman.view.adapter
 
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import com.mredrock.cyxbs.freshman.view.fragment.SexRatoFragment
@@ -10,7 +11,7 @@ import com.mredrock.cyxbs.freshman.view.fragment.SubjectDataFragment
  * on 2019/8/5
  */
 class DataDisclosurePagerAdapter(college: String, manager: FragmentManager) : FragmentPagerAdapter(manager) {
-    private val mPages = listOf(
+    private val mPages: List<Fragment> = listOf(
             SubjectDataFragment(college),
             SexRatoFragment(college)
     )

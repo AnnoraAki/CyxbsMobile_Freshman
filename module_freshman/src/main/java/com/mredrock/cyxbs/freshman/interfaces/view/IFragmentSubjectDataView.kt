@@ -5,4 +5,5 @@ import com.mredrock.cyxbs.freshman.bean.SubjectDataMessage
 
 interface IFragmentSubjectDataView : IBaseView {
     fun showSubjectData(subjectData: List<SubjectDataMessage>)
+    fun getSubJectDataFailed()
 }
