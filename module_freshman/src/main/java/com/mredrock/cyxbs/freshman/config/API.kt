@@ -12,6 +12,7 @@ const val API_BASE_JSON_URL = "${API_BASE_URL}zsqy/json/"
 
 const val API_BASE_SEARCH_URL = "${API_BASE_URL}zsqy/select/"
 
+
 const val API_ONLINE_COMMUNICATION_ONLINE_ACTIVITY = "${API_BASE_JSON_URL}8"
 
 const val API_ENROLLMENT_PROCESS = "${API_BASE_JSON_URL}2"
