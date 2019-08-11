@@ -15,7 +15,7 @@ import java.util.concurrent.TimeUnit
  * Create by roger
  * on 2019/8/10
  */
-object ApiGenerator2 {
+object ApiGenerator {
     private const val DEFAULT_TIME_OUT = 30
 
     private var retrofit: Retrofit

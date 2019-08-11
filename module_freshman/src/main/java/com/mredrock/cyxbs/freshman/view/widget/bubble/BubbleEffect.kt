@@ -3,10 +3,8 @@ package com.mredrock.cyxbs.freshman.view.widget.bubble
 import android.content.Context
 import android.graphics.*
 import android.util.AttributeSet
-import android.util.Log
 import android.view.SurfaceHolder
 import android.view.SurfaceView
-import com.mredrock.cyxbs.common.utils.LogUtils
 import kotlin.math.max
 
 /**
@@ -26,10 +24,12 @@ class BubbleEffect : SurfaceView, SurfaceHolder.Callback, Runnable {
     private var allBubbleCount = 20
     private val addBubbleOnce = 2
     private val addBubbleInterval = 100
-    private val refreshTime = 20
+    private val refreshTime = 40
     private val moveSpeed = 0.9
     private var startTime = System.currentTimeMillis()
     private var mPaintColor = Color.parseColor("#b3dfdb")
+    private lateinit var paint: Paint
+//    private var  pause = false
 
     constructor(ctx: Context) : this(ctx, null) {
 
@@ -43,10 +43,12 @@ class BubbleEffect : SurfaceView, SurfaceHolder.Callback, Runnable {
     }
 
     override fun surfaceChanged(holder: SurfaceHolder?, format: Int, width: Int, height: Int) {
+
     }
 
     override fun surfaceDestroyed(holder: SurfaceHolder?) {
         mIsDrawing = false
+        Thread(this).interrupt()
     }
 
     override fun surfaceCreated(holder: SurfaceHolder?) {
@@ -65,6 +67,7 @@ class BubbleEffect : SurfaceView, SurfaceHolder.Callback, Runnable {
         mSurfaceHolder.addCallback(this)
         setZOrderOnTop(true)
         holder.setFormat(PixelFormat.TRANSPARENT)
+        paint = Paint()
 
     }
 
@@ -85,9 +88,8 @@ class BubbleEffect : SurfaceView, SurfaceHolder.Callback, Runnable {
         mCanvas = mSurfaceHolder.lockCanvas()
         //canvas 清屏
         val paintClear = Paint()
-        paintClear.setXfermode(PorterDuffXfermode(PorterDuff.Mode.CLEAR))
+        paintClear.xfermode = PorterDuffXfermode(PorterDuff.Mode.CLEAR)
         mCanvas?.drawPaint(paintClear)
-
         manageBubble((System.currentTimeMillis() - t) * moveSpeed.toDouble())
 
         mSurfaceHolder.unlockCanvasAndPost(mCanvas)
@@ -107,7 +109,6 @@ class BubbleEffect : SurfaceView, SurfaceHolder.Callback, Runnable {
         for (x in list) {
             drawBubble(mCanvas!!, x, mPaintColor)
         }
-        Log.d("roger", "size = " + list.size)
 
 
 
@@ -123,7 +124,7 @@ class BubbleEffect : SurfaceView, SurfaceHolder.Callback, Runnable {
     }
 
     private fun drawBubble(canvas: Canvas, bubble: Bubble, color: Int) {
-        val paint = Paint()
+        paint = Paint()
         paint.isAntiAlias
         paint.color = color
         paint.style = Paint.Style.STROKE
@@ -139,6 +140,8 @@ class BubbleEffect : SurfaceView, SurfaceHolder.Callback, Runnable {
         val v = context.resources.displayMetrics.density
         return (v * value + 0.5f).toInt()
     }
+
+
 
 }
 
