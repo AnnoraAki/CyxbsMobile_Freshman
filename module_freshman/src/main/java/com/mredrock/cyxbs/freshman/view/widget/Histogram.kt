@@ -1,6 +1,5 @@
 package com.mredrock.cyxbs.freshman.view.widget
 
-import android.animation.Animator
 import android.animation.ValueAnimator
 import android.content.Context
 import android.graphics.*
@@ -10,6 +9,8 @@ import com.mredrock.cyxbs.freshman.R
 import org.jetbrains.anko.dip
 import org.jetbrains.anko.px2dip
 import org.jetbrains.anko.sp
+import kotlin.math.ceil
+import kotlin.math.max
 
 /**
  * Create by yuanbing
@@ -28,6 +29,7 @@ class Histogram @JvmOverloads constructor(
     // 图表整体的相关参数
     private var mWidth = dip(335)
     private var mHeight = dip(298)
+    private var mOffsetY = 0f
 
     // 距离相关参数
     private var mFirstToY = 0f  // 第一条柱形图到Y轴的距离
@@ -65,9 +67,9 @@ class Histogram @JvmOverloads constructor(
     private var mDecorationWidth = 0f
 
     // 三个条形图分别的权重
-    var mFirstGraphWeight = 0.8f
-    var mSecondGraphWeight = 0.5f
-    var mThirdGraphWeight = 0.9f
+    var mFirstGraphWeight = 0f
+    var mSecondGraphWeight = 0f
+    var mThirdGraphWeight = 0f
 
     private var mFirstData = ""
     private var mSecondData = ""
@@ -115,11 +117,33 @@ class Histogram @JvmOverloads constructor(
     private lateinit var mDecorationPaint: Paint
 
     // 文本
-    var mTitle = "2018-2019部分学科挂科率"
-    var mYDescription = "挂科率前三"
+    var mTitle = ""
+    var mYDescription = "难度系数"
     var mFirstGraphDescription = ""
+        set(value) {
+            field = value
+            val maxLength = max(max(mFirstGraphDescription.length, mSecondGraphDescription.length),
+                    mThirdGraphDescription.length)
+            mOffsetY = ceil(maxLength.toFloat() / mXDescriptionTextCountInLine) * mXDescriptionTextSize
+            requestLayout()
+        }
     var mSecondGraphDescription = ""
+        set(value) {
+            field = value
+            val maxLength = max(max(mFirstGraphDescription.length, mSecondGraphDescription.length),
+                    mThirdGraphDescription.length)
+            mOffsetY = ceil(maxLength.toFloat() / mXDescriptionTextCountInLine) * mXDescriptionTextSize
+            requestLayout()
+        }
     var mThirdGraphDescription = ""
+        set(value) {
+            field = value
+            val maxLength = max(max(mFirstGraphDescription.length, mSecondGraphDescription.length),
+                    mThirdGraphDescription.length)
+            mOffsetY = ceil(maxLength.toFloat() / mXDescriptionTextCountInLine) * mXDescriptionTextSize
+            requestLayout()
+        }
+    private val mXDescriptionTextCountInLine = 4
 
     // 当前播放的动画的进度
     private var mCurrentProgress = 0f
@@ -130,18 +154,18 @@ class Histogram @JvmOverloads constructor(
 
     init {
         val typeArray = context.obtainStyledAttributes(attr, R.styleable.Histogram)
-        mTitle = typeArray.getString(R.styleable.Histogram_title) ?: "2018-2019部分学科挂科率"
+        mTitle = typeArray.getString(R.styleable.Histogram_title) ?: ""
         mTitleTextColor = typeArray.getColor(R.styleable.Histogram_titleTextColor, Color.BLACK)
-        mYDescription = typeArray.getString(R.styleable.Histogram_descriptionY) ?: "挂科率前三"
+        mYDescription = typeArray.getString(R.styleable.Histogram_descriptionY) ?: "难度系数"
         mYDescriptionTextColor = typeArray.getColor(R.styleable.Histogram_descriptionTextColorY, Color.BLACK)
         mXDescriptionTextColor = typeArray.getColor(R.styleable.Histogram_descriptionTextColorX, Color.BLACK)
         mDataTextColor = typeArray.getColor(R.styleable.Histogram_dataTextColor, Color.BLACK)
         mFirstGraphColor = typeArray.getColor(R.styleable.Histogram_firstGraphColor, Color.BLACK)
         mSecondGraphColor = typeArray.getColor(R.styleable.Histogram_secondGraphColor, Color.BLACK)
         mThirdGraphColor = typeArray.getColor(R.styleable.Histogram_thirdGraphColor, Color.BLACK)
-        mFirstGraphDescription = typeArray.getString(R.styleable.Histogram_firstDescriptionX) ?: "高等数学"
-        mSecondGraphDescription = typeArray.getString(R.styleable.Histogram_secondDescriptionX) ?: "大学物理"
-        mThirdGraphDescription = typeArray.getString(R.styleable.Histogram_thirdDescriptionX) ?: "离散数学"
+        mFirstGraphDescription = typeArray.getString(R.styleable.Histogram_firstDescriptionX) ?: ""
+        mSecondGraphDescription = typeArray.getString(R.styleable.Histogram_secondDescriptionX) ?: ""
+        mThirdGraphDescription = typeArray.getString(R.styleable.Histogram_thirdDescriptionX) ?: ""
         mDecorationColor = typeArray.getColor(R.styleable.Histogram_decorationColor, Color.BLACK)
         mXYColor = typeArray.getColor(R.styleable.Histogram_xYColor, Color.BLACK)
         mTitleTextSize = typeArray.getDimension(R.styleable.Histogram_titleTextSize, sp(15))
@@ -234,9 +258,27 @@ class Histogram @JvmOverloads constructor(
     }
 
     private fun drawXDescription(canvas: Canvas?) {
-        canvas?.drawText(mFirstGraphDescription, mFirstGraphX, mXDescriptionY, mXDescriptionPaint)
-        canvas?.drawText(mSecondGraphDescription, mSecondGraphX, mXDescriptionY, mXDescriptionPaint)
-        canvas?.drawText(mThirdGraphDescription, mThirdGraphX, mXDescriptionY, mXDescriptionPaint)
+        drawXDescription(canvas, mFirstGraphDescription, mFirstGraphX, mXDescriptionY)
+        drawXDescription(canvas, mSecondGraphDescription, mSecondGraphX, mXDescriptionY)
+        drawXDescription(canvas, mThirdGraphDescription, mThirdGraphX, mXDescriptionY)
+    }
+
+    private fun drawXDescription(canvas: Canvas?, text: String, x: Float, y: Float) {
+        // 横向最大字符数量
+        var subStr = text
+        var i = 0
+        while (subStr.isNotEmpty()) {
+            var drawText: String
+            if (mXDescriptionTextCountInLine < subStr.length) {
+                drawText = subStr.substring(0, mXDescriptionTextCountInLine)
+                subStr = subStr.substring(drawText.length ,subStr.length)
+            } else {
+                drawText = subStr
+                subStr = ""
+            }
+            canvas?.drawText(drawText, x, y + i * mXDescriptionTextSize, mXDescriptionPaint)
+            i++
+        }
     }
 
     private fun drawTitle(canvas: Canvas?) {
@@ -293,6 +335,7 @@ class Histogram @JvmOverloads constructor(
                 heightMeasure = (308f / 335 * widthMeasure).toInt()
             }
         }
+        left = 0
 
         mWidth = widthMeasure.toFloat()
         mHeight = heightMeasure.toFloat()
@@ -300,7 +343,7 @@ class Histogram @JvmOverloads constructor(
         initPoint()
         initAnimation()
 
-        setMeasuredDimension(mWidth.toInt(), mHeight.toInt())
+        setMeasuredDimension(mWidth.toInt(), (mHeight + mOffsetY).toInt())
     }
 
     private fun initPaint() {
@@ -315,7 +358,6 @@ class Histogram @JvmOverloads constructor(
         mTitlePaint.textAlign = Paint.Align.LEFT
         mTitlePaint.textSize = mTitleTextSize
         mTitlePaint.color = mTitleTextColor
-        mTitlePaint.isFakeBoldText = true
 
         mYDescriptionPaint = Paint()
         mYDescriptionPaint.isAntiAlias = true
@@ -359,6 +401,9 @@ class Histogram @JvmOverloads constructor(
     private fun initPoint() {
         mOX = left + scaleXDip(54)
         mOY = top + scaleYDip(249)
+        println(left)
+        println("$mOX, $mOY")
+
 
         mYLength = scaleYDip(173)
 

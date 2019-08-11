@@ -17,3 +17,4 @@ const val INTENT_MESSAGE = "message"
 const val API_COLLEGE = "college"
 const val API_PROVINCE = "province"
 
+const val INTENT_COLLEGE = "college"

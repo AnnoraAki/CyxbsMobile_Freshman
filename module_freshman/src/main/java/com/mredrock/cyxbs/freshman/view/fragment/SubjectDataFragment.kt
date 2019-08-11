@@ -1,11 +1,15 @@
 package com.mredrock.cyxbs.freshman.view.fragment
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import com.mredrock.cyxbs.common.ui.BaseFragment
+import com.mredrock.cyxbs.common.utils.extensions.gone
 import com.mredrock.cyxbs.freshman.R
+import com.mredrock.cyxbs.freshman.base.BaseFragment
+import com.mredrock.cyxbs.freshman.bean.SubjectDataMessage
+import com.mredrock.cyxbs.freshman.interfaces.model.IFragmentSubjectDataModel
+import com.mredrock.cyxbs.freshman.interfaces.presenter.IFragmentSubjectDataPresenter
+import com.mredrock.cyxbs.freshman.interfaces.view.IFragmentSubjectDataView
+import com.mredrock.cyxbs.freshman.presenter.FragmentSubjectDataPresenter
 import com.mredrock.cyxbs.freshman.util.event.SubjectDataEvent
 import com.mredrock.cyxbs.freshman.view.widget.Histogram
 import org.greenrobot.eventbus.Subscribe
@@ -15,13 +19,37 @@ import org.greenrobot.eventbus.ThreadMode
  * Create by yuanbing
  * on 2019/8/5
  */
-class SubjectDataFragment : BaseFragment() {
+class SubjectDataFragment(val college: String) : BaseFragment<IFragmentSubjectDataView,
+        IFragmentSubjectDataPresenter, IFragmentSubjectDataModel>(), IFragmentSubjectDataView {
     private lateinit var mHistogram: Histogram
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view = inflater.inflate(R.layout.freshman_fragment_data_disclosure_subject_data, container, false)
+    override fun onCreateView(view: View, savedInstanceState: Bundle?) {
         mHistogram = view.findViewById(R.id.histogram_data_disclosure_subject_data)
-        return view
+
+        presenter?.getSubjectData(college)
+    }
+
+    override fun getLayoutRes() = R.layout.freshman_fragment_data_disclosure_subject_data
+
+    override fun getViewToAttach() = this
+
+    override fun createPresenter() = FragmentSubjectDataPresenter()
+
+    override fun showSubjectData(subjectData: List<SubjectDataMessage>) {
+        mHistogram.mFirstGraphWeight = subjectData[0].data.toFloat()
+        mHistogram.mFirstGraphDescription = subjectData[0].subject
+
+        mHistogram.mSecondGraphWeight = subjectData[1].data.toFloat()
+        mHistogram.mSecondGraphDescription = subjectData[1].subject
+
+        mHistogram.mThirdGraphWeight = subjectData[2].data.toFloat()
+        mHistogram.mThirdGraphDescription = subjectData[2].subject
+
+        mHistogram.mAnimation?.start()
+    }
+
+    override fun getSubJectDataFailed() {
+        mHistogram.gone()
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)

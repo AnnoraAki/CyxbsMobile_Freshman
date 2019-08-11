@@ -1,20 +1,18 @@
 package com.mredrock.cyxbs.freshman.view.activity
 
-import android.graphics.Typeface
 import android.os.Bundle
 import android.view.View
-import android.widget.TextView
 import androidx.viewpager.widget.ViewPager
 import com.google.android.material.tabs.TabLayout
 import com.mredrock.cyxbs.common.ui.BaseActivity
 import com.mredrock.cyxbs.freshman.R
+import com.mredrock.cyxbs.freshman.config.INTENT_COLLEGE
 import com.mredrock.cyxbs.freshman.util.event.SexRatoEvent
 import com.mredrock.cyxbs.freshman.util.event.SubjectDataEvent
-import com.mredrock.cyxbs.freshman.util.listener.FreshManOnTabSelectedListener
+import com.mredrock.cyxbs.freshman.util.listener.FreshmanOnMainTabSelectedListener
 import com.mredrock.cyxbs.freshman.view.adapter.DataDisclosurePagerAdapter
 import kotlinx.android.synthetic.main.freshman_activity_data_disclosure.*
 import org.greenrobot.eventbus.EventBus
-import org.jetbrains.anko.textColor
 
 /**
  * Create by yuanbing
@@ -35,7 +33,8 @@ class DataDisclosureActivity: BaseActivity() {
     }
 
     private fun initViewPager() {
-        vp_data_disclosure.adapter = DataDisclosurePagerAdapter(supportFragmentManager)
+        vp_data_disclosure.adapter = DataDisclosurePagerAdapter(
+                intent.getStringExtra(INTENT_COLLEGE) ?: "", supportFragmentManager)
         vp_data_disclosure.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
             override fun onPageScrollStateChanged(state: Int) {}
             override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {}
@@ -57,7 +56,7 @@ class DataDisclosureActivity: BaseActivity() {
 
     private fun initTabLayout() {
         tl_data_disclosure.addOnTabSelectedListener(
-                object : FreshManOnTabSelectedListener() {
+                object : FreshmanOnMainTabSelectedListener() {
                     override fun doOnTabSelected(p0: TabLayout.Tab) {
                         vp_data_disclosure.currentItem = p0.position
                         when(p0.position) {

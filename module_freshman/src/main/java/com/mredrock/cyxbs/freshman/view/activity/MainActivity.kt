@@ -48,7 +48,7 @@ class MainActivity : BaseActivity() {
                         startActivity(intent)
                     }
                     4 -> {
-                        val intent = Intent(this@MainActivity, DataDisclosureActivity::class.java)
+                        val intent = Intent(this@MainActivity, CampusGuidelinesActivity::class.java)
                         startActivity(intent)
                     }
                     5 -> {
