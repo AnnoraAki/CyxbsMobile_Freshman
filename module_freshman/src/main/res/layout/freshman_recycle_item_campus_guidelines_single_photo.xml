@@ -39,7 +39,7 @@
         tools:text="关于快递点的描述关于快递点的描述关于快递点的描述关于快递点的描述关于快递点的描述关于快递
         点的描述关于快递点的描述关于快递点的描述关于快递点的描述关于快递点的描述关于快递点的描述关于快递点的
         描述关于快递点的描述关于快递点的描述关于快递点的描述关于快递点的描述关于快递点的描述"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="5dp"
         android:layout_marginStart="17dp"
         android:layout_marginEnd="21dp"
         android:layout_marginBottom="20dp"

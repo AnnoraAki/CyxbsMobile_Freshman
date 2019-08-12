@@ -22,6 +22,7 @@ import com.mredrock.cyxbs.freshman.interfaces.model.IFragmentCollegeGroupModel
 import com.mredrock.cyxbs.freshman.interfaces.presenter.IFragmentCollegeGroupPresenter
 import com.mredrock.cyxbs.freshman.interfaces.view.IFragmentCollegeGroupView
 import com.mredrock.cyxbs.freshman.presenter.FragmentCollegeGroupPresenter
+import com.mredrock.cyxbs.freshman.util.decoration.SearchResultItemDecoration
 import com.mredrock.cyxbs.freshman.util.event.OnCollegeSearchResultClickEvent
 import com.mredrock.cyxbs.freshman.view.adapter.CollegeGroupAdapter
 import com.mredrock.cyxbs.freshman.view.adapter.SearchResultCollegeGroupAdapter
@@ -43,6 +44,7 @@ class CollegeGroupFragment : BaseFragment<IFragmentCollegeGroupView, IFragmentCo
     private lateinit var mManager: InputMethodManager
     private var mIsIMEActionSearch = false
     private var mJustSetText = false
+    private lateinit var mItemDecoration: RecyclerView.ItemDecoration
 
     override fun onCreateView(view: View, savedInstanceState: Bundle?) {
         mCollegeGroup = view.findViewById(R.id.rv_online_communication_group)
@@ -54,6 +56,9 @@ class CollegeGroupFragment : BaseFragment<IFragmentCollegeGroupView, IFragmentCo
         mSearchResult.layoutManager = LinearLayoutManager(context)
         mSearchResultAdapter = SearchResultCollegeGroupAdapter()
         mSearchResult.adapter = mSearchResultAdapter
+        SearchResultItemDecoration(1, R.color.freshman_recycle_item_online_communication_group_search_result_border_color)
+        mSearchResult.addItemDecoration(SearchResultItemDecoration(1,
+                R.color.freshman_recycle_item_online_communication_group_search_result_border_color))
         mSearchResult.gone()
 
         mEditText = view.findViewById(R.id.et_recycle_item_online_communication_group_search)
