@@ -41,7 +41,9 @@
         描述关于快递点的描述关于快递点的描述关于快递点的描述关于快递点的描述关于快递点的描述"
         android:layout_marginStart="17dp"
         android:layout_marginEnd="21dp"
-        android:paddingBottom="20dp"
+        android:layout_marginBottom="22dp"
+        android:layout_marginTop="3dp"
+        android:lineSpacingMultiplier="1.45"
         android:layout_below="@id/tv_recycle_item_campus_guidelines_single_photo_place"/>
 
 </RelativeLayout>
