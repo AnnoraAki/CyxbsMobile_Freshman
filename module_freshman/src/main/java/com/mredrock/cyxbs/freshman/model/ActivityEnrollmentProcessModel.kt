@@ -24,7 +24,7 @@ class ActivityEnrollmentProcessModel : BaseModel(), IActivityEnrollmentProcessMo
                 .observeOn(Schedulers.io())
                 .map { enrollmentProcessBean ->
                     enrollmentProcessBean.text.map { text ->
-                        text.photo = "$API_BASE_IMG_URL${text.photo}"
+                        text.photo = if (text.photo.isBlank()) "" else "$API_BASE_IMG_URL${text.photo}"
                     }
                     enrollmentProcessBean.text
                 }

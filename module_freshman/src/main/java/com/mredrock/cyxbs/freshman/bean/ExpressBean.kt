@@ -13,7 +13,7 @@ data class ExpressText(
 )
 
 data class ExpressMessage(
-    val detail: String,
+    var detail: String,
     var photo: String,
     val title: String
 )

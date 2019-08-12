@@ -10,6 +10,7 @@ import com.mredrock.cyxbs.freshman.interfaces.model.IFragmentDataDisclosureModel
 import com.mredrock.cyxbs.freshman.interfaces.presenter.IFragmentDataDisclosurePresenter
 import com.mredrock.cyxbs.freshman.interfaces.view.IFragmentDataDisclosureView
 import com.mredrock.cyxbs.freshman.presenter.FragmentDataDisclosurePresenter
+import com.mredrock.cyxbs.freshman.util.decoration.CollegeItemDecoration
 import com.mredrock.cyxbs.freshman.view.adapter.CollegeDataAdapter
 
 /**
@@ -25,6 +26,7 @@ class DataDisclosureFragment : BaseFragment<IFragmentDataDisclosureView, IFragme
         college.layoutManager = LinearLayoutManager(context)
         mAdapter = CollegeDataAdapter()
         college.adapter = mAdapter
+        college.addItemDecoration(CollegeItemDecoration(15))
 
         presenter?.getCollege()
     }
