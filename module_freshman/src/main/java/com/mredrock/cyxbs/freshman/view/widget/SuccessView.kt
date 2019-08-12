@@ -161,8 +161,7 @@ class SuccessView @JvmOverloads constructor(
             override fun onAnimationEnd(p0: Animator?) {
                 mGouAnimationEnd = true
                 invalidate()
-                Thread.sleep(100)
-                mOnAnimationFinish?.let { it() }
+                postDelayed({ mOnAnimationFinish?.let { it() } }, 150)
             }
             override fun onAnimationCancel(p0: Animator?) {}
             override fun onAnimationStart(p0: Animator?) {}

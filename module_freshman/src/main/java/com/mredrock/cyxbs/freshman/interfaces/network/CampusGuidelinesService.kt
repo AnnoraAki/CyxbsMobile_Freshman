@@ -3,7 +3,7 @@ package com.mredrock.cyxbs.freshman.interfaces.network
 import com.mredrock.cyxbs.freshman.bean.SubjectDataBean
 import com.mredrock.cyxbs.freshman.bean.DormitoryAndCanteenBean
 import com.mredrock.cyxbs.freshman.bean.ExpressBean
-import com.mredrock.cyxbs.freshman.bean.SexRatoBean
+import com.mredrock.cyxbs.freshman.bean.SexRatioBean
 import com.mredrock.cyxbs.freshman.config.API_SUBJECT_DATA
 import com.mredrock.cyxbs.freshman.config.API_DORMITORY_AND_CANTEEN
 import com.mredrock.cyxbs.freshman.config.API_EXPRESS
@@ -30,7 +30,7 @@ interface ExpressService {
     fun requestExpress(): Observable<ExpressBean>
 }
 
-interface SexRatoService {
+interface SexRatioService {
     @GET(API_SEX_RATO)
-    fun requestSexRato(): Observable<SexRatoBean>
+    fun requestSexRatio(): Observable<SexRatioBean>
 }

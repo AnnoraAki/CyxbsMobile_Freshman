@@ -177,12 +177,12 @@ class Histogram @JvmOverloads constructor(
     }
 
     override fun onDraw(canvas: Canvas?) {
-        drawXY(canvas)
         drawTitle(canvas)
         drawYDescription(canvas)
         drawXDescription(canvas)
         drawGraph(canvas)
         drawDecoration(canvas)
+        drawXY(canvas)
         drawData(canvas)
     }
 
@@ -401,8 +401,6 @@ class Histogram @JvmOverloads constructor(
     private fun initPoint() {
         mOX = left + scaleXDip(54)
         mOY = top + scaleYDip(249)
-        println(left)
-        println("$mOX, $mOY")
 
 
         mYLength = scaleYDip(173)
@@ -455,9 +453,9 @@ class Histogram @JvmOverloads constructor(
         val animation = ValueAnimator.ofFloat(0f, 1f)
         animation.addUpdateListener {
             mCurrentProgress = it.animatedValue as Float
-            mFirstGraphCurrentHeight = mCurrentProgress * mFirstGraphWeight * mRY
-            mSecondGraphCurrentHeight = mCurrentProgress * mSecondGraphWeight * mRY
-            mThirdGraphCurrentHeight = mCurrentProgress * mThirdGraphWeight * mRY
+            mFirstGraphCurrentHeight = mCurrentProgress * 1 * mRY
+            mSecondGraphCurrentHeight = mCurrentProgress * 1 / mFirstGraphWeight * mSecondGraphWeight * mRY
+            mThirdGraphCurrentHeight = mCurrentProgress * 1 / mFirstGraphWeight * mThirdGraphWeight * mRY
             invalidate()
         }
         animation.duration = 1000
