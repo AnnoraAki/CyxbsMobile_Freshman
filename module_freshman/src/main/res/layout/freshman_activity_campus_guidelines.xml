@@ -7,6 +7,7 @@
     
     <include layout="@layout/common_toolbar"/>
 
+
     <include layout="@layout/freshman_custom_tab_layout"/>
 
     <com.mredrock.cyxbs.freshman.view.widget.ScrollEnableViewPager
