@@ -1,22 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.google.android.material.tabs.TabLayout
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        app:tabBackground="@color/freshman_transparent_bg"
-        app:tabRippleColor="@color/freshman_transparent_bg"
-        android:id="@+id/tl_campus_guidelines_second_express"
-        app:tabMode="scrollable"
-        app:tabIndicatorHeight="0dp"
-        android:background="@color/freshman_white_color"
-        app:tabSelectedTextColor="@color/freshman_tab_layout_second_tab_layout_tab_selected_text_color"
-        app:tabTextAppearance="@style/TextAppearance.Design.Tab.SecondTabTextSize">
-    </com.google.android.material.tabs.TabLayout>
+    <include layout="@layout/freshman_custom_second_tab_layout"
+        android:id="@+id/include_custom_second_tab_layout"/>
 
     <androidx.viewpager.widget.ViewPager
         android:layout_width="match_parent"

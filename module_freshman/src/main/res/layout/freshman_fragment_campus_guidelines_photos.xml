@@ -50,6 +50,8 @@
             android:layout_below="@id/tv_campus_guidelines_place_photos"
             android:layout_marginStart="17dp"
             android:layout_marginEnd="21dp"
+            android:layout_marginTop="3dp"
+            android:lineSpacingMultiplier="1.45"
             android:layout_marginBottom="22dp"
             tools:text="快递点的描述快递点的描述快递点的描述快递点的描述快递点的描述快递点的描述快递点的描述快
         递点的描述快递点的描述快递点的描述快递点的描述快递点的描述快递点的描述快递点的描述快递点的描述"/>
