@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.View
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.mredrock.cyxbs.common.component.showPhotos
 import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.base.BaseFragment
 import com.mredrock.cyxbs.freshman.bean.Photo
@@ -43,7 +42,7 @@ class SceneryFragment :
                     for (x in scenery.photos) {
                         list2.add(x.photo)
                     }
-                    activity?.let { showPhotosToScenery(it, list2, position -1) }
+                    activity?.let { showPhotosToScenery(it, list2, position - 1) }
 
                 }
             }

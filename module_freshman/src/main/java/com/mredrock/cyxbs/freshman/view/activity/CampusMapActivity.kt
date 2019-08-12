@@ -46,5 +46,6 @@ class CampusMapActivity : BaseActivity() {
             override fun doOnTabSelected(p0: TabLayout.Tab) {
             }
         })
+        tabLayout.getTabAt(0)?.select()
     }
 }

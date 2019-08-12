@@ -9,8 +9,10 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_fresh_item"
+        android:layout_below="@id/banner"
+        android:layout_marginTop="-20dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="wrap_content" />
 
     <com.mredrock.cyxbs.freshman.view.widget.RotateBanner
         android:id="@+id/banner"
@@ -24,25 +26,20 @@
             android:scaleType="fitXY"
             android:src="@drawable/freshman_banner_top" />
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/freshman_banner_left_screw" />
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/freshman_banner_right_screw" />
 
-        <com.mredrock.cyxbs.freshman.view.widget.bubble.BubbleEffect
-            android:id="@+id/bf_1"
-            android:layout_width="100dp"
-            android:layout_height="100dp" />
-
-        <com.mredrock.cyxbs.freshman.view.widget.bubble.BubbleEffect
-            android:id="@+id/bf_2"
-            android:layout_width="100dp"
-            android:layout_height="100dp" />
+        <com.mredrock.cyxbs.freshman.view.widget.bubble.BubbleView
+            android:id="@+id/bv_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <com.mredrock.cyxbs.freshman.view.widget.bubble.BubbleView
+            android:id="@+id/bv_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
     </com.mredrock.cyxbs.freshman.view.widget.RotateBanner>
 
 
