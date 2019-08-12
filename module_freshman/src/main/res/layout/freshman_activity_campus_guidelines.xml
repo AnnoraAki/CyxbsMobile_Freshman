@@ -16,8 +16,10 @@
         android:id="@+id/tl_campus_guidelines"
         app:tabSelectedTextColor="@color/freshman_tab_selected_color"
         app:tabTextAppearance="@style/TextAppearance.Design.Tab.TabTextSize"
-        app:tabMaxWidth="100dp"
-        app:tabMinWidth="20dp"
+        app:tabMaxWidth="90dp"
+        app:tabMinWidth="89dp"
+        app:tabPaddingStart="0dp"
+        app:tabPaddingEnd="20dp"
         app:tabIndicatorHeight="0dp"
         android:background="@drawable/freshman_tab_layout_bg">
 
@@ -25,33 +27,21 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:paddingStart="5dp"
-            android:paddingEnd="5dp"
             android:text="@string/freshman_dormitory" />
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:paddingStart="5dp"
-            android:paddingEnd="5dp"
 
             android:text="@string/freshman_canteen"/>
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
-            android:layout_gravity="center"
-            android:paddingStart="5dp"
-            android:paddingEnd="5dp"
             android:layout_height="match_parent"
             android:text="@string/freshman_express"/>
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
-            android:layout_gravity="center"
-            android:paddingStart="5dp"
-            android:paddingEnd="5dp"
-            android:minWidth="100dp"
             android:layout_height="match_parent"
             android:text="@string/freshman_data_disclosure"/>
 
