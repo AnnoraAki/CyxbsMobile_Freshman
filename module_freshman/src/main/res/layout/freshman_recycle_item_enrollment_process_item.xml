@@ -59,7 +59,7 @@
         
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="126dp"
             android:id="@+id/iv_recycle_item_enrollment_process_photo"
             android:layout_marginStart="13dp"
             tools:src="@drawable/freshman_banner_top"
