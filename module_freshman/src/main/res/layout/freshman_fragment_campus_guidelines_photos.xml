@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:scrollbars="none">
 
     <RelativeLayout
@@ -17,6 +18,10 @@
         <com.youth.banner.Banner
             android:layout_width="match_parent"
             android:layout_height="191dp"
+            app:indicator_drawable_selected="@drawable/freshman_banner_indicator_selected"
+            app:indicator_drawable_unselected="@drawable/freshman_banner_indicator_un_select"
+            app:indicator_width="7dp"
+            app:indicator_height="7dp"
             android:id="@+id/banner_campus_guidelines_photos"
             android:layout_marginTop="18dp"
             android:layout_marginStart="18dp"
