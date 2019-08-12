@@ -22,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/tv_recycle_item_campus_guidelines_single_photo_place"
-        android:layout_marginStart="19dp"
+        android:layout_marginStart="17dp"
         android:layout_marginTop="15dp"
         android:layout_below="@id/iv_recycle_item_campus_guidelines_single_photo_photo"
         tools:text="执行员无赦"
@@ -39,10 +39,9 @@
         tools:text="关于快递点的描述关于快递点的描述关于快递点的描述关于快递点的描述关于快递点的描述关于快递
         点的描述关于快递点的描述关于快递点的描述关于快递点的描述关于快递点的描述关于快递点的描述关于快递点的
         描述关于快递点的描述关于快递点的描述关于快递点的描述关于快递点的描述关于快递点的描述"
-        android:layout_marginTop="5dp"
         android:layout_marginStart="17dp"
         android:layout_marginEnd="21dp"
-        android:layout_marginBottom="20dp"
+        android:paddingBottom="20dp"
         android:layout_below="@id/tv_recycle_item_campus_guidelines_single_photo_place"/>
 
 </RelativeLayout>

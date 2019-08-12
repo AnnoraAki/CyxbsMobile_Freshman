@@ -20,7 +20,10 @@ class FragmentExpressModel : BaseModel(), IFragmentExpressModel {
                     expressBean.text.map { text ->
                         text.message.map { message ->
                             message.photo = "$API_BASE_IMG_URL${message.photo}"
+                            message.detail = message.detail.trimEnd('\r', '\n')
+                            message
                         }
+                        text
                     }
                     expressBean.text
                 }
