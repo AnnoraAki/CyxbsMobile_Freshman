@@ -44,7 +44,7 @@ class CollegeGroupAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         if (getItemViewType(position) == 0) {
             val collegeGroup = mCollegeGroup[position]
-            holder.itemView.setBackgroundResource(R.drawable.freshman_recycle_item_online_communication_group_bg)
+            holder.itemView.setBackgroundResource(R.drawable.freshman_recycle_item_common_bg)
             (holder as CollegeGroupViewHolder).mText.text = collegeGroup.name
 
             holder.itemView.setOnClickListener {

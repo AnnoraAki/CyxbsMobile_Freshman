@@ -455,9 +455,9 @@ class Histogram @JvmOverloads constructor(
         val animation = ValueAnimator.ofFloat(0f, 1f)
         animation.addUpdateListener {
             mCurrentProgress = it.animatedValue as Float
-            mFirstGraphCurrentHeight = mCurrentProgress * mFirstGraphWeight * mRY
-            mSecondGraphCurrentHeight = mCurrentProgress * mSecondGraphWeight * mRY
-            mThirdGraphCurrentHeight = mCurrentProgress * mThirdGraphWeight * mRY
+            mFirstGraphCurrentHeight = mCurrentProgress * 1 * mRY
+            mSecondGraphCurrentHeight = mCurrentProgress * 1 / mFirstGraphWeight * mSecondGraphWeight * mRY
+            mThirdGraphCurrentHeight = mCurrentProgress * 1 / mFirstGraphWeight * mThirdGraphWeight * mRY
             invalidate()
         }
         animation.duration = 1000
