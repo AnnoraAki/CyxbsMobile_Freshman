@@ -177,12 +177,12 @@ class Histogram @JvmOverloads constructor(
     }
 
     override fun onDraw(canvas: Canvas?) {
-        drawXY(canvas)
         drawTitle(canvas)
         drawYDescription(canvas)
         drawXDescription(canvas)
         drawGraph(canvas)
         drawDecoration(canvas)
+        drawXY(canvas)
         drawData(canvas)
     }
 
