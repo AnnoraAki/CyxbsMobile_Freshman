@@ -10,12 +10,13 @@ import com.mredrock.cyxbs.freshman.interfaces.model.IActivityCampusGuidelinesMod
 import com.mredrock.cyxbs.freshman.interfaces.presenter.IActivityCampusGuidelinesPresenter
 import com.mredrock.cyxbs.freshman.interfaces.view.IActivityCampusGuidelinesView
 import com.mredrock.cyxbs.freshman.presenter.ActivityCampusGuidelinesPresenter
-import com.mredrock.cyxbs.freshman.util.listener.FreshmanOnMainTabSelectedListener
+import com.mredrock.cyxbs.freshman.util.CustomTabManager
 import com.mredrock.cyxbs.freshman.view.adapter.CampusGuidelinesPagerAdapter
 import com.mredrock.cyxbs.freshman.view.fragment.CampusGuidelinesFragment
 import com.mredrock.cyxbs.freshman.view.fragment.DataDisclosureFragment
 import com.mredrock.cyxbs.freshman.view.fragment.ExpressFragment
 import kotlinx.android.synthetic.main.freshman_activity_campus_guidelines.*
+import kotlinx.android.synthetic.main.freshman_custom_tab_layout.*
 
 /**
  * Create by yuanbing
@@ -46,14 +47,10 @@ class CampusGuidelinesActivity :
     }
 
     private fun initTabLayout() {
-        tl_campus_guidelines.addOnTabSelectedListener(
-                object : FreshmanOnMainTabSelectedListener() {
-                    override fun doOnTabSelected(p0: TabLayout.Tab) {
-                        vp_campus_guidelines.currentItem = p0.position
-                    }
-                }
-        )
-        tl_campus_guidelines.getTabAt(0)?.select()
+        val tabManager = CustomTabManager(cl_custom_tab_layout)
+        tabManager.addOnTabSelectedListener {
+            vp_campus_guidelines.currentItem = it
+        }
     }
 
     private fun initToolbar() {

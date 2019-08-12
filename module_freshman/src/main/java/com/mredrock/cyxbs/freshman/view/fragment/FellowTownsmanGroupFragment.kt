@@ -22,6 +22,7 @@ import com.mredrock.cyxbs.freshman.interfaces.model.IFragmentFellowTownsmanGroup
 import com.mredrock.cyxbs.freshman.interfaces.presenter.IFragmentFellowTownsmanGroupPresenter
 import com.mredrock.cyxbs.freshman.interfaces.view.IFragmentFellowTownsmanGroupView
 import com.mredrock.cyxbs.freshman.presenter.FragmentFellowTownsmanGroupPresenter
+import com.mredrock.cyxbs.freshman.util.decoration.SearchResultItemDecoration
 import com.mredrock.cyxbs.freshman.util.event.OnFellowTownsmanSearchResultClickEvent
 import com.mredrock.cyxbs.freshman.view.adapter.FellowTownsmanGroupAdapter
 import com.mredrock.cyxbs.freshman.view.adapter.SearchResultFellowTownsmanAdapter
@@ -55,6 +56,8 @@ class FellowTownsmanGroupFragment : BaseFragment<IFragmentFellowTownsmanGroupVie
         mSearchResultAdapter = SearchResultFellowTownsmanAdapter()
         mSearchResult.adapter = mSearchResultAdapter
         mSearchResult.layoutManager = LinearLayoutManager(context)
+        mSearchResult.addItemDecoration(SearchResultItemDecoration(1,
+                R.color.freshman_recycle_item_online_communication_group_search_result_border_color))
         mSearchResult.gone()
         mManager = context?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         initEditText()

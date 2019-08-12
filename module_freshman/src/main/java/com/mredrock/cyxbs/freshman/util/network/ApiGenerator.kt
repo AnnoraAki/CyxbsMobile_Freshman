@@ -58,12 +58,16 @@ object ApiGenerator {
                                 .build()
                     } else {
                         response = it.proceed(it.request())
-                        response.newBuilder()
-                                .removeHeader("Pragma")
-                                .removeHeader("Cache-Control")
-                                .header("Cache-Control", "public, max-age=60")
-                                .build()
                     }
+                    response
+                }
+                .addNetworkInterceptor {
+                    val response = it.proceed(it.request())
+                    response.newBuilder()
+                            .removeHeader("Pragma")
+                            .removeHeader("Cache-Control")
+                            .header("Cache-Control", "public, max-age=60")
+                            .build()
                 }
                 .cache(Cache(BaseApp.context.externalCacheDir.absoluteFile, 10*1024*1024))
 
@@ -73,20 +77,6 @@ object ApiGenerator {
             builder.addInterceptor(logging)
         }
         return builder.build()
-    }
-
-    fun getCache(url: String): String {
-        println("Cache " + url + " getCache()")
-        val key = md5Encoding(url)
-        return BaseApp.context.sharedPreferences(XML_OKHTTP_CACHE).getString(key, "") ?: ""
-    }
-
-    fun addCache(url: String, body: String) {
-        println("Cache " + url + " addCache()")
-        val key = md5Encoding(url)
-        BaseApp.context.sharedPreferences(XML_OKHTTP_CACHE).editor {
-            putString(key, body)
-        }
     }
 
     fun <T> getApiService(clazz: Class<T>) = retrofit.create(clazz)
