@@ -14,6 +14,6 @@ data class EnrollmentProcessBean(
 data class EnrollmentProcessText(
     val detail: String,
     val message: String,
-    val photo: String,
+    var photo: String,
     val title: String
 )

@@ -8,6 +8,8 @@
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:id="@+id/tl_campus_guidelines_second"
+        app:tabBackground="@color/freshman_transparent_bg"
+        app:tabRippleColor="@color/freshman_transparent_bg"
         app:tabMode="fixed"
         app:tabIndicatorHeight="0dp"
         android:background="@color/freshman_white_color"

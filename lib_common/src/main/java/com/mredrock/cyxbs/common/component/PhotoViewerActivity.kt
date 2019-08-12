@@ -3,7 +3,6 @@ package com.mredrock.cyxbs.common.component
 import android.content.Context
 import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import androidx.annotation.LayoutRes
@@ -14,7 +13,6 @@ import com.bumptech.glide.request.RequestOptions
 import com.github.chrisbanes.photoview.PhotoView
 import com.mredrock.cyxbs.common.R
 import com.mredrock.cyxbs.common.ui.BaseActivity
-import com.mredrock.cyxbs.common.utils.LogUtils
 import kotlinx.android.synthetic.main.common_activity_photo_viewer.*
 import org.jetbrains.anko.startActivity
 

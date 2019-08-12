@@ -3,7 +3,7 @@ package com.mredrock.cyxbs.freshman.view.adapter
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
-import com.mredrock.cyxbs.freshman.view.fragment.SexRatoFragment
+import com.mredrock.cyxbs.freshman.view.fragment.SexRatioFragment
 import com.mredrock.cyxbs.freshman.view.fragment.SubjectDataFragment
 
 /**
@@ -13,7 +13,7 @@ import com.mredrock.cyxbs.freshman.view.fragment.SubjectDataFragment
 class DataDisclosurePagerAdapter(college: String, manager: FragmentManager) : FragmentPagerAdapter(manager) {
     private val mPages: List<Fragment> = listOf(
             SubjectDataFragment(college),
-            SexRatoFragment(college)
+            SexRatioFragment(college)
     )
 
     override fun getItem(position: Int) = mPages[position]

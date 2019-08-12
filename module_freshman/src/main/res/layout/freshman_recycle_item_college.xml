@@ -18,19 +18,4 @@
         android:textColor="@color/freshman_recycle_item_college_name_color"
         tools:text="网络空间安全与信息法学院"/>
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/freshman_recycle_item_college_decoration"
-        android:layout_gravity="bottom"
-        android:layout_marginStart="5dp"
-        android:layout_marginBottom="5dp"/>
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/freshman_recycle_item_college_close"
-        android:layout_gravity="center_vertical|end"
-        android:layout_marginEnd="13dp"/>
-
 </FrameLayout>

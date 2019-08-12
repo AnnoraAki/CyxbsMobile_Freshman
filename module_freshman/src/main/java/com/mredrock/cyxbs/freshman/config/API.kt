@@ -8,9 +8,9 @@ const val API_BASE_URL = "http://129.28.185.138:9025/"
 
 const val API_BASE_IMG_URL = "${API_BASE_URL}zsqy/image/"
 
-const val API_BASE_JSON_URL = "${API_BASE_URL}zsqy/json/"
+const val API_BASE_JSON_URL = "zsqy/json/"
 
-const val API_BASE_SEARCH_URL = "${API_BASE_URL}zsqy/select/"
+const val API_BASE_SEARCH_URL = "zsqy/select/"
 
 
 const val API_ONLINE_COMMUNICATION_ONLINE_ACTIVITY = "${API_BASE_JSON_URL}8"
