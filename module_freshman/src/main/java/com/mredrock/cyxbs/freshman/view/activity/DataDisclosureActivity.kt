@@ -7,7 +7,7 @@ import com.google.android.material.tabs.TabLayout
 import com.mredrock.cyxbs.common.ui.BaseActivity
 import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.config.INTENT_COLLEGE
-import com.mredrock.cyxbs.freshman.util.event.SexRatoEvent
+import com.mredrock.cyxbs.freshman.util.event.SexRatioEvent
 import com.mredrock.cyxbs.freshman.util.event.SubjectDataEvent
 import com.mredrock.cyxbs.freshman.util.listener.FreshmanOnMainTabSelectedListener
 import com.mredrock.cyxbs.freshman.view.adapter.DataDisclosurePagerAdapter
@@ -43,10 +43,10 @@ class DataDisclosureActivity: BaseActivity() {
                 when(position) {
                     0 -> {
                         EventBus.getDefault().post(SubjectDataEvent(true))
-                        EventBus.getDefault().post(SexRatoEvent(false))
+                        EventBus.getDefault().post(SexRatioEvent(false))
                     }
                     1 -> {
-                        EventBus.getDefault().post(SexRatoEvent(true))
+                        EventBus.getDefault().post(SexRatioEvent(true))
                         EventBus.getDefault().post(SubjectDataEvent(false))
                     }
                 }
@@ -62,10 +62,10 @@ class DataDisclosureActivity: BaseActivity() {
                         when(p0.position) {
                             0 -> {
                                 EventBus.getDefault().post(SubjectDataEvent(true))
-                                EventBus.getDefault().post(SexRatoEvent(false))
+                                EventBus.getDefault().post(SexRatioEvent(false))
                             }
                             1 -> {
-                                EventBus.getDefault().post(SexRatoEvent(true))
+                                EventBus.getDefault().post(SexRatioEvent(true))
                                 EventBus.getDefault().post(SubjectDataEvent(false))
                             }
                         }

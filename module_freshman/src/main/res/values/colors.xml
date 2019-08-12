@@ -57,12 +57,12 @@
     <color name="freshman_data_disclosure_subject_data_description_x_text_color">#5c7ffc</color>
     <color name="freshman_data_disclosure_subject_data_data_text_color">#CC888888</color>
     <color name="freshman_data_disclosure_subject_data_title_text_color">#BF000000</color>
-    <color name="freshman_data_disclosure_sex_rato_title_text_color">#BF000000</color>
-    <color name="freshman_data_disclosure_sex_rato_item_text_color">#5c7ffc</color>
-    <color name="freshman_date_disclosure_sex_rato_first_item_color">#71d5ff</color>
-    <color name="freshman_data_disclosure_sex_rato_second_item_color">#ff95c3</color>
-    <color name="freshman_data_disclosure_sex_rato_border_color">#698aff</color>
-    <color name="freshman_data_disclosure_sex_rato_graph_data_color">#ffffff</color>
+    <color name="freshman_data_disclosure_sex_ratio_title_text_color">#BF000000</color>
+    <color name="freshman_data_disclosure_sex_ratio_item_text_color">#5c7ffc</color>
+    <color name="freshman_date_disclosure_sex_ratio_first_item_color">#71d5ff</color>
+    <color name="freshman_data_disclosure_sex_ratio_second_item_color">#ff95c3</color>
+    <color name="freshman_data_disclosure_sex_ratio_border_color">#698aff</color>
+    <color name="freshman_data_disclosure_sex_ratio_graph_data_color">#ffffff</color>
 
     <color name="freshman_recycle_item_campus_guidelines_place_text_color">#B3000000</color>
     <color name="freshman_recycle_item_campus_guidelines_description_text_color">#A6000000</color>
