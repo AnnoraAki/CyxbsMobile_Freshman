@@ -1,4 +1,4 @@
-package com.mredrock.cyxbs.freshman.util
+package com.mredrock.cyxbs.freshman.view.widget
 
 import android.graphics.Typeface
 import android.widget.TextView
@@ -6,7 +6,11 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import com.mredrock.cyxbs.common.BaseApp
 import com.mredrock.cyxbs.freshman.R
 
-class CustomTabManager(
+/**
+ * Create by yuanbing
+ * on 2019/8/12
+ */
+class CustomTabLayout(
     mTab: ConstraintLayout
 ) {
     var mCurrentTab: Int = 0

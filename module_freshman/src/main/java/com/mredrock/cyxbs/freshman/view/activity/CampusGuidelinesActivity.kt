@@ -2,7 +2,6 @@ package com.mredrock.cyxbs.freshman.view.activity
 
 import android.os.Bundle
 import android.view.View
-import com.google.android.material.tabs.TabLayout
 import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.base.BaseActivity
 import com.mredrock.cyxbs.freshman.bean.DormitoryAndCanteenText
@@ -10,7 +9,7 @@ import com.mredrock.cyxbs.freshman.interfaces.model.IActivityCampusGuidelinesMod
 import com.mredrock.cyxbs.freshman.interfaces.presenter.IActivityCampusGuidelinesPresenter
 import com.mredrock.cyxbs.freshman.interfaces.view.IActivityCampusGuidelinesView
 import com.mredrock.cyxbs.freshman.presenter.ActivityCampusGuidelinesPresenter
-import com.mredrock.cyxbs.freshman.util.CustomTabManager
+import com.mredrock.cyxbs.freshman.view.widget.CustomTabLayout
 import com.mredrock.cyxbs.freshman.view.adapter.CampusGuidelinesPagerAdapter
 import com.mredrock.cyxbs.freshman.view.fragment.CampusGuidelinesFragment
 import com.mredrock.cyxbs.freshman.view.fragment.DataDisclosureFragment
@@ -47,7 +46,7 @@ class CampusGuidelinesActivity :
     }
 
     private fun initTabLayout() {
-        val tabManager = CustomTabManager(cl_custom_tab_layout)
+        val tabManager = CustomTabLayout(cl_custom_tab_layout)
         tabManager.addOnTabSelectedListener {
             vp_campus_guidelines.currentItem = it
         }
