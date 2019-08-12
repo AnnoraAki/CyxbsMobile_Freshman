@@ -42,8 +42,8 @@ class SexRatioFragment(val college: String) : BaseFragment<IFragmentSexRatioView
     override fun showSexRatio(text: SexRatioText) {
         val boy = text.boy.split("%")[0].toFloat() / 100
         val girl = text.girl.split("%")[0].toFloat() / 100
-        mPieChart.mFirstGraphWeight = max(boy, girl)
-        mPieChart.mSecondGraphWeight = min(boy, girl)
+        mPieChart.mFirstGraphWeight = boy
+        mPieChart.mSecondGraphWeight = girl
         mPieChart.visible()
         mPieChart.mAnimation?.start()
     }

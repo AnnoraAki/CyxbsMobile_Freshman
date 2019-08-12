@@ -401,8 +401,6 @@ class Histogram @JvmOverloads constructor(
     private fun initPoint() {
         mOX = left + scaleXDip(54)
         mOY = top + scaleYDip(249)
-        println(left)
-        println("$mOX, $mOY")
 
 
         mYLength = scaleYDip(173)

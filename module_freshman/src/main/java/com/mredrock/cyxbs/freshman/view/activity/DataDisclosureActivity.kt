@@ -22,6 +22,8 @@ import org.greenrobot.eventbus.EventBus
 class DataDisclosureActivity: BaseActivity() {
     override val isFragmentActivity: Boolean
         get() = true
+    private var mIsFirstShowSubjectData = true
+    private var mIsFirstShowSexRatio = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,16 +42,6 @@ class DataDisclosureActivity: BaseActivity() {
             override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {}
             override fun onPageSelected(position: Int) {
                 tl_data_disclosure.getTabAt(position)?.select()
-                when(position) {
-                    0 -> {
-                        EventBus.getDefault().post(SubjectDataEvent(true))
-                        EventBus.getDefault().post(SexRatioEvent(false))
-                    }
-                    1 -> {
-                        EventBus.getDefault().post(SexRatioEvent(true))
-                        EventBus.getDefault().post(SubjectDataEvent(false))
-                    }
-                }
             }
         })
     }
