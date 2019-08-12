@@ -19,10 +19,10 @@ import com.mredrock.cyxbs.freshman.util.network.ApiGenerator
 class FragmentSceneryModel : BaseModel(), IFragmentSceneryModel {
     override fun getData(callback: SceneryCallback) {
 
-        val photo = Photo("这是标题ddddddd", "https://data.chinatravel.com/images/focus/water-town/head.jpg")
-        val list = listOf<Photo>(photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo)
-        val scenery = Scenery("这是大标题", "https://data.chinatravel.com/images/focus/water-town/head.jpg", list)
-        callback.onSuccess(scenery)
+//        val photo = Photo("这是标题ddddddd", "https://data.chinatravel.com/images/focus/water-town/head.jpg")
+//        val list = listOf<Photo>(photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo)
+//        val scenery = Scenery("这是大标题", "https://data.chinatravel.com/images/focus/water-town/head.jpg", list)
+//        callback.onSuccess(scenery)
 
         ApiGenerator.getApiService(SceneryService::class.java)
                 .getPhotos()
@@ -33,7 +33,7 @@ class FragmentSceneryModel : BaseModel(), IFragmentSceneryModel {
                         onComplete = {
                         },
                         onNext = {
-//                            callback.onSuccess(it.text)
+                            callback.onSuccess(it.text)
                             //没数据
                             LogUtils.d("roger", it.toString())
                         }

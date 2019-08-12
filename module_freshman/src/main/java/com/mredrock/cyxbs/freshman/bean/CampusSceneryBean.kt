@@ -22,5 +22,6 @@ data class Scenery (
 //接口返回的数据bean类
 data class SceneryPhoto(
         var code: Int,
+        var update_date: String,
         var text: Scenery
 ) : RedrockApiStatus()
