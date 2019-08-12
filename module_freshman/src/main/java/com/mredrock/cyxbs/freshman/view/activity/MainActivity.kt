@@ -6,16 +6,14 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.mredrock.cyxbs.common.BaseApp.Companion.context
 import com.mredrock.cyxbs.common.ui.BaseActivity
-import com.mredrock.cyxbs.common.utils.LogUtils
-import com.mredrock.cyxbs.common.utils.extensions.defaultSharedPreferences
 import com.mredrock.cyxbs.common.utils.extensions.editor
 import com.mredrock.cyxbs.common.utils.extensions.sharedPreferences
-import com.mredrock.cyxbs.freshman.view.adapter.FreshAdapter
 import com.mredrock.cyxbs.freshman.R
+import com.mredrock.cyxbs.freshman.view.adapter.FreshAdapter
 import com.mredrock.cyxbs.freshman.view.adapter.OnItemClickListener
 import com.mredrock.cyxbs.freshman.view.dialog.EnvelopDialog
 import com.mredrock.cyxbs.freshman.view.widget.RotateBanner
-import com.mredrock.cyxbs.freshman.view.widget.bubble.BubbleEffect
+import com.mredrock.cyxbs.freshman.view.widget.bubble.BubbleView
 import org.jetbrains.anko.find
 
 class MainActivity : BaseActivity() {
@@ -23,18 +21,19 @@ class MainActivity : BaseActivity() {
     override val isFragmentActivity: Boolean
         get() = false
     private lateinit var banner: RotateBanner
-
-
+    private lateinit var bv1: BubbleView
+    private lateinit var bv2: BubbleView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.freshman_activity_main)
+        bv1 = find(R.id.bv_1)
+        bv2 = find(R.id.bv_2)
         val rv = find<RecyclerView>(R.id.rv_fresh_item)
         banner = find(R.id.banner)
         val layoutManager = LinearLayoutManager(this)
         rv.layoutManager = layoutManager
         val adapter = FreshAdapter()
-
         adapter.setOnItemClickListener(object : OnItemClickListener {
             override fun onItemClick(position: Int) {
                 when (position) {
@@ -72,6 +71,20 @@ class MainActivity : BaseActivity() {
         }
 
 
+    }
+
+    //开始surfaceView动画
+    override fun onResume() {
+        super.onResume()
+        bv1.start()
+        bv2.start()
+    }
+
+    //暂停surfaceView动画
+    override fun onPause() {
+        bv1.stop()
+        bv2.stop()
+        super.onPause()
     }
 
     override fun onWindowFocusChanged(hasFocus: Boolean) {

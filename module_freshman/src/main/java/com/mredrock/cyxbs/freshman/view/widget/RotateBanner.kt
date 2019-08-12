@@ -51,27 +51,20 @@ class RotateBanner : ViewGroup {
                     cb = height
                 }
                 1 -> {
-                    cl = (width / 2.07).toInt()
-                    ct = (height / 3.6).toInt()
-
+                    cl = (width / 1.277).toInt()
+                    ct = (height / 2.34).toInt()
                     cr = cl + cWidth
                     cb = ct + cHeight
                 }
                 2 -> {
-                    cl = (width / 1.29).toInt()
-                    ct = (height / 2.36).toInt()
-                    cr = cl + cWidth
-                    cb = ct + cHeight
-                }
-                3 -> {
                     cl = (width / 5).toInt()
-                    ct = (height / 2.8).toInt()
+                    ct = (height / 3.5).toInt()
                     cr = cl + dp2px(100)
                     cb = ct + dp2px(100)
                 }
-                4 -> {
+                3 -> {
                     cl = (width / 1.8).toInt()
-                    ct = (height / 2.8).toInt()
+                    ct = (height / 3.5).toInt()
                     cr = cl + dp2px(100)
                     cb = ct + dp2px(100)
 
@@ -89,8 +82,8 @@ class RotateBanner : ViewGroup {
         val sizeHeight = MeasureSpec.getSize(heightMeasureSpec)
 
         measureChildren(widthMeasureSpec, heightMeasureSpec)
-        val view = getChildAt(0)
-        setMeasuredDimension(sizeWidth, view.measuredWidth)
+        val ratio = 287.toDouble() / 376
+        setMeasuredDimension(sizeWidth, (sizeWidth * ratio).toInt() )
     }
 
     fun openAnimation() {
@@ -109,7 +102,7 @@ class RotateBanner : ViewGroup {
             var cr = 0
             var cb = 0
             when (i) {
-                1, 2 -> {
+                1 -> {
                     val animator = ObjectAnimator.ofFloat(childView, View.ROTATION, 0.0f, 359.0f)
                     animator.duration = 2000
                     animator.repeatMode = ValueAnimator.RESTART

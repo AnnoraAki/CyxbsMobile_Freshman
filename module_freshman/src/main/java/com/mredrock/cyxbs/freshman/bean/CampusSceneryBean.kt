@@ -1,5 +1,8 @@
 package com.mredrock.cyxbs.freshman.bean
 
+import com.google.gson.annotations.SerializedName
+import com.mredrock.cyxbs.common.bean.RedrockApiStatus
+
 /**
  * Create by roger
  * on 2019/8/5
@@ -11,11 +14,13 @@ data class Photo (
 data class Scenery (
         val title: String,
         val photo: String,
+        @SerializedName("message")
         val photos: List<Photo>
 
 )
-data class SchoolScenery (
-        val code: Int,
-        val info: String,
-        val text: Scenery
-)
+
+//接口返回的数据bean类
+data class SceneryPhoto(
+        var code: Int,
+        var text: Scenery
+) : RedrockApiStatus()
