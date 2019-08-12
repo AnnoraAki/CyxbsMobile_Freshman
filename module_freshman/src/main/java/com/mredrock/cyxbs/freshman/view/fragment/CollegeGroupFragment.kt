@@ -44,7 +44,6 @@ class CollegeGroupFragment : BaseFragment<IFragmentCollegeGroupView, IFragmentCo
     private lateinit var mManager: InputMethodManager
     private var mIsIMEActionSearch = false
     private var mJustSetText = false
-    private lateinit var mItemDecoration: RecyclerView.ItemDecoration
 
     override fun onCreateView(view: View, savedInstanceState: Bundle?) {
         mCollegeGroup = view.findViewById(R.id.rv_online_communication_group)
@@ -56,7 +55,6 @@ class CollegeGroupFragment : BaseFragment<IFragmentCollegeGroupView, IFragmentCo
         mSearchResult.layoutManager = LinearLayoutManager(context)
         mSearchResultAdapter = SearchResultCollegeGroupAdapter()
         mSearchResult.adapter = mSearchResultAdapter
-        SearchResultItemDecoration(1, R.color.freshman_recycle_item_online_communication_group_search_result_border_color)
         mSearchResult.addItemDecoration(SearchResultItemDecoration(1,
                 R.color.freshman_recycle_item_online_communication_group_search_result_border_color))
         mSearchResult.gone()
