@@ -16,10 +16,13 @@ class ActivityCampusGuidelinesModel : BaseModel(), IActivityCampusGuidelinesMode
         service.requestDormitoryAndCanteen()
                 .subscribeOn(Schedulers.io())
                 .map {dormitoryAndCanteenBean ->
-                    dormitoryAndCanteenBean.text.forEach { text ->
-                        text.message.forEach { message ->
+                    dormitoryAndCanteenBean.text.map { text ->
+                        text.message.map { message ->
                             message.photo = message.photo.map { "$API_BASE_IMG_URL$it" }
+                            message.detail = message.detail.trimEnd('\r', '\n')
+                            message
                         }
+                        text
                     }
                     dormitoryAndCanteenBean.text
                 }

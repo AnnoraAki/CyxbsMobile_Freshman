@@ -17,7 +17,7 @@ data class DormitoryAndCanteenText(
 )
 
 data class DormitoryAndCanteenMessage(
-    val detail: String,
+    var detail: String,
     val name: String,
     var photo: List<String>
 )

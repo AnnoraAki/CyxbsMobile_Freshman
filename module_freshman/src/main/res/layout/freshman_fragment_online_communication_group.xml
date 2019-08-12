@@ -60,7 +60,7 @@
         android:layout_marginStart="15dp"
         android:layout_marginEnd="15dp"
         android:overScrollMode="never"
-        android:background="@color/freshman_recycle_item_online_communication_group_search_result_bg_color"
+        android:background="@drawable/freshman_recycle_item_online_communication_group_search_result_bg"
         android:id="@+id/rv_online_communication_online_activity_search_result"
         android:layout_below="@id/ll_online_communication_group_search">
     </androidx.recyclerview.widget.RecyclerView>
