@@ -12,7 +12,7 @@ data class EnrollmentProcessBean(
 ) : RedrockApiStatus()
 
 data class EnrollmentProcessText(
-    val detail: String,
+    var detail: String,
     val message: String,
     var photo: String,
     val title: String
