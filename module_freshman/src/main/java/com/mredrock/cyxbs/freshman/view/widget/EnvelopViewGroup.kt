@@ -17,24 +17,25 @@ class EnvelopViewGroup : ViewGroup {
 
     private val duration: Long = 1500
 
-    private val secDuration: Long = 2000
+    private val secDuration: Long = 1000
 
-    constructor(ctx: Context): this(ctx, null) {
+    constructor(ctx: Context) : this(ctx, null) {
 
     }
-    constructor(ctx: Context, attrs: AttributeSet?): this(ctx, attrs, 0) {
+
+    constructor(ctx: Context, attrs: AttributeSet?) : this(ctx, attrs, 0) {
     }
 
     constructor(ctx: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(ctx, attrs, defStyleAttr) {
 
     }
+
     override fun onLayout(changed: Boolean, l: Int, t: Int, r: Int, b: Int) {
         val cCount = childCount
         var cWidth = 0
         var cHeight = 0
-//        var cParams: MarginLayoutParams? = null
 
-        for (i  in 0 until cCount) {
+        for (i in 0 until cCount) {
             val childView = getChildAt(i)
             cWidth = childView.measuredWidth
             cHeight = childView.measuredHeight
@@ -45,6 +46,12 @@ class EnvelopViewGroup : ViewGroup {
             var cr = 0
             var cb = 0
             when (i) {
+                0 -> {
+                    cl = centerX - radiusWidth
+                    ct = centerY - radiusHeight
+                    cr = ((centerX + radiusWidth).toDouble() * 0.99).toInt()
+                    cb = centerY + radiusHeight
+                }
                 1 -> {
                     val mTop = dp2px(40)
                     val mLR = dp2px(25)
@@ -65,7 +72,7 @@ class EnvelopViewGroup : ViewGroup {
                         cr = width - cl
                     }
                 }
-                0, 2 -> {
+                2 -> {
                     cl = centerX - radiusWidth
                     ct = centerY - radiusHeight
                     cr = centerX + radiusWidth

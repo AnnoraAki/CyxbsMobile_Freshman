@@ -1,5 +1,6 @@
 package com.mredrock.cyxbs.freshman.view.fragment
 
+import android.content.Context
 import android.os.Bundle
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -24,7 +25,7 @@ class RouteFragment :
     private lateinit var recyclerView: RecyclerView
 
     override fun setRoute(routeList: List<Route>, address: CampusAddress) {
-        recyclerView.adapter = BusRecyclerAdapter(routeList, address, this.activity!!)
+        recyclerView.adapter = BusRecyclerAdapter(routeList, address, this.activity!! as Context)
 
 
     }
