@@ -38,7 +38,7 @@
             android:layout_alignTop="@id/tv_school_name"
             android:layout_marginEnd="15dp"
             android:text="@string/freshman_campus_map_copy"
-            android:textColor="@color/freshman_recycle_item_blue_light" />
+            android:textColor="@color/freshman_recycle_item_copy_blue" />
     </RelativeLayout>
 
     <TextView

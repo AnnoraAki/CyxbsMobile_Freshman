@@ -1,16 +1,13 @@
 package com.mredrock.cyxbs.freshman.view.adapter
 
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.mredrock.cyxbs.common.BaseApp
-import com.mredrock.cyxbs.common.utils.LogUtils
 import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.bean.FreshTextItem
-import com.mredrock.cyxbs.freshman.view.activity.MainActivity
 import org.jetbrains.anko.find
 
 class FreshAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
@@ -44,7 +41,7 @@ class FreshAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         companion object {
             fun from(parent: ViewGroup): TextViewHolder {
                 val layoutInflater = LayoutInflater.from(parent.context)
-                val view = layoutInflater.inflate(R.layout.freshman_recycle_item_text_item, parent, false)
+                val view = layoutInflater.inflate(R.layout.freshman_recycle_item_main_text_item, parent, false)
                 return TextViewHolder(view)
             }
         }
@@ -54,7 +51,7 @@ class FreshAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         companion object {
             fun from(parent: ViewGroup): HeaderViewHolder {
                 val layoutInflater = LayoutInflater.from(parent.context)
-                val view = layoutInflater.inflate(R.layout.freshman_recycle_item_header, parent, false)
+                val view = layoutInflater.inflate(R.layout.freshman_recycle_item_main_header, parent, false)
                 return HeaderViewHolder(view)
             }
         }
@@ -63,7 +60,7 @@ class FreshAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         companion object {
             fun from(parent: ViewGroup): FooterViewHolder {
                 val layoutInflater = LayoutInflater.from(parent.context)
-                val view = layoutInflater.inflate(R.layout.freshman_recycle_item_footer, parent, false)
+                val view = layoutInflater.inflate(R.layout.freshman_recycle_item_main_footer, parent, false)
                 return FooterViewHolder(view)
             }
         }
