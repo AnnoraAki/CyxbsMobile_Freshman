@@ -10,6 +10,8 @@
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tl_campus_map_activity"
         android:layout_width="match_parent"
+        app:tabBackground="@android:color/transparent"
+        app:tabRippleColor="@android:color/transparent"
         android:layout_height="49dp"
         app:tabSelectedTextColor="@color/freshman_tab_selected_color"
         app:tabTextAppearance="@style/TextAppearance.Design.Tab.TabTextSize"
