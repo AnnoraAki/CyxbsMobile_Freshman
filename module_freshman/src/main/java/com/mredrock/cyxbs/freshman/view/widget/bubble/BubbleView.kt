@@ -20,13 +20,15 @@ class BubbleView : View {
     private val refreshTime = 30
     private val moveSpeed = 0.07
     private var startTime = System.currentTimeMillis()
-    private var mPaintColor = Color.parseColor("#b3dfdb")
+    private var mPaintColor = Color.parseColor("#ffffff")
     private lateinit var paint: Paint
+    //泡泡最大半径
+    private var maxR = dp2px(1.7)
 
     private var mIsDrawing = false
 
-    private val cWidth: Int = dp2px(50)
-    private val cHeight: Int = dp2px(50)
+    private val cWidth: Int = dp2px(50.toDouble())
+    private val cHeight: Int = dp2px(50.toDouble())
 
     constructor(ctx: Context) : this(ctx, null) {
 
@@ -93,7 +95,7 @@ class BubbleView : View {
         if (System.currentTimeMillis() - startTime > addBubbleInterval && list.size < allBubbleCount) {
             for (i in 0..addBubbleOnce) {
                 if (list.size < allBubbleCount) {
-                    list.add(Bubble(randD() * width / 2 + width / 4, height.toDouble(), randD() * 4, (randD() * 140).toInt() + 20))
+                    list.add(Bubble(randD() * width / 2 + width / 4, height.toDouble(), randD() * maxR, (randD() * 140).toInt() + 20))
                 }
             }
             startTime = System.currentTimeMillis()
@@ -112,7 +114,7 @@ class BubbleView : View {
         return bubble.y / height
     }
 
-    private fun dp2px(value: Int): Int {
+    private fun dp2px(value: Double): Int {
         val v = context.resources.displayMetrics.density
         return (v * value + 0.5f).toInt()
     }

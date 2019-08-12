@@ -1,9 +1,12 @@
 package com.mredrock.cyxbs.freshman.view.fragment
 
+import android.graphics.Rect
 import android.os.Bundle
 import android.view.View
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.mredrock.cyxbs.common.BaseApp
+import com.mredrock.cyxbs.common.utils.extensions.dp2px
 import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.base.BaseFragment
 import com.mredrock.cyxbs.freshman.bean.Photo
@@ -48,6 +51,14 @@ class SceneryFragment :
             }
 
         })
+        recyclerView.addItemDecoration(object : RecyclerView.ItemDecoration() {
+            override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {
+                super.getItemOffsets(outRect, view, parent, state)
+                when ((view.layoutParams as RecyclerView.LayoutParams).viewLayoutPosition) {
+                    (parent.adapter?.itemCount!!.minus(1)) -> outRect.bottom = dp2px(50)
+                }
+            }
+        })
     }
 
     override fun showError() {
@@ -81,5 +92,10 @@ class SceneryFragment :
 
     override fun createPresenter(): IFragmentSceneryPresenter {
         return FragmentSceneryPresenter()
+    }
+
+    fun dp2px(value: Int): Int {
+        val v = BaseApp.context.resources.displayMetrics.density
+        return (v * value + 0.5f).toInt()
     }
 }

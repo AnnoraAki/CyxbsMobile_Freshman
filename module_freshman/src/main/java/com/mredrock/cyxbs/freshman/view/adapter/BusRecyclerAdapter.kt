@@ -60,8 +60,11 @@ class BusRecyclerAdapter(val list: List<Route>, val address: CampusAddress, val 
                 val arr = str.split("→")
                 val stringBuilder = StringBuilder()
                 for (i in arr.withIndex()) {
-                    if (i.index == 0 || i.index == (arr.size - 1)) {
+                    if (i.index == (arr.size - 1)) {
                         stringBuilder.append("<font color='#b573ff'>").append(i.value).append("</font>")
+                    } else if (i.index == 0) {
+                        stringBuilder.append("<font color='#5b69ff'>").append(i.value).append("</font>")
+
                     } else {
                         stringBuilder.append(i.value)
                     }
@@ -162,6 +165,7 @@ class BusRecyclerAdapter(val list: List<Route>, val address: CampusAddress, val 
         val titleView: TextView = view.find(R.id.tv_school_name)
         val discriptView: TextView = view.find(R.id.tv_school_address)
         val copy: TextView = view.find(R.id.tv_copy)
+
         companion object {
             fun from(parent: ViewGroup): HeaderViewHolder {
                 val layoutInflater = LayoutInflater.from(parent.context)

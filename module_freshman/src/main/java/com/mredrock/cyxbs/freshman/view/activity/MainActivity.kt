@@ -1,11 +1,14 @@
 package com.mredrock.cyxbs.freshman.view.activity
 
 import android.content.Intent
+import android.graphics.Rect
 import android.os.Bundle
+import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.mredrock.cyxbs.common.BaseApp.Companion.context
 import com.mredrock.cyxbs.common.ui.BaseActivity
+import com.mredrock.cyxbs.common.utils.extensions.dp2px
 import com.mredrock.cyxbs.common.utils.extensions.editor
 import com.mredrock.cyxbs.common.utils.extensions.sharedPreferences
 import com.mredrock.cyxbs.freshman.R
@@ -23,13 +26,14 @@ class MainActivity : BaseActivity() {
     private lateinit var banner: RotateBanner
     private lateinit var bv1: BubbleView
     private lateinit var bv2: BubbleView
+    private lateinit var rv: RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.freshman_activity_main)
         bv1 = find(R.id.bv_1)
         bv2 = find(R.id.bv_2)
-        val rv = find<RecyclerView>(R.id.rv_fresh_item)
+        rv = find(R.id.rv_fresh_item)
         banner = find(R.id.banner)
         val layoutManager = LinearLayoutManager(this)
         rv.layoutManager = layoutManager
@@ -65,6 +69,15 @@ class MainActivity : BaseActivity() {
             }
         })
         rv.adapter = adapter
+        rv.addItemDecoration(object : RecyclerView.ItemDecoration() {
+            override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {
+                super.getItemOffsets(outRect, view, parent, state)
+                when ((view.layoutParams as RecyclerView.LayoutParams).viewLayoutPosition) {
+                    0 -> outRect.top = dp2px(20F)
+//                    (parent.adapter?.itemCount!!.minus(1)) -> outRect.bottom = dp2px(50F)
+                }
+            }
+        })
         val shared = context.sharedPreferences("HasEnvelop")
         if (!shared.getBoolean("envelop", false)) {
             showDialog()
