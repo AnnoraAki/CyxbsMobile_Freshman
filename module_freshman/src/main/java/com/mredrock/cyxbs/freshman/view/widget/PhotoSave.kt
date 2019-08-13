@@ -19,7 +19,7 @@ fun saveImage(resource: Bitmap) {
             + File.separator
             + "Map"
             + File.separator
-            + md5Encoding(Random(3).toString())
+            + System.currentTimeMillis()
             + ".jpg")
     val parentDir = file.parentFile
     if (parentDir.exists()) parentDir.delete()
@@ -29,7 +29,7 @@ fun saveImage(resource: Bitmap) {
     resource.compress(Bitmap.CompressFormat.JPEG, 100, fos)
     fos.close()
     galleryAddPic(file.path);
-    Toast.makeText(BaseApp.context, "图片已保存在" + file.name, Toast.LENGTH_LONG).show()
+    Toast.makeText(BaseApp.context, "图片已保存在" + file.absolutePath, Toast.LENGTH_LONG).show()
 }
 
 //更新相册

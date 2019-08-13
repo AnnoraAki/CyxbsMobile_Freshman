@@ -24,6 +24,7 @@ import com.mredrock.cyxbs.common.utils.LogUtils
 import com.mredrock.cyxbs.common.utils.encrypt.md5Encoding
 import com.mredrock.cyxbs.common.utils.extensions.doPermissionAction
 import com.mredrock.cyxbs.freshman.R
+import com.mredrock.cyxbs.freshman.view.widget.saveImage
 import org.jetbrains.anko.find
 import org.jetbrains.anko.startActivity
 import java.io.File
@@ -110,31 +111,4 @@ class PhotoSceneryActivity : PhotoViewerActivity() {
             }
         }
     }
-}
-
-private fun saveImage(resource: Bitmap) {
-    val file = File(BaseApp.context.externalMediaDirs[0]?.absolutePath
-            + File.separator
-            + "Map"
-            + File.separator
-            + md5Encoding(Random(3).toString())
-            + ".jpg")
-    val parentDir = file.parentFile
-    if (parentDir.exists()) parentDir.delete()
-    parentDir.mkdir()
-    file.createNewFile()
-    val fos = FileOutputStream(file)
-    resource.compress(Bitmap.CompressFormat.JPEG, 100, fos)
-    fos.close()
-    galleryAddPic(file.path);
-    Toast.makeText(BaseApp.context, "图片已保存在" + file.name, Toast.LENGTH_LONG).show()
-}
-
-//更新相册
-private fun galleryAddPic(imagePath: String) {
-    val mediaScanIntent = Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE)
-    val f = File(imagePath)
-    val contentUri = Uri.fromFile(f)
-    mediaScanIntent.setData(contentUri)
-    BaseApp.context.sendBroadcast(mediaScanIntent)
 }
