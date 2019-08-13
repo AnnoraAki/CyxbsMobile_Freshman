@@ -32,7 +32,7 @@ class FreshAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         FreshTextItem(getString(R.string.freshman_main_xiaoyuanzhiyin), getString(R.string.freshman_main_xiaoyuanzhiyin_detail)),
         FreshTextItem(getString(R.string.freshman_main_online), getString(R.string.freshman_main_online_detail)),
         FreshTextItem(getString(R.string.freshman_main_more), getString(R.string.freshman_main_more_detail)),
-        FreshTextItem(getString(R.string.freshman_main_about), "")
+        FreshTextItem(getString(R.string.freshman_main_about), getString(R.string.freshman_main_about_detail))
         );
 
     class TextViewHolder(view: View): RecyclerView.ViewHolder(view) {

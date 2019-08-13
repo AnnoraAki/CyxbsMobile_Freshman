@@ -14,7 +14,7 @@ import org.jetbrains.anko.find
  * Create by roger
  * on 2019/8/5
  */
-class MoreAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class MoreActivtyAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private  var mOnItemClickListener: OnItemClickListener? = null
     fun setOnItemClickListener(mOnItemClickListener: OnItemClickListener) {
         this.mOnItemClickListener = mOnItemClickListener

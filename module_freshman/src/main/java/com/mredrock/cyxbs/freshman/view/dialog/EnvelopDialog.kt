@@ -36,8 +36,8 @@ class EnvelopDialog : Dialog {
         val lp = win?.attributes
         val cWidth = wScreen - 2 * dp2px(10)
         val cHeight = hSceen - 2 * dp2px(27)
-        val cRatio = cHeight / cWidth.toDouble()
-        val aRatio = (1211 / 671.toDouble())
+        val cRatio = cHeight.toDouble() / cWidth
+        val aRatio = (1211.toDouble() / 671)
         if (cRatio > aRatio) {
             lp?.width = cWidth
             lp?.height = (cWidth * aRatio).toInt()

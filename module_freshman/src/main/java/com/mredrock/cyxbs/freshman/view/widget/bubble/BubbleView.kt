@@ -23,7 +23,7 @@ class BubbleView : View {
     private var mPaintColor = Color.parseColor("#ffffff")
     private lateinit var paint: Paint
     //泡泡最大半径
-    private var maxR = dp2px(1.7)
+    private var maxR = dp2px(1.4)
 
     private var mIsDrawing = false
 

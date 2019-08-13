@@ -107,7 +107,7 @@ class RotateBanner : ViewGroup {
                     animator.duration = 2000
                     animator.repeatMode = ValueAnimator.RESTART
                     animator.repeatCount = ValueAnimator.INFINITE
-                    animator.interpolator = LinearInterpolator()
+                    animator.interpolator = LinearInterpolator() as TimeInterpolator?
                     animator.start()
                 }
 

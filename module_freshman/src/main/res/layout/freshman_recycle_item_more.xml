@@ -6,7 +6,7 @@
     android:layout_height="wrap_content">
     <TextView
         android:id="@+id/tv_more_title"
-        android:textSize="16sp"
+        android:textSize="17sp"
         android:textStyle="bold"
         android:layout_marginTop="15dp"
         android:layout_marginStart="12dp"
