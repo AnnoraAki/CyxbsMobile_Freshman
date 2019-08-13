@@ -1,8 +1,18 @@
 package com.mredrock.cyxbs.freshman.view.fragment
 
 import android.graphics.Rect
+import android.graphics.Typeface
 import android.os.Bundle
+import android.text.Spannable
+import android.text.SpannableString
+import android.text.SpannableStringBuilder
+import android.text.Spanned
+import android.text.style.StyleSpan
+import android.text.style.TextAppearanceSpan
+import android.text.style.TypefaceSpan
 import android.view.View
+import android.widget.TextView
+import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.mredrock.cyxbs.common.BaseApp
@@ -20,6 +30,7 @@ import com.mredrock.cyxbs.freshman.view.activity.showPhotosToScenery
 import com.mredrock.cyxbs.freshman.view.adapter.OnItemClickListener
 import com.mredrock.cyxbs.freshman.view.adapter.SceneryRecyclerViewAdapter
 import org.jetbrains.anko.find
+import org.jetbrains.anko.support.v4.find
 
 /**
  * Create by roger
@@ -79,6 +90,8 @@ class SceneryFragment :
         recyclerView.layoutManager = grid
 
         presenter?.start()
+
+
     }
 
     override fun getLayoutRes(): Int {
