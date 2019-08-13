@@ -71,6 +71,7 @@ class EditMemorandumBookActivity :
                 mSelectedMemorandumBookItem.clear()
                 freshman_toolbar_text_right.text = resources.getString(
                         R.string.freshman_edit_memorandum_book_delete)
+                mAdapter.clearAllSelectedItem()
             } else {
                 setResult(Activity.RESULT_OK)
                 finish()
@@ -117,7 +118,10 @@ class EditMemorandumBookActivity :
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         when (requestCode) {
-            0 -> if (resultCode == Activity.RESULT_OK) presenter?.getMemorandumBook() else finish()
+            0 -> {
+                setResult(Activity.RESULT_OK)
+                finish()
+            }
         }
     }
 }

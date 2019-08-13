@@ -1,5 +1,6 @@
 package com.mredrock.cyxbs.freshman.view.adapter
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -7,8 +8,9 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.bean.CollegeGroupText
-import com.mredrock.cyxbs.freshman.util.event.OnCollegeSearchResultClickEvent
-import org.greenrobot.eventbus.EventBus
+import com.mredrock.cyxbs.freshman.config.INTENT_DATA
+import com.mredrock.cyxbs.freshman.config.INTENT_NAME
+import com.mredrock.cyxbs.freshman.view.activity.CopyQQNumberActivity
 
 /**
  * Create by yuanbing
@@ -30,7 +32,10 @@ class SearchResultCollegeGroupAdapter : RecyclerView.Adapter<SearchResultCollege
         holder.mName.text = collegeGroupText.name
 
         holder.itemView.setOnClickListener {
-            EventBus.getDefault().post(OnCollegeSearchResultClickEvent(collegeGroupText.name))
+            val intent = Intent(it.context, CopyQQNumberActivity::class.java)
+            intent.putExtra(INTENT_NAME, collegeGroupText.name)
+            intent.putExtra(INTENT_DATA, collegeGroupText.data)
+            it.context.startActivity(intent)
         }
     }
 

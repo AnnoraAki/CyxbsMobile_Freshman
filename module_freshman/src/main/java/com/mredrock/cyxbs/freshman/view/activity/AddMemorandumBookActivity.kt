@@ -61,4 +61,9 @@ class AddMemorandumBookActivity : BaseActivity<IActivityAddMemorandumBookView, I
         setResult(Activity.RESULT_OK)
         finish()
     }
+
+    override fun onBackPressed() {
+        setResult(Activity.RESULT_CANCELED)
+        finish()
+    }
 }

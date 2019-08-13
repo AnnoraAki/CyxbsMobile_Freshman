@@ -72,5 +72,6 @@ class SaveQRActivity : BaseActivity<IActivitySaveQRView, IActivitySaveQRPresente
         intent.action = Intent.ACTION_MEDIA_SCANNER_SCAN_FILE
         intent.data = Uri.fromFile(file)
         sendBroadcast(intent)
+        toast("保存成功")
     }
 }
