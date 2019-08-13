@@ -3,29 +3,20 @@ package com.mredrock.cyxbs.freshman.view.activity
 import android.Manifest
 import android.app.Activity
 import android.content.Intent
-import android.graphics.Bitmap
 import android.graphics.drawable.BitmapDrawable
-import android.net.Uri
 import android.os.Bundle
 import android.view.View
-import android.view.Window
-import android.widget.Toast
 import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.mredrock.cyxbs.common.BaseApp
 import com.mredrock.cyxbs.common.ui.BaseActivity
-import com.mredrock.cyxbs.common.utils.encrypt.md5Encoding
 import com.mredrock.cyxbs.common.utils.extensions.doPermissionAction
 import com.mredrock.cyxbs.freshman.R
-import com.mredrock.cyxbs.freshman.view.adapter.MoreAdapter
+import com.mredrock.cyxbs.freshman.view.adapter.MoreActivtyAdapter
 import com.mredrock.cyxbs.freshman.view.adapter.OnItemClickListener
 import com.mredrock.cyxbs.freshman.view.fragment.MoreDialogFragment
 import com.mredrock.cyxbs.freshman.view.fragment.MoreDialogListener
 import org.jetbrains.anko.find
-import java.io.File
-import java.io.FileOutputStream
-import java.util.*
 
 
 /**
@@ -70,7 +61,7 @@ class MoreActivity : BaseActivity(), MoreDialogListener {
         setContentView(R.layout.freshman_activity_more)
         initToolbar()
         recyclerView = find(R.id.rv_more)
-        val adapter = MoreAdapter()
+        val adapter = MoreActivtyAdapter()
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(this)
         adapter.setOnItemClickListener(object : OnItemClickListener {

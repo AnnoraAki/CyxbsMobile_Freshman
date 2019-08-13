@@ -9,7 +9,7 @@ import com.mredrock.cyxbs.common.bean.RedrockApiStatus
  */
 data class Photo (
         val name: String,
-        val photo: String
+        var photo: String
 )
 data class Scenery (
         val title: String,

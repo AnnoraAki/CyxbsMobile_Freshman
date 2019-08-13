@@ -6,6 +6,7 @@ import com.mredrock.cyxbs.common.utils.extensions.setSchedulers
 import com.mredrock.cyxbs.freshman.base.BaseModel
 import com.mredrock.cyxbs.freshman.bean.Photo
 import com.mredrock.cyxbs.freshman.bean.Scenery
+import com.mredrock.cyxbs.freshman.config.API_BASE_IMG_URL
 import com.mredrock.cyxbs.freshman.interfaces.model.IFragmentSceneryModel
 import com.mredrock.cyxbs.freshman.interfaces.model.SceneryCallback
 import com.mredrock.cyxbs.freshman.interfaces.network.CampusService
@@ -19,23 +20,24 @@ import com.mredrock.cyxbs.freshman.util.network.ApiGenerator
 class FragmentSceneryModel : BaseModel(), IFragmentSceneryModel {
     override fun getData(callback: SceneryCallback) {
 
-//        val photo = Photo("这是标题ddddddd", "https://data.chinatravel.com/images/focus/water-town/head.jpg")
-//        val list = listOf<Photo>(photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo)
-//        val scenery = Scenery("这是大标题", "https://data.chinatravel.com/images/focus/water-town/head.jpg", list)
-//        callback.onSuccess(scenery)
-
         ApiGenerator.getApiService(SceneryService::class.java)
                 .getPhotos()
                 .setSchedulers()
+                .map {
+                    for (i in it.text.photos) {
+                        i.photo = API_BASE_IMG_URL + i.photo
+                    }
+                    return@map it
+                }
                 .safeSubscribeBy (
                         onError = {
                         },
                         onComplete = {
                         },
                         onNext = {
+
                             callback.onSuccess(it.text)
                             //没数据
-                            LogUtils.d("roger", it.toString())
                         }
                 )
     }
