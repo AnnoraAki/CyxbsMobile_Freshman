@@ -29,18 +29,22 @@ class EditMemorandumBookAdapter(val activity: Activity) : RecyclerView.Adapter<R
     private val mSelectedItemIndex: HashSet<Int> = HashSet()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        return if (viewType == header) {
-            val view = LayoutInflater.from(parent.context).inflate(
-                    R.layout.freshman_recycle_item_enrollment_requirements_title, parent, false)
-            EnrollmentRequirementsTitleViewHolder(view)
-        } else if (viewType == item) {
-            val view = LayoutInflater.from(parent.context).inflate(
-                    R.layout.freshman_recycle_item_enrollment_requirements_item, parent, false)
-            EnrollmentRequirementsItemViewHolder(view)
-        } else {
-            val view = LayoutInflater.from(parent.context).inflate(
-                    R.layout.freshman_recycle_item_edit_memorandum_add_hint, parent, false)
-            AddHintViewHolder(view)
+        return when (viewType) {
+            header -> {
+                val view = LayoutInflater.from(parent.context).inflate(
+                        R.layout.freshman_recycle_item_enrollment_requirements_title, parent, false)
+                EnrollmentRequirementsTitleViewHolder(view)
+            }
+            item -> {
+                val view = LayoutInflater.from(parent.context).inflate(
+                        R.layout.freshman_recycle_item_enrollment_requirements_item, parent, false)
+                EnrollmentRequirementsItemViewHolder(view)
+            }
+            else -> {
+                val view = LayoutInflater.from(parent.context).inflate(
+                        R.layout.freshman_recycle_item_edit_memorandum_add_hint, parent, false)
+                AddHintViewHolder(view)
+            }
         }
     }
 
@@ -96,6 +100,10 @@ class EditMemorandumBookAdapter(val activity: Activity) : RecyclerView.Adapter<R
 
     fun refreshData(memorandumBook: List<ParseBean>) {
         mMemorandumBook = memorandumBook
+        clearAllSelectedItem()
+    }
+
+    fun clearAllSelectedItem() {
         mSelectedItemIndex.clear()
         notifyDataSetChanged()
     }
