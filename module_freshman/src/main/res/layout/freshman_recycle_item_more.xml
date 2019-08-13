@@ -12,7 +12,7 @@
         android:layout_marginStart="12dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:textColor="@color/freshman_recycle_item_title_dark"
+        android:textColor="@color/freshman_recycle_item_more_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
     <TextView
