@@ -44,7 +44,8 @@
             android:src="@drawable/freshman_recycle_item_close"
             android:layout_alignParentEnd="true"
             android:layout_marginEnd="17dp"
-            android:layout_marginTop="26dp"/>
+            android:layout_marginTop="26dp"
+            android:alpha="0.7"/>
 
         <TextView
             android:layout_width="match_parent"
