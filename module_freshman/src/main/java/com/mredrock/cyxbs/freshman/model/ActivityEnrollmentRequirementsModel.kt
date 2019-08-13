@@ -13,6 +13,7 @@ import com.mredrock.cyxbs.freshman.util.network.ApiGenerator
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
+
 /**
  * Create by yuanbing
  * on 2019/8/8
@@ -30,7 +31,7 @@ class ActivityEnrollmentRequirementsModel : BaseModel(), IActivityEnrollmentRequ
                         data.add(EnrollmentRequirementsTitleBean(rawText.title))
                         data.addAll(rawText.data.asSequence().map {
                             MemorandumManager.addMust(it.name)
-                            EnrollmentRequirementsItemBean(it.name, it.detail,
+                            EnrollmentRequirementsItemBean(it.name, it.detail.trimEnd('\r', '\n'),
                                     MemorandumManager.status(it.name))
                         })
                         data

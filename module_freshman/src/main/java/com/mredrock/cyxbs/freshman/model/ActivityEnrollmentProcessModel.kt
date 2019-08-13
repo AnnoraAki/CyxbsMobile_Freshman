@@ -26,6 +26,7 @@ class ActivityEnrollmentProcessModel : BaseModel(), IActivityEnrollmentProcessMo
                     enrollmentProcessBean.text.map { text ->
                         text.photo = if (text.photo.isBlank()) "" else "$API_BASE_IMG_URL${text.photo}"
                         text.detail = text.detail.trimEnd('\n', '\r')
+                                .replace("第二步", "\r\n第二步")
                         text
                     }
                     enrollmentProcessBean.text

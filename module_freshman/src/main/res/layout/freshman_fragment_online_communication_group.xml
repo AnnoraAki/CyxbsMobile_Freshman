@@ -32,7 +32,6 @@
             android:layout_marginStart="8dp"
             android:background="@null"
             android:textSize="15sp"
-            android:imeOptions="actionSearch"
             android:singleLine="true"
             android:textColorHint="@color/freshman_recycle_item_online_communication_group_search_hint_text_color"
             android:textColor="@color/freshman_recycle_item_online_communication_group_search_text_color"

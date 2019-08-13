@@ -2,6 +2,7 @@ package com.mredrock.cyxbs.freshman.view.fragment
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.graphics.Rect
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -25,6 +26,7 @@ import com.mredrock.cyxbs.freshman.util.decoration.SearchResultItemDecoration
 import com.mredrock.cyxbs.freshman.view.adapter.CollegeGroupAdapter
 import com.mredrock.cyxbs.freshman.view.adapter.SearchResultCollegeGroupAdapter
 import org.jetbrains.anko.hintTextColor
+import org.jetbrains.anko.support.v4.dip
 
 /**
  * Create by yuanbing
@@ -38,6 +40,7 @@ class CollegeGroupFragment : BaseFragment<IFragmentCollegeGroupView, IFragmentCo
     private lateinit var mSearchResult: RecyclerView
     private lateinit var mEditText: EditText
     private lateinit var mManager: InputMethodManager
+    private var mSearchResultMaxHeight = 0
 
     override fun onCreateView(view: View, savedInstanceState: Bundle?) {
         mCollegeGroup = view.findViewById(R.id.rv_online_communication_group)
@@ -88,6 +91,7 @@ class CollegeGroupFragment : BaseFragment<IFragmentCollegeGroupView, IFragmentCo
                 hideIME(view)
             } else { resetHint() }
         }
+        calculateKeyboardHeight(mEditText)
     }
 
     override fun getLayoutRes() = R.layout.freshman_fragment_online_communication_group
@@ -101,6 +105,13 @@ class CollegeGroupFragment : BaseFragment<IFragmentCollegeGroupView, IFragmentCo
     }
 
     override fun showSearchResult(collegeGroup: List<CollegeGroupText>) {
+        val totalHeight = dip(53) * collegeGroup.size
+        val layoutParam  = mSearchResult.layoutParams
+        if (mSearchResultMaxHeight != 0 && mSearchResultMaxHeight < totalHeight) {
+            layoutParam.height = mSearchResultMaxHeight
+        } else {
+            layoutParam.height = totalHeight
+        }
         mSearchResult.visible()
         mSearchResultAdapter.refreshData(collegeGroup)
     }
@@ -114,5 +125,15 @@ class CollegeGroupFragment : BaseFragment<IFragmentCollegeGroupView, IFragmentCo
         mEditText.hint = resources.getString(R.string.freshman_hint_not_found_college_group)
         mEditText.hintTextColor = resources.getColor(
                 R.color.freshman_recycle_item_online_communication_group_search_hint_text_color)
+    }
+
+    private fun calculateKeyboardHeight(view: View) {
+        view.viewTreeObserver.addOnGlobalLayoutListener {
+            val rect = Rect()
+            val point = IntArray(2)
+            view.getLocationOnScreen(point)
+            view.getWindowVisibleDisplayFrame(rect)
+            mSearchResultMaxHeight = rect.bottom - point[1] - mEditText.height - dip(20)
+        }
     }
 }
