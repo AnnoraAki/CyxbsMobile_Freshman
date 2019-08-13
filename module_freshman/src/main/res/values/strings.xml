@@ -42,15 +42,15 @@
     <string name="freshman_scenery_big">重邮全景地图前往发现查看(发现->重邮地图)</string>
 
     <string name="freshman_more">更多功能</string>
-    <string name="freshman_more_zhuanti">重邮2019迎新专题</string>
+
     <string name="freshman_more_youni">邮你造未来</string>
-    <string name="freshman_more_zhangshang">掌上重邮新功能</string>
     <string name="freshman_more_xiaoche">校车，校历等更多查询功能</string>
-    <string name="freshman_more_cyxbs">重邮小帮手</string>
     <string name="freshman_more_xuezhang">学长学姐帮帮忙 邮子画像</string>
     <string name="freshman_more_dialog">关注“重邮小帮手”微信公众号， 参与学长学姐帮帮忙</string>
 
-
+    <string name="freshman_more_zhuanti">重邮2019迎新专题</string>
+    <string name="freshman_more_zhangshang">掌上重邮新功能</string>
+    <string name="freshman_more_cyxbs">重邮小帮手</string>
 
     <string name="freshman_hint_not_found_college_group">找不到学院群？试试搜索</string>
     <string name="freshman_hint_not_found_fellow_townsman_group">找不到老乡群？试试搜索</string>

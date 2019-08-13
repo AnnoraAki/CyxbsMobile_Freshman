@@ -1,5 +1,6 @@
 package com.mredrock.cyxbs.freshman.view.adapter
 
+import android.graphics.Typeface
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -31,6 +32,10 @@ class MoreActivtyAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         if (holder is TextViewHolder) {
             holder.titleView.text = data[position].title
+            //设置pingfong字体
+            val pingFangFonts = Typeface.createFromAsset(BaseApp.context.assets, "fonts/pf.ttf")
+            holder.titleView.typeface = pingFangFonts
+
             holder.description.text = data[position].discript
             holder.itemView.setOnClickListener (View.OnClickListener {
                 mOnItemClickListener?.onItemClick(position)
