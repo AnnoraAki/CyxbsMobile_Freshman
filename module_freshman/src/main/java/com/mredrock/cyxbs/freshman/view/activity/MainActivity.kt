@@ -74,7 +74,6 @@ class MainActivity : BaseActivity() {
                 super.getItemOffsets(outRect, view, parent, state)
                 when ((view.layoutParams as RecyclerView.LayoutParams).viewLayoutPosition) {
                     0 -> outRect.top = dp2px(20F)
-//                    (parent.adapter?.itemCount!!.minus(1)) -> outRect.bottom = dp2px(50F)
                 }
             }
         })

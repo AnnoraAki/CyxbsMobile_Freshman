@@ -59,7 +59,7 @@ class EnvelopViewGroup : ViewGroup {
                     val marginWidth = width - mLR * 2
                     val marginHeight = height - mBottom - mTop
                     val mRatio = marginHeight.toDouble() / marginWidth
-                    val cRatio = 430.toDouble() / 270
+                    val cRatio = 463.toDouble() / 273
                     if (mRatio > cRatio) {
                         cl = mLR
                         cr = width - mLR
