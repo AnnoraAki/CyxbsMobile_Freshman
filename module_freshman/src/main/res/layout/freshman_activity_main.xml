@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/freshman_recycle_item_main_activity_background"
+    tools:context=".view.activity.MainActivity">
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_fresh_item"
+        android:layout_below="@id/banner"
+        android:layout_marginTop="-20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <com.mredrock.cyxbs.freshman.view.widget.RotateBanner
+        android:id="@+id/banner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleType="fitXY"
+            android:src="@drawable/freshman_banner_top" />
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/freshman_banner_right_screw" />
+
+        <com.mredrock.cyxbs.freshman.view.widget.bubble.BubbleView
+            android:id="@+id/bv_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <com.mredrock.cyxbs.freshman.view.widget.bubble.BubbleView
+            android:id="@+id/bv_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </com.mredrock.cyxbs.freshman.view.widget.RotateBanner>
+
+
+</RelativeLayout>
